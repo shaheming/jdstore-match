@@ -1,47 +1,92 @@
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-default affix-top" role="navigation" id="BB-nav">
 	<div class="container-fluid">
-		<div class="navbar-header">
-			<a href="/" class="navbar-brand">JDStore</a>
-		</div>
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav">
-				<li class="active">
-					<%= link_to("Products",products_path) %>
+		<div class="container nav-container">
+			<!--            <div class="navbar-header">-->
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".BB-nav">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			</button>
+			<!--            </div>-->
+			<ul class="nav navbar-nav navbar-left nav-pills">
+				<li>
+					<img src="//placehold.it/194x54" class="img-responsive">
 				</li>
 			</ul>
-			<ul class="nav navbar-nav navbar-right">
-			<li>
-				<%= link_to carts_path  do %>
-				Cart <i class="fa fa-shopping-cart"></i>(<%= current_cart.products.count %>)
-				<% end %>
-			</li>
-				<% if !current_user %>
-				<li><%= link_to("Sign Up",new_user_registration_path) %></li>
-				<li><%= link_to(content_tag(:i,'Log In',class:'fa fa-sign-in'),new_user_session_path) %></li>
-				<% else %>
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						Hi!, <%= current_user.email %>
-						<b class="caret"></b>
-					</a>
+			<ul id="menu-menu" class="nav navbar-nav BB-nav collapse navbar-collapse">
+				<li class="dropdown-active">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
 					<ul class="dropdown-menu">
-					<% if current_user.admin? %>
-					<li>
-						<%= link_to("Admin panel",admin_products_path) %>
-					</li>
-						
-					<% end %>
-
-					<li>
-						<%= link_to("Your Orders",account_orders_path) %>
-					</li>
-						<li>
-							<%= link_to(content_tag(:i,'Log Out',class:'fa fa-sign-out'),destroy_user_session_path,method: :delete) %>
-						</li>
+						<li><a href="#">Action</a></li>
+						<li><a href="#">Another action</a></li>
+						<li><a href="#">Something else here</a></li>
+						<li class="divider"></li>
+						<li><a href="#">Separated link</a></li>
+						<li class="divider"></li>
+						<li><a href="#">One more separated link</a></li>
 					</ul>
 				</li>
-				<% end %>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">Action</a></li>
+						<li><a href="#">Another action</a></li>
+						<li><a href="#">Something else here</a></li>
+						<li class="divider"></li>
+						<li><a href="#">Separated link</a></li>
+						<li class="divider"></li>
+						<li><a href="#">One more separated link</a></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">Action</a></li>
+						<li><a href="#">Another action</a></li>
+						<li><a href="#">Something else here</a></li>
+						<li class="divider"></li>
+						<li><a href="#">Separated link</a></li>
+						<li class="divider"></li>
+						<li><a href="#">One more separated link</a></li>
+					</ul>
+				</li>
 			</ul>
-		</div>
+		</ul>
+		
+		<ul class="nav navbar-nav navbar-right nav-pills">
+			
+			<li class="li-form">
+				<!--  SEARCH -->
+				<form role="search" id="search-nav" method="get" action="#" class="search-button">
+					<input type="search" class="search-field" placeholder="Search …" value="" name="s" title="Rechercher :">
+					<button type="reset">
+					<span class="fa fa-close">
+						<span class="sr-only">Close</span>
+					</span>
+					</button>
+
+					<button type="submit" class="search-submit">
+					<span class="fa fa-search">
+						<span class="sr-only">Rechercher</span>
+					</span>
+					</button>
+				</form>
+				<div role="account" id="account-nav" class="account-button">
+					<button type="reset">
+					<span class="fa fa-close">
+						<span class="sr-only">Close</span>
+					</span>
+					</button>
+					<button >
+					<span class="fa fa-user">
+						<span class="sr-only">Rechercher</span>
+					</span>
+					</button>
+				</div>
+					
+			</li>
+		</ul>
 	</div>
+</div>
 </nav>
