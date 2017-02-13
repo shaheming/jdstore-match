@@ -87,7 +87,9 @@
 @media (min-width: 768px) {
   .navbar-nav > li > form {
     padding-top: 15px;
-    padding-bottom: 15px; } }
+    padding-bottom: 15px; } 
+
+}
 
 #search-nav input, #search-nav button[type="reset"] {
   display: none; 
@@ -113,18 +115,34 @@
 	display: inline-block;
 }
 
+#account-nav{
+	display: inline-block;
+	 padding-top: 15px;
+    padding-bottom: 15px; 
+}
   .account-button {
   	position: relative;
   	left: 0px;
-  	display: inline-block;
+  	
 }
 
 #account-nav button{
-	  border-radius: 0px;
+  border-radius: 0px;
   border-width: 0px;
   color: #454545;
   background-color: transparent;
   border: none;
   box-shadow: none;
   outline: none; 
+  height:25px;
 }
+
+#account-nav button[type="reset"] {
+  display: none; 
+  }
+
+  #account-nav .account-field {
+  display: none; 
+
+  
+  }

@@ -18,48 +18,77 @@
 //= require_tree .
 //= require bootstrap-sprockets
 
-  $(function(){
+$(function() {
 
-      //nav affix
-      $('#BB-nav').affix({
-          offset: {
-              top: $('header').height()
-          }
-      });
+	//nav affix
+	$('#BB-nav').affix({
+		offset: {
+			top: $('header').height()
+		}
+	});
 
-      //search form
-      //close on escape key
-      $(document).keyup(function(e) {
-          if(e.which === 27){
-              closeSearch();
-          }
-      });
+	//search form
+	//close on escape key
+	$(document).keyup(function(e) {
+		if (e.which === 27) {
+			closeSearch();
+		}
+	});
 
-      function closeSearch() {
-          $('.search-field').val('');
-          $('.search-field').hide();
-          $('#search-nav').removeClass('active');
-          $('#search-nav button[type="reset"]').hide();
-      }
+	function closeSearch() {
+		$('.search-field').val('');
+		$('.search-field').hide();
+		$('#search-nav').removeClass('active');
+		$('#search-nav button[type="reset"]').hide();
+		$('#account-nav').show();
+	}
 
-      function openSearch() {
-          $('#search-nav').addClass('active');
-          $('.search-field').show();
-          $('#search-nav button[type="reset"]').show();
-          $('#search-nav .account-botton').hide();
-      }
+	function openSearch() {
+		$('#search-nav').addClass('active');
+		$('.search-field').show();
+		$('#search-nav button[type="reset"]').show();
+		$('#account-nav').hide();
+	}
 
-      // Show Search if form is not active or input search empty
-      $('#search-nav button[type="submit"]').click(function(event) {
-          if(!$( "#search-nav" ).hasClass( "active" ) || $('.search-field').val() === '') {
-              event.preventDefault();
-              openSearch();
-          }
-      });
+	function closeAccount() {
+		$('.account-field').hide();
+		$('#account-nav button[type="reset"]').hide();
+		$('#account-nav').show();
+		$('#account-nav').removeClass('active');
+		$('#search-nav').show();
 
-      //close form
-      $('#search-nav button[type="reset"]').click(function(event) {
-          //event.preventDefault();
-          closeSearch();
-      });
-  });
+	}
+
+	function openAccount() {
+		$('.account-field').show().css("display","inline");
+		$('#search-nav').hide();
+		$('#account-nav button[type="reset"]').show();
+		$('#account-nav').addClass('active');
+	}
+	// Show Search if form is not active or input search empty
+	$('#search-nav button[type="submit"]').click(function(event) {
+		if (!$("#search-nav").hasClass("active") || $('.search-field').val() === '') {
+			event.preventDefault();
+			openSearch();
+		}
+	});
+
+	//close form
+	$('#search-nav button[type="reset"]').click(function(event) {
+		//event.preventDefault();
+		closeSearch();
+	});
+
+	$('#account-nav button').click(function(event) {
+		if (!$("#account-nav").hasClass("active")) {
+			event.preventDefault();
+			openAccount();
+		}
+	});
+
+	//close form
+	$('#account-nav button[type="reset"]').click(function(event) {
+		//event.preventDefault();
+		closeAccount();
+	});
+});
