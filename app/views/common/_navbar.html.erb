@@ -11,7 +11,7 @@
 			<!--            </div>-->
 			<ul class="nav navbar-nav navbar-left nav-pills">
 				<li>
-					<img src="//placehold.it/194x54" class="img-responsive">
+					<div id="brand"><%= link_to("Items","/",{:style=>'color:#181818;'} ) %></div>
 				</li>
 			</ul>
 			<ul id="menu-menu" class="nav navbar-nav BB-nav collapse navbar-collapse">
@@ -84,6 +84,12 @@
 						<span class="sr-only">Rechercher</span>
 					</span>
 					</button>
+				</div>
+
+				<div role="account" id="account-nav" >
+				<%= link_to carts_path, {:style=>'color:#353535;'}  do  %>
+					 <i class="fa fa-shopping-cart"></i>(<%= current_cart.products.count %>)
+				<% end %>
 				</div>
 					
 			</li>
