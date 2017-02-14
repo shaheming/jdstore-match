@@ -97,7 +97,7 @@
 								<li class="divider"></li>
 								<li><a href="#">Separated link</a></li>
 								<li class="divider"></li>
-								<li><a href="#">One more separated link</a></li>
+								<li>	<%= link_to(content_tag(:i,'Log Out',class:'fa fa-sign-out'),destroy_user_session_path,method: :delete) %></li>
 							</ul>
 						</li>
 					</ul>
