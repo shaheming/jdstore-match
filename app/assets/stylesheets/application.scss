@@ -159,12 +159,22 @@
   display: none; 
   }
 
+/***********************
+********* Footer ******
+************************/
+#footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#footer ul > li {
+  display: inline-block;
+  margin-left: 15px;
+}
 
-  .jumbotron{
-  	  background-image:url('/assets/images/brand/index_pic.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding-bottom: 110px;
-
-
-  }
+#footer a {
+  color: #121212;
+}
+#footer a:hover {
+  color: #c52d2f;
+}
