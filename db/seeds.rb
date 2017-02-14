@@ -5,6 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+genres= [ "Action","Adventure","Animation",
+ "Biography",
+ "Children","Classic","Comedy","Crime",
+ "Devotional","Drama",
+ "Family","Fantasy",
+ "History","Horror",
+ "Musical","Mystery",
+ "Period",
+ "Romance",
+ "Satire","Sci-fi","Sports","Suspense",
+ "Thriller",
+ "War"]
+
+
 products =[{title:"Apple iPhone 6 64GB",
 	        description: "This Certified Refurbished product has been tested and certified 
 	              to work and look like new, with minimal to no signs of wear, by a specialized
