@@ -15,14 +15,18 @@ include CarrierWave::MiniMagick
   end
 
 
-process resize_to_fit: [800, 800]
+process resize_to_fit: [800, 1184]
 
 version :thumb do
-  process resize_to_fill:[200,200]
+  process resize_to_fill:[200,296]
 end
 
+  version :small do 
+    process :resize_to_fill => [190,190] 
+  end 
+
 version :medium do
-  process resize_to_fill:[400,400]
+  process resize_to_fill:[400,592]
 end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
