@@ -1,60 +1,41 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
 
-
-#brand{
-	font-family: 'Source Sans Pro', Arial, sans-serif;
-	  padding-right: 20px;
- 	  padding-left: 20px;
-   	  padding-top: 4px;
- 	  padding-buttom: 8px;
-	  border:2px solid black;
-	  font-size:25px;
-	  position: relative;
-	  text-align: center;
-	  height: 50px;
-	  
+#brand {
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top: 4px;
+  padding-buttom: 8px;
+  border: 2px solid black;
+  font-size: 25px;
+  position: relative;
+  text-align: center;
+  height: 50px
 }
-/* created with Sass*/
 .navbar-default {
   background-color: #fff;
   border: 3px double #eee;
   border-radius: 0;
   border-left: none;
-  border-right: none; }
-
+  border-right: none
+}
 #BB-nav.affix {
   position: fixed;
   top: 0px;
   -webkit-transition: top 1s ease-in;
-  transition: top 1s ease-out; 
-  margin-bottom: 20px;
-  }
-
+  transition: top 1s ease-out;
+  margin-bottom: 20px
+}
 #BB-nav {
   width: 100%;
   background-color: #fff;
-  z-index: 999;
-  }
-  #BB-nav .dropdown-menu {
-    border: none; }
-
+  z-index: 999
+}
+#BB-nav .dropdown-menu {
+  border: none
+}
 .BB-nav li a {
   background-color: transparent;
   font-size: 1.04em;
@@ -71,45 +52,36 @@
   -webkit-transition: .5s all;
   -moz-transition: .5s all;
   -o-transition: .5s all;
-  -ms-transition: .5s all; }
-  .BB-nav li a:hover {
-    background-color: transparent;
-    color: #D75752 !important; }
-
-/*reset */
-.navbar-default .navbar-nav > .active > a,
-.navbar-default .navbar-nav > .active > a:hover,
-.navbar-default .navbar-nav > .active > a:focus {
+  -ms-transition: .5s all
+}
+.BB-nav li a:hover {
   background-color: transparent;
-  color: #D75752 !important; }
-
-.navbar-default .navbar-nav > .open > a,
-.navbar-default .navbar-nav > .open > a:hover,
-.navbar-default .navbar-nav > .open > a:focus,
-.dropdown-menu a {
-  background-color: transparent; }
-
+  color: #D75752 !important
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  background-color: transparent;
+  color: #D75752 !important
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus, .dropdown-menu a {
+  background-color: transparent
+}
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
-  border: none; }
-
-/* search Form ****/
+  border: none
+}
 .navbar-nav > li > form {
   padding-top: 10px;
   padding-bottom: 10px;
-  line-height: 20px; }
-
-@media (min-width: 768px) {
+  line-height: 20px
+}
+@media (min-width:768px) {
   .navbar-nav > li > form {
     padding-top: 15px;
-    padding-bottom: 15px; } 
-
-}
-
-#search-nav input, #search-nav button[type="reset"] {
-  display: none; 
-  
+    padding-bottom: 15px
   }
-
+}
+#search-nav input, #search-nav button[type="reset"] {
+  display: none
+}
 #search-nav input, #search-nav button {
   border-radius: 0px;
   border-width: 0px;
@@ -117,107 +89,110 @@
   background-color: transparent;
   border: none;
   box-shadow: none;
-  outline: none; 
-  }
-
+  outline: none
+}
 #search-nav .search-submit {
   position: relative;
-  bottom: 2px; 
-
-  }
-#search-nav{
-	display: inline-block;
+  bottom: 2px
 }
-
-#account-nav{
-	display: inline-block;
-	 padding-top: 15px;
-    padding-bottom: 15px; 
+#search-nav {
+  display: inline-block
 }
-  .account-button {
-  	position: relative;
-  	left: 0px;
-  	
+#account-nav {
+  display: inline-block;
+  padding-top: 15px;
+  padding-bottom: 15px
 }
-
-#account-nav button{
+.account-button {
+  position: relative;
+  left: 0px
+}
+#account-nav button {
   border-radius: 0px;
   border-width: 0px;
   color: #454545;
   background-color: transparent;
   border: none;
   box-shadow: none;
-  outline: none; 
-  height:25px;
+  outline: none;
+  height: 25px
 }
-
 #account-nav button[type="reset"] {
-  display: none; 
-  }
-
-  #account-nav .account-field {
-  display: none; 
-  }
-
-/***********************
-********* Footer ******
-************************/
+  display: none
+}
+#account-nav .account-field {
+  display: none
+}
 #footer ul {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0
 }
 #footer ul > li {
   display: inline-block;
-  margin-left: 15px;
+  margin-left: 15px
 }
-
-#account-nav a{
-	color: #121212;
+#account-nav a {
+  color: #121212
 }
 #account-nav a:hover {
-  color: #c52d2f;
+  color: #c52d2f
 }
 #footer a {
-  color: #121212;
+  color: #121212
 }
 #footer a:hover {
-  color: #c52d2f;
+  color: #c52d2f
+}
+.product_list:hover {
+  opacity: 0.5
 }
 
-.product_list :hover{
-	opacity: 0.5;
-}
-
-/***********************
-********* Pagenation ******
-************************/
-
+/*************************
+*******pagination******
+**************************/
 .apple_pagination {
-
-
   text-align: center;
   padding: 5em;
-  cursor: default; }
-  .apple_pagination a, .apple_pagination span {
-    padding: 0.2em 0.3em; }
-  .apple_pagination .disabled {
-    color: #aaaaaa; }
-  .apple_pagination .current {
-font-style: normal;
-    font-weight: bold;
-    display: inline-block;
-    width: 1.4em;
-    height: 1.6em;
-    padding-bottom: 1.5em;
-    line-height: 1.5;
-    border: black;
-    border: 2px;
-    border: 2px solid black;
-    -moz-border-radius: 1em;
-    text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px; }
-  .apple_pagination a {
-    text-decoration: none;
-    color: black; }
-    .apple_pagination a:hover, .apple_pagination a:focus {
-      text-decoration: underline; }
+  cursor: default
+}
+.apple_pagination a, .apple_pagination span {
+  padding: 0.2em 0.3em
+}
+.apple_pagination .disabled {
+  color: #aaaaaa
+}
+.apple_pagination .current {
+  font-style: normal;
+  font-weight: bold;
+  display: inline-block;
+  width: 1.4em;
+  height: 1.6em;
+  padding-bottom: 1.5em;
+  line-height: 1.5;
+  border: black;
+  border: 2px;
+  border: 2px solid black;
+  -moz-border-radius: 1em;
+  text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px
+}
+.apple_pagination a {
+  text-decoration: none;
+  color: black
+}
+.apple_pagination a:hover, .apple_pagination a:focus {
+  text-decoration: underline
+}
+
+/*************************
+*******index-items******
+**************************/
+.index-item {
+  margin-left: 60px
+}
+  /*************************
+*******pagination******
+**************************/
+.display-page{
+margin-top: 150px;
+}
