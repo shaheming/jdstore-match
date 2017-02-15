@@ -1,3 +1,17 @@
-	<div class="row" style="padding-top: 200px;">
-	<%= render :partial=>"product_item",:collection=>@products,:as=>:product %>
+<div class="row" style="padding-top: 200px;">
+	<%  count = 0 %>
+	<% @products.each do |product| %>
+	<% if count == 0 %>
+	<div class="row">
+		<% end %>
+		<% count+=1 %>
+		<%= render partial: "product_item", locals: { product:product} %>
+		<% if count == 4 || product == @products.last%>
+	</div>
+	<% count = 0 %>
+	<% end %>
+	<% end %>
+	<div class="row pull-right">
+		<%= will_paginate @products ,class:"apple_pagination" %>
+	</div>
 </div>
