@@ -144,7 +144,7 @@
 #footer a:hover {
   color: #c52d2f
 }
-.product_list:hover {
+.product-img:hover {
   opacity: 0.5
 }
 
@@ -195,4 +195,18 @@
 **************************/
 .display-page{
 margin-top: 150px;
+}
+
+.product-title{
+  width: 200px;
+  font-family: 'Lato', sans-serif;
+    font-size: 1.16667em;
+    text-align: center;
+    text-decoration: none;
+    color: #444444;
+    padding-bottom: 50px;
+}
+
+.product-title.price{
+
 }
