@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
     devise_for :users
-  
+
 	root 'welcome#index'
 
 	namespace :admin do
@@ -23,6 +23,8 @@ Rails.application.routes.draw do
 	resources :cart_items
 
 	resources :orders
+
+  resources :seats
 
 	namespace :account do
 		resources :orders
