@@ -1,3 +1,6 @@
+require 'carrierwave/storage/abstract'
+require 'carrierwave/storage/file'
+require 'carrierwave/storage/fog'
 CarrierWave.configure do |config|
  if Rails.env.production?
     
@@ -11,7 +14,7 @@ CarrierWave.configure do |config|
 		region: 'ap-northeast-1'
 
 	} 	
-config.storage :fog
+	config.storage :fog
 	config.fog_directory = ENV["fullstack-sand"]
  else
  	config.storage :file

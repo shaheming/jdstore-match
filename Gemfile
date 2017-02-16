@@ -40,7 +40,9 @@ gem 'ransack'
 gem 'seo_helper'
 gem 'mini_magick'
 gem 'figaro'
-gem 'fog'
+gem 'fog-aws'
+
+
 group :production do
  gem 'pg'
 end
