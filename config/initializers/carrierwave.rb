@@ -1,6 +1,6 @@
 CarrierWave.configure do |config|
  if Rails.env.production?
-    config.storage :fog
+    
 	# config.fog_provider = 'fog/aws'
 	config.fog_credentials={
 		provider: "AWS",
@@ -11,7 +11,7 @@ CarrierWave.configure do |config|
 		region: 'ap-northeast-1'
 
 	} 	
-
+config.storage :fog
 	config.fog_directory = ENV["fullstack-sand"]
  else
  	config.storage :file
