@@ -11,7 +11,7 @@ CarrierWave.configure do |config|
 
 		aws_secret_access_key: ENV["VWaiZILRVcbFTG9SJ8yfQH+ozyZQpOPTBVNsGVNJ"],
 
-		region: 'ap-northeast-1'
+		region: 'us-west-2'
 
 	} 	
 	config.storage :fog
