@@ -14,8 +14,12 @@ production:
   AWS_SECRET_ACCESS_KEY: 'bZ/+xigs9QON3uOXfk5yhN/4K7OhWrEN5CpImY9j'
   AWS_REGION: 'ap-northeast-1'
   AWS_BUCKET_NAME: 'fullstack-sand'
+  SEND_CLOUD_USER_NAME: 'sandcloud_test_8dJkrk'
+  SEND_CLOUD_USER_KEY: 'fbcubFExvbKlxofH'
 development:
   AWS_ACCESS_KEY_ID: 'AKIAJCLVC5FFFLDXMTHQ'
   AWS_SECRET_ACCESS_KEY: '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'
   AWS_REGION: 'ap-northeast-1'
   AWS_BUCKET_NAME: 'fullstack-sand'
+  SEND_CLOUD_USER_NAME: 'sandcloud_test_8dJkrk'
+  SEND_CLOUD_USER_KEY: 'fbcubFExvbKlxofH'

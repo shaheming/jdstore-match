@@ -11,7 +11,7 @@ class OrderMailer < ApplicationMailer
 		@user           = order.user
 		@product_lists  = @order.product_lists
 
-		mail(to: "admin@test.com", subject:"[iMoviestore] User #{order.user.email} Apply To Cancel Order #{@order.token}")
+		mail(to: "451352114@qq.com", subject:"[iMoviestore] User #{order.user.email} Apply To Cancel Order #{@order.token}")
 	end	
 	def notify_ship(order)
 		@order 			= order
