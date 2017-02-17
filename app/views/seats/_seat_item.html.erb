@@ -1,0 +1,19 @@
+<div class="col-xs-6 col-md-3 product_list">
+    <%= link_to "#" do %>
+
+    <div class="seat-img">
+        <% if seat.seatimg.present? %>
+        <%= image_tag(seat.seatimg.smallseat.url, class: "thumbnail")  %>
+    <% else %>
+        <%= image_tag("http://placehold.it/100x100&text=No Pic", class: "thumbnail")  %>
+        <% end %>
+        <% end %>
+        <% if current_user.is_admin? %>
+        <%= link_to("删除座位", seat_path(seat), :method => :delete, :data => { :confirm => "Are you sure??" })%>
+        <% else %>
+        座号:<%= seat.id%>
+        <% end %>
+
+    </div >
+
+</div>

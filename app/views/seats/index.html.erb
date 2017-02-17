@@ -1,64 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-table, td, th {
-    border: 0px solid black;
-}
+<div class="row display-page" style="margin-top: 100px">
+  <h2 style="text-align:center">选择座位</h2>
+	<%  count = 0 %>
+	<% @seats.each do |seat| %>
+	<% if count == 0 %>
+	<div class="row">
+		<% end %>
+		<% count+=1 %>
 
-table {
-    border-collapse: collapse;
-    width: 80%;
-    align: center;
-    margin-left: 250px;
-}
+		<%= render partial: "seat_item", locals: { seat:seat} %>
 
-
-</style>
-</head>
-<body>
-  <div class="container" id="seatpage">
-   <div class="col-md-6 col-md-offset-0">
-     <table>
-
-  <tr>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-  </tr>
-  <tr>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-  </tr>
-  <tr>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-  </tr>
-  <tr>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-  </tr>
-  <tr>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-  </tr>
-   </table>
- </div>
+		<% if count == 8 || seat == @seats.last%>
+	</div>
+	<% count = 0 %>
+	<% end %>
+	<% end %>
 </div>
-</body>
-
-</html>

@@ -21,9 +21,13 @@ version :thumb do
   process resize_to_fill:[200,296]
 end
 
-  version :small do 
-    process :resize_to_fill => [190,190] 
-  end 
+  version :small do
+    process :resize_to_fill => [190,190]
+  end
+
+  version :smallseat do
+    process resize_to_fill:[100,100]
+  end
 
 version :medium do
   process resize_to_fill:[400,592]

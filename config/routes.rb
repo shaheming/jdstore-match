@@ -24,9 +24,18 @@ Rails.application.routes.draw do
 
 	resources :orders
 
-  resources :seats
-
-	namespace :account do
+  namespace :account do
 		resources :orders
 	end
+
+    resources :seats
+    resources :products do
+      resources :seats do
+        member do
+          post :select
+          post :cancel
+      end
+    end
+  end
+
 end

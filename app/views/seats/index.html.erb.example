@@ -1,31 +1,3 @@
-<div class="row display-page">
-	<div class="col-md-6">
-		<% if @product.image.present? %>
-		<%= image_tag(@product.image.thumb.url, class: "thumbnail")  %>
-		<% else %>
-		<%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail")  %>
-		<% end %>
-	</div>
-	<div class="col-md-6">
-		<h2><%= @product.title  %></h2>
-		<div style="height: 150px;">
-			<p><%=simple_format(@product.description)  %></p>
-
-		</div>
-		<div> Quantity:<%= @product.quantity%></div>
-		<div class="product-price">￥<%= @product.price %></div>
-		<div class="pull-middle" style="margin-top: 200px;">
-		<% if @product.quantity.present? && @product.quantity > 0 %>
-			<%= link_to("选择座位","#",:class=>"btn btn-primary btn-lg ") %>
-		<% else %>
-			非常遗憾，票已售罄 :(
-		<% end %>
-
-		</div>
-	</div>
-
-</div>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,12 +22,12 @@ table {
      <table>
 
   <tr>
-    <td><a href=" "><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></a></td>
+    <td><a href=add_to_cart_product_path>
+      <img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></a></td>
     <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
     <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
     <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
     <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-		<td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
   </tr>
   <tr>
     <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
@@ -63,7 +35,6 @@ table {
     <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
     <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
     <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-		<td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
   </tr>
   <tr>
     <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
@@ -71,7 +42,6 @@ table {
     <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
     <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
     <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-		<td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
   </tr>
   <tr>
     <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
@@ -79,7 +49,6 @@ table {
     <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
     <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
     <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-		<td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
   </tr>
   <tr>
     <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
@@ -87,22 +56,17 @@ table {
     <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
     <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
     <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-		<td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-  </tr>
-	<tr>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-		<td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
   </tr>
    </table>
  </div>
 </div>
-<div class="pull-right">
-	<%= link_to("选好了",add_to_cart_product_path,:method=>:post,:class=>"btn btn-primary btn-lg btn-danger") %>
-</div>
 </body>
 
 </html>
+
+
+<div class="row">
+  <% @seats.each do |seat| %>
+  <%= image_tag(seat.seatimg.smallseat.url, class: "thumbnail") %>
+  <% end %>
+</div>
