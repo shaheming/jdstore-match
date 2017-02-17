@@ -39,6 +39,10 @@ gem 'will_paginate-bootstrap'
 gem 'ransack'
 gem 'seo_helper'
 gem 'mini_magick'
+gem 'figaro'
+gem 'fog-aws'
+
+
 group :production do
  gem 'pg'
 end
