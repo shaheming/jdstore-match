@@ -89,15 +89,18 @@
 					<% else %>
 					<ul id="menu-menu" class="nav navbar-nav BB-nav collapse navbar-collapse pull-right">
 						<li class="dropdown-active">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Hi!,<%= current_user.email %> <b class="caret"></b></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Hi!, <%= current_user.email %> <b class="caret"></b></a>
 							<ul class="dropdown-menu">
-								<li><a href="#">Action</a></li>
-								<li><a href="#">Another action</a></li>
-								<li><a href="#">Something else here</a></li>
-								<li class="divider"></li>
-								<li><a href="#">Separated link</a></li>
-								<li class="divider"></li>
-								<li>	<%= link_to(content_tag(:i,'Log Out',class:'fa fa-sign-out'),destroy_user_session_path,method: :delete) %></li>
+								<li>
+									<% if current_user.admin? %>
+									<li>
+									<li><%= link_to(content_tag(:i,' Admin panel',class:'fa fa-tachometer',"aria-hidden"=>"true"),admin_products_path) %></li></li>
+									
+									<% end %>
+								</li>
+								<li><%= link_to(content_tag(:i,' Your Orders',class:'fa fa-list',"aria-hidden"=>"true"),admin_products_path) %></li></li>
+												<li class="divider"></li>
+								<li>	<%= link_to(content_tag(:i,' Log Out',class:'fa fa-sign-out'),destroy_user_session_path,method: :delete) %></li>
 							</ul>
 						</li>
 					</ul>
