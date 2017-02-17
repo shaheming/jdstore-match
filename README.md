@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* 将本工程clong下来之后需要执行以下命令 建立自己的application.yml
 
-Things you may want to cover:
+  ```shell
+  mv config/application.yml.example config/application.yml
+  mv config/database.yml.example config/database.yml
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  ```
