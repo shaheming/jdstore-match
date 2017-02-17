@@ -13,4 +13,18 @@ class OrderMailer < ApplicationMailer
 
 		mail(to: "admin@test.com", subject:"[iMoviestore] User #{order.user.email} Apply To Cancel Order #{@order.token}")
 	end	
+	def notify_ship(order)
+		@order 			= order
+		@user           = order.user
+		@product_lists  = @order.product_lists
+
+		mail(to: @user.email, subject:"[iMoviestore] Your Order #{@order.token} Has Been Shipped")		
+	end
+		def notify_cancel(order)
+		@order 			= order
+		@user           = order.user
+		@product_lists  = @order.product_lists
+
+		mail(to: @user.email, subject:"[iMoviestore] Your Order #{@order.token} Has Been Cancelled")		
+	end
 end
