@@ -41,6 +41,7 @@ gem 'seo_helper'
 gem 'mini_magick'
 gem 'figaro'
 gem 'fog-aws'
+gem 'letter_opener',group: :development
 
 
 group :production do
