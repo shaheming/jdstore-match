@@ -42,7 +42,7 @@ gem 'mini_magick'
 gem 'figaro'
 gem 'fog-aws'
 gem 'letter_opener',group: :development
-
+gem 'aasm'
 
 group :production do
  gem 'pg'
