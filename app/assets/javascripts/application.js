@@ -39,6 +39,7 @@ $(function() {
 		$('.search-field').val('');
 		$('.search-field').hide();
 		$('#search-nav').removeClass('active');
+		$('#search-nav').attr("disabled", "disabled");
 		$('#search-nav button[type="reset"]').hide();
 		$('#account-nav').show();
 	    $('#account-menu').show();
@@ -46,6 +47,7 @@ $(function() {
 
 	function openSearch() {
 		$('#search-nav').addClass('active');
+		$('#search-nav').attr("disabled", "none");
 		$('.search-field').show();
 		$('#search-nav button[type="reset"]').show();
 		$('#account-nav').hide();

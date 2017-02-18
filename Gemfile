@@ -43,6 +43,8 @@ gem 'figaro'
 gem 'fog-aws'
 gem 'letter_opener',group: :development
 gem 'aasm'
+gem 'ransack'
+gem 'seo_helper'
 
 group :production do
  gem 'pg'
