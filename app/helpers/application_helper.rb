@@ -10,5 +10,18 @@ def show_product_image(product)
   end
 end
 
+def render_product_image_search(product)
+    link_to product_path(product) do
+    if product.image.present?
+      image_tag(product.image.thumb.url,id:"search-img")
+    else
+      image_tag("http://placehold.it/200x200&text=No Pic",id:"search-img")
+    end
+  end
+end
 
+def render_highlight_content(product_text,query_string)
+    excerpt_cont = excerpt(product_text, query_string, radius: 500)
+    highlight(product_text, query_string,highlighter: '<b>\1</b>')
+  end
 end

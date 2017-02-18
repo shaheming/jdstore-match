@@ -1,26 +1,27 @@
 <div class="row display-page">
-	<% if @products.blank? %>
+
+	<div class="row" id="search-title">
+	<h2>Search</h2>
 	<br>
-	<h2 class="text-center">Sorry, Could Not Find Relevant Results</h2>
-	<% else %>
 	<br>
-	<h2 class="text-center">Searching Results</h2>
-	<br>
-	<%  count = 0 %>
-	<% @products.each do |product| %>
-	<% if count == 0 %>
-	<div class="row">
-		<% end %>
-		<% count+=1 %>
-		<%= render partial: "product_item", locals: { product:product} %>
-		<% if count == 4 || product == @products.last%>
+	<div></div>
+	<div class="col-md-6" id="search-key "><p>Search results for &quot;<b><%= @query_string%></b>&quot; </p></div>
+	<div class="col-md-6"> <b><%= @products.count %></b>   results found</div>
+
 	</div>
-	<% count = 0 %>
-	<% end %>
+	
+
+	<% @products.each do |product| %>
+
+	<div class="row" id="search-item">
+
+		<%= render partial: "product_item_search", locals: { product:product,:query_string=>@query_string} %>
+
+	</div>
 	<% end %>
 	<div class="row pull-right">
 		<%= will_paginate @products ,class:"apple_pagination" %>
 	</div>
-	<% end %>
+
 	
 </div>

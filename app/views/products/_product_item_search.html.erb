@@ -1,0 +1,9 @@
+<div class="col-md-4">
+	<%=render_product_image_search(product)%> 
+</div>
+<div class="col-md-8">
+	<div class="search-result">
+		<h3><%= link_to product.title ,product_path(product),:id=>"search-result-title"%></h3>
+		<p><%= render_highlight_content(product.description,query_string) %></p>
+	</div>
+</div>
