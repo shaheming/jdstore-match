@@ -255,3 +255,24 @@ padding-right: 40%;
       color: rgb(68, 68, 68);
     font-family: Lato, sans-serif;
 }
+
+
+#devise.panel-primary{
+      border: none; 
+      -webkit-box-shadow: none;
+        
+}
+
+.devise-input{
+  
+  border: none;
+   border-bottom: 1px dashed black;
+   -webkit-border-radius: 0px;
+           border-radius: 0px;
+   -webkit-box-shadow: none;
+   
+}
+.devise-link{
+      color: gray;
+    text-decoration: underline;
+}
