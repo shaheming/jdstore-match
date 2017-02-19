@@ -136,15 +136,9 @@
 #account-nav .account-field {
   display: none
 }
-#footer ul {
-  list-style: none;
-  padding: 0;
-  margin: 0
-}
-#footer ul > li {
-  display: inline-block;
-  margin-left: 15px
-}
+
+
+
 #account-nav a {
   color: #121212
 }
@@ -289,5 +283,22 @@ padding-right: 40%;
   height: 100px;
 }
 divider-space-90{
-   height: 90px;
+   height: 0px;
 }
+  /*************************
+*******footer******
+**************************/
+
+#footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0
+}
+#footer ul > li {
+  display: inline-block;
+  margin-left: 15px
+}
+
+
+
+.fixed-bottom {position: fixed;bottom: 0;width:100%;}

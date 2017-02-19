@@ -1,3 +1,77 @@
+<script type="text/javascript">
+	$(function() {
+	//search form
+	//close on escape key
+	$(document).keyup(function(e) {
+		if (e.which === 27) {
+			closeSearch();
+		}
+	});
+
+	function closeSearch() {
+		$('.search-field').val('');
+		$('.search-field').hide();
+		$('#search-nav').removeClass('active');
+		$('#search-nav').attr("disabled", "disabled");
+		$('#search-nav button[type="reset"]').hide();
+		$('#account-nav').show();
+		$('#account-menu').show();
+	}
+
+	function openSearch() {
+		$('#search-nav').addClass('active');
+		$('#search-nav').attr("disabled", "none");
+		$('.search-field').show();
+		$('#search-nav button[type="reset"]').show();
+		$('#account-nav').hide();
+		$('#account-menu').attr('style', 'display:none !important');
+
+	}
+
+	function closeAccount() {
+		$('.account-field').hide();
+		$('#account-nav button[type="reset"]').hide();
+		$('#account-nav').show();
+		$('#account-nav').removeClass('active');
+		$('#search-nav').show();
+
+	}
+
+	function openAccount() {
+		$('.account-field').show().css("display", "inline");
+		$('#search-nav').hide();
+		$('#account-nav button[type="reset"]').show();
+		$('#account-nav').addClass('active');
+	}
+	// Show Search if form is not active or input search empty
+	$('#search-nav button[type="submit"]').click(function(event) {
+		if (!$("#search-nav").hasClass("active") || $('.search-field').val() === '') {
+			event.preventDefault();
+			openSearch();
+		}
+	});
+
+	//close form
+	$('#search-nav button[type="reset"]').click(function(event) {
+		//event.preventDefault();
+		closeSearch();
+	});
+
+	$('#account-nav button').click(function(event) {
+		if (!$("#account-nav").hasClass("active")) {
+			event.preventDefault();
+			openAccount();
+		}
+	});
+
+	//close form
+	$('#account-nav button[type="reset"]').click(function(event) {
+		//event.preventDefault();
+		closeAccount();
+	});
+});
+</script>
+
 <nav class="navbar navbar-default" role="navigation " id="BB-nav">
 	<div class="container-fluid">
 		
@@ -105,3 +179,4 @@
 		
 	</div>
 </nav>
+
