@@ -13,9 +13,9 @@ class CartItemsController < ApplicationController
  		@cart_item = @cart.cart_items.find_by(product_id: params[:id])
  		if @cart_item.product.quantity >= cart_item_params[:quantity].to_i
  			@cart_item.update(cart_item_params)
- 			flash[:notice] = "Change the quantity!"	
+ 			# flash[:notice] = "Change the quantity!"	
  		else
- 			flash[:warning] = "Stock is not enough!"
+ 			# flash[:warning] = "Stock is not enough!"
  		end
  		redirect_to carts_path
  	end

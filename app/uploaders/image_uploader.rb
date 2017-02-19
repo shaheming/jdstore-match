@@ -17,14 +17,12 @@ include CarrierWave::MiniMagick
 
 process resize_to_fit: [800, 1184]
 
+version :small do 
+  process :resize_to_fill => [100,148] 
+end 
 version :thumb do
   process resize_to_fill:[200,296]
 end
-
-  version :small do 
-    process :resize_to_fill => [190,190] 
-  end 
-
 version :medium do
   process resize_to_fill:[400,592]
 end
