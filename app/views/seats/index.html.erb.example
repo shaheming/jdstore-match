@@ -65,8 +65,58 @@ table {
 </html>
 
 
+
 <div class="row">
   <% @seats.each do |seat| %>
   <%= image_tag(seat.seatimg.smallseat.url, class: "thumbnail") %>
   <% end %>
 </div>
+
+//改造SeatsController的备份
+def select
+  @seat=Seat.find(params[:product_id])
+  @product=Product.find(params[:id])
+  @seat.product=@product
+  if !@seat.selected?
+    @seat.user=current_user
+    @seat.is_selected = true
+    flash[:notice]="选座成功！"
+  else
+    flash[:alert]="本座位已被别人选走了"
+  end
+  redirect_to :back
+end
+
+def cancel
+  @product=Product.find(params[:product_id])
+  @seat=Seat.find(params[:id])
+  if @seat.selected? && @seat.user == current_user
+    @seat.is_selected = false
+    flash[:warning]="取消选择"
+  else
+    flash[:alert]="操作失败！"
+  end
+  redirect_to :back
+end
+
+
+def select!(product,seat)
+  seat.is_selected = true
+  seat.product = @product
+  seat.user = current_user
+end
+
+
+def select
+# @seat=Seat.find(params[:product_id])  思考，find和find_by这个语句怎们应用
+@seat=Seat.find(params[:id])
+# @product=Product.find(params[:id])
+# @seat.product=@product   这两句为什么是多余的？
+if !@seat.selected?
+  current_user.select!(@seat)
+  flash[:notice]="选座成功！"
+else
+  flash[:alert]="已被选择"
+end
+redirect_to :back
+end

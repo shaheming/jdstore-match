@@ -16,93 +16,18 @@
 		<div class="product-price">￥<%= @product.price %></div>
 		<div class="pull-middle" style="margin-top: 200px;">
 		<% if @product.quantity.present? && @product.quantity > 0 %>
-			<%= link_to("选择座位","#",:class=>"btn btn-primary btn-lg ") %>
+			<%= link_to("选择座位",product_seats_path(@product),method: :get,:class=>"btn btn-primary btn-lg ") %>
+
 		<% else %>
 			非常遗憾，票已售罄 :(
 		<% end %>
+		<% if current_user.admin? %>
+		<%= link_to("加把椅子",new_product_seat_path(@product),method: :get, :class=>"btn btn-primary btn-lg ") %>
+		<% end %>
+	</div>
 
-		</div>
+
 	</div>
 
 </div>
-
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-table, td, th {
-    border: 0px solid black;
-}
-
-table {
-    border-collapse: collapse;
-    width: 80%;
-    align: center;
-    margin-left: 250px;
-}
-
-
-</style>
-</head>
-<body>
-  <div class="container" id="seatpage">
-   <div class="col-md-6 col-md-offset-0">
-     <table>
-
-  <tr>
-    <td><a href=" "><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></a></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-		<td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-  </tr>
-  <tr>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-		<td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-  </tr>
-  <tr>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-		<td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-  </tr>
-  <tr>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-		<td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-  </tr>
-  <tr>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-		<td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-  </tr>
-	<tr>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-		<td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
-  </tr>
-   </table>
- </div>
-</div>
-<div class="pull-right">
-	<%= link_to("选好了",add_to_cart_product_path,:method=>:post,:class=>"btn btn-primary btn-lg btn-danger") %>
-</div>
-</body>
-
-</html>
+<!-- (:product_id => @product.id), 这是什么东西-->

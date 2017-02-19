@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 		resources :orders
 	end
 
-    resources :seats
+  
     resources :products do
       resources :seats do
         member do
