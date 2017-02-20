@@ -1,59 +1,73 @@
 <div class="row">
-	<div class="col-md-12">
-		<h2>Shopping List</h2>
-		<table class="table table-bordered">
-			<thead>
-				<tr>
-					<th width="80%">Product List</th>
-					<th>Price</th>
-					<th>Quantity</th>
-				</tr>
-			</thead>
-			<tbody>
-				<% current_cart.cart_items.each do |cart_item| %>
-				<tr>
-					<td><%= link_to(cart_item.product.title,product_path(cart_item.product)) %></td>
-
-					<td><%= number_to_currency(cart_item.quantity * cart_item.product.price,:unit=>'$ ') %></td>
-					<td><%= cart_item.quantity  %></td>
-				</tr>
-				
-				<% end %>
-			</tbody>
-		</table>
-		<div class="total clearfix">
-			<span class="pull-right">
-				Total <%= number_to_currency(render_cart_total_price(current_cart),:unit=>'$ ') %>
-			</span>
-		</div>
-		<hr>
-		<h2>Order Info</h2>
+	<div class="col-md-6">
+		<h3 class="text-center" id="order-form-head">Shipping address</h3>
 		<div class="order-form">
-			
-			
 			<%= simple_form_for @order do |f| %>
-			<legend>Buyer</legend>
 			<div class="form-group col-lg-6">
-				<%= f.input :billing_name %>
+				<%= f.input :billing_name,input_html: {class: 'devise-input'},required: true, autofocus: true,label: false,placeholder: 'Billing name*' %>
 			</div>
 			<div class="form-group col-lg-6">
-				<%= f.input :billing_address %>
-			</div>
-			<legend>Receiver</legend>
-			<div class="form-group col-lg-6">
-				<%= f.input :shipping_name %>
+				<%= f.input :billing_address,input_html: {class: 'devise-input'},required: true, autofocus: true,label: false,placeholder: 'Billing address*' %>
 			</div>
 			<div class="form-group col-lg-6">
-				<%= f.input :shipping_address %>
+				<%= f.input :shipping_name,input_html: {class: 'devise-input'},required: true, autofocus: true,label: false,placeholder: 'Shipping name*' %>
 			</div>
+			<div class="form-group col-lg-6">
+				<%= f.input :shipping_address,input_html: {class: 'devise-input'},required: true, autofocus: true,label: false,placeholder: 'Shipping address*' %>
+			</div>
+		
 			<div class="checkout">
-			<%= f.submit "Generate Order",class: "btn btn-lg btn-danger pull-right", :disable_with => 'Submiting...' %>
+				<div class="pull-left" id="back-to-cart">
+				<%= link_to carts_path do %>
+				<i class="fa fa-angle-left" aria-hidden="true">
+					<span id="back">back to cart</span>
+				</i>
+				<% end %>
+			  </div>
+				<%= f.submit "Generate Order",class: "btn  btn-info pull-right", :disable_with => 'Submiting...' %>
 			</div >
-
 			<% end %>
 			
 			
 			
 		</div>
+	</div>
+	<div class="col-md-6" id="order-info">
+		<h3 class="text-center" id="order-form-head">Order info</h3>
+		<table class="table">
+			<tbody>
+				<% current_cart.cart_items.each do |cart_item| %>
+				<tr>
+					<td width="50%"><%= link_to(cart_item.product.title,product_path(cart_item.product)) %></td>
+					<td><b><%=cart_item.quantity%></b> </td>
+					<td class="text-center"><b><%= number_to_currency(cart_item.quantity * cart_item.product.price,:unit=>'$') %></b> </td>
+					
+				</tr>
+				
+				<% end %>
+			</tbody>
+		</table>
+		<hr>
+		<div class="row" id="sub-total">
+			<div class="col-md-6">
+				<p>Subtotal</p>
+			</div>
+			<div class="col-md-6">
+				<p class="pull-right"> <b><%= number_to_currency(render_cart_total_price(current_cart),:unit=>'$')%></b> </p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<p>Shipping</p>
+			</div>
+			<div class="col-md-6">
+				<p class="pull-right"><b>-</b></p>
+			</div>
+		</div>
+		<hr>
+		<div class="total clearfix">
+			<span id="total-title" class="pull-left">Total</span>	 <span id="total-money" class="pull-right"><%= number_to_currency(render_cart_total_price(current_cart),:unit=>'$') %></span>
+		</div>
+		
 	</div>
 </div>
