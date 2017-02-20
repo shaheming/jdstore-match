@@ -20,15 +20,15 @@ genres= [ "Action","Adventure","Animation",
 
  locations=["Beijing","Shanghai"]
 
-products_movies =[{title:"Skyfall",description:"Skyfall is a 2012 action thriller film produced by Eon Productions for 
-	              Columbia Pictures and Metro-Goldwyn-Mayer. It is the 23rd James Bond film produced by Eon Productions 
-	              and it features Daniel Craig in his third performance as James Bond, and Javier Bardem as Raoul Silva, 
+products_movies =[{title:"Skyfall",description:"Skyfall is a 2012 action thriller film produced by Eon Productions for
+	              Columbia Pictures and Metro-Goldwyn-Mayer. It is the 23rd James Bond film produced by Eon Productions
+	              and it features Daniel Craig in his third performance as James Bond, and Javier Bardem as Raoul Silva,
 	              the film's villain. It was directed by Sam Mendes and written by Neal Purvis, Robert Wade and John Logan,
 	               and features an Academy Award-winning theme song by Adele",
 	               genre:"Action",image_path:"#{Rails.root}/app/assets/images/skyfall/skyfall_post.jpg"},
-					
+
 				{title:"Moon",description:"Moon is a 2009 British science fiction drama film co-written and directed by Duncan Jones. The film follows Sam Bell (Sam Rockwell), a man who experiences a personal crisis as he nears the end of a three-year solitary stint mining helium-3 on the far side of the Moon. It was the feature debut of director Duncan Jones. Kevin Spacey voices Sam's robot companion, GERTY. Moon premiered at the 2009 Sundance Film Festival and was released in selected cinemas in New York and Los Angeles on 12 June 2009. The release was expanded to additional theatres in the United States and Toronto on both 3 and 10 July and to the United Kingdom on 17 July.",
-	               genre:"Sci-fi",image_path:"#{Rails.root}/app/assets/images/moon/moon_post.jpg"},	
+	               genre:"Sci-fi",image_path:"#{Rails.root}/app/assets/images/moon/moon_post.jpg"},
 
 	            {title:"The Godfather",description:"The Godfather is a 1972 American crime film directed by Francis Ford Coppola and produced by Albert S. Ruddy, based on Mario Puzo's best-selling novel of the same name. It stars Marlon Brando and Al Pacino as the leaders of a fictional New York crime family. The story, spanning 1945 to 1955, chronicles the family under the patriarch Vito Corleone, focusing on the transformation of Michael Corleone (Pacino) from reluctant family outsider to ruthless mafia boss.",
 	               genre:"Crime",image_path:"#{Rails.root}/app/assets/images/thegodfather/thegodfather_post.jpg"},
@@ -41,7 +41,7 @@ products_movies =[{title:"Skyfall",description:"Skyfall is a 2012 action thrille
 
 	             {title:"Transformers Dark of the Moon",description:"Transformers: Dark of the Moon is a 2011 American science fiction action film directed by Michael Bay and based on the Transformers toy line. First released on June 23, 2011, it is the third installment of the live-action Transformers film series and the sequel to 2009's Revenge of the Fallen. The film's story is set three years after the events of the 2009 film, and follows the warring Autobots and Decepticons as they battle to possess powerful technology from their homeworld that had crashed on Earth's moon.",
 	               genre:"Action",image_path:"#{Rails.root}/app/assets/images/transformersdarkofthemoon/transformersdarkofthemoon_post.jpg"},
-	          
+
 	             {title:"V For Vendetta",description:"V for Vendetta is a 2005 dystopian political thriller film directed by James McTeigue and written by The Wachowski Brothers, based on the 1988 DC/Vertigo Comics limited series of the same name by Alan Moore and David Lloyd. The film is set in an alternative future where a neo-fascist regime has subjugated the United Kingdom. Hugo Weaving portrays V, an anarchist freedom fighter who attempts to ignite a revolution through elaborate terrorist acts and Natalie Portman plays Evey, a young, working-class woman caught up in V's mission, while Stephen Rea portrays the detective leading a desperate quest to stop V.",
 	               genre:"Action",image_path:"#{Rails.root}/app/assets/images/vforvendetta/vforvendetta_post.jpg"},
 
@@ -66,10 +66,10 @@ products_movies =[{title:"Skyfall",description:"Skyfall is a 2012 action thrille
 	           ]
 
 products =[{title:"Apple iPhone 6 64GB",
-	        description: "This Certified Refurbished product has been tested and certified 
+	        description: "This Certified Refurbished product has been tested and certified
 	              to work and look like new, with minimal to no signs of wear, by a specialized
-	              third-party seller approved by Amazon. The product is backed by a minimum 90-day warranty, 
-	              and may arrive in a generic brown or white box. Accessories may be generic and not directly 
+	              third-party seller approved by Amazon. The product is backed by a minimum 90-day warranty,
+	              and may arrive in a generic brown or white box. Accessories may be generic and not directly
 	              from the manufacturer.",
 	        image_path: "#{Rails.root}/app/assets/images/iphone.jpg"},
 
@@ -79,10 +79,12 @@ products =[{title:"Apple iPhone 6 64GB",
 	        image_path: "#{Rails.root}/app/assets/images/chair.jpg"}
 ]
 
+seat=[{genre:"Action",image_path: "#{Rails.root}/app/assets/images/seat/seat.jpg"}]
+
 u = User.create([ email: 'a@a.com' ,  password: '123456' ,password_confirmation:'123456',is_admin:true])
 puts "create a adminer"
 
-create_products = for i in 1..30 do 
+create_products = for i in 1..30 do
 products_movie = products_movies[rand(0..15)]
 if !products_movie.empty?
 Product.create([title:products_movie[:title],description:products_movie[:description],quantity:rand(1..100),price:rand(5..9)*10,image:open(products_movie[:image_path]),location:locations[rand(0..1)]])
