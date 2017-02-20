@@ -28,17 +28,23 @@ class SeatsController < ApplicationController
     end
   end
 
-  # def edit
-	# 	@seat = Seat.find(params[:id])
-	# end
-	# def update
-	# 	@seat = Seat.find(params[:id])
-	# 	if @seat.update(seat_params)
-	# 		redirect_to seats_path
-	# 	else
-	# 		render :edit
-	# 	end
-	# end
+  def edit
+    @product=Product.find(params[:product_id])
+		@seat = Seat.find(params[:id])
+	end
+
+	def update
+    @product=Product.find(params[:product_id])
+		@seat = Seat.find(params[:id])
+    @seat.product=@product
+
+		if @seat.update(seat_params)
+      redirect_to product_seats_path(@product)
+
+		else
+			render :edit
+		end
+	end
 
 
   def destroy
@@ -52,12 +58,14 @@ class SeatsController < ApplicationController
   @seat=Seat.find(params[:id])
   # @product=Product.find(params[:id])
   # @seat.product=@product   这两句为什么是多余的？
-  if @seat.is_selected == false
+  if !@seat.selected?
     current_user.select!(@seat)
     @seat.save
     flash[:notice]="选座成功！"
+  elsif @seat.selected? && @seat.user == current_user
+    flash[:warning]="这个座位已经是您的了"
   else
-    flash[:alert]="已被选择"
+    flash[:alert]="这个座位已被抢走，您再看看别的:)"
   end
   redirect_to :back
   end
@@ -70,8 +78,10 @@ class SeatsController < ApplicationController
       current_user.cancel!(@seat)
       @seat.save
       flash[:warning]="取消选择"
+    elsif !@seat.selected?
+       flash[:warning]="这个座位您还没选，如何取消:)"
     else
-      flash[:alert]="操作失败！"
+      flash[:alert]="您无权替别人取消座位！"
     end
     redirect_to :back
   end
