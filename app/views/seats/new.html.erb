@@ -1,5 +1,5 @@
 <div class="container" style="margin-top: 100px">
-    <h2>上传座位图片</h2>
+    <h2>Upload a seat image</h2>
     <%= simple_form_for [@product,@seat] do |f| %>
     <%= f.input :seatimg, as: :file  %>
     <%= f.submit "Submit", data: {disable_with: "Submitting..."} %>

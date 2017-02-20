@@ -16,13 +16,13 @@
 		<div class="product-price">￥<%= @product.price %></div>
 		<div class="pull-middle" style="margin-top: 200px;">
 		<% if @product.quantity.present? && @product.quantity > 0 %>
-			<%= link_to("选择座位",product_seats_path(@product),method: :get,:class=>"btn btn-primary btn-lg ") %>
+			<%= link_to("Select seat",product_seats_path(@product),method: :get,:class=>"btn btn-primary btn-lg ") %>
 
 		<% else %>
-			非常遗憾，票已售罄 :(
+			we are sorry, no such movie :(
 		<% end %>
 		<% if current_user.admin? %>
-		<%= link_to("加把椅子",new_product_seat_path(@product),method: :get, :class=>"btn btn-primary btn-lg ") %>
+		<%= link_to("Add seat",new_product_seat_path(@product),method: :get, :class=>"btn btn-primary btn-lg ") %>
 		<% end %>
 	</div>
 
