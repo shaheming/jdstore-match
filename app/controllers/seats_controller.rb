@@ -54,6 +54,7 @@ class SeatsController < ApplicationController
   # @seat.product=@product   这两句为什么是多余的？
   if @seat.is_selected == false
     current_user.select!(@seat)
+    @seat.save
     flash[:notice]="选座成功！"
   else
     flash[:alert]="已被选择"
@@ -67,6 +68,7 @@ class SeatsController < ApplicationController
     @seat=Seat.find(params[:id])
     if @seat.selected? && @seat.user == current_user
       current_user.cancel!(@seat)
+      @seat.save
       flash[:warning]="取消选择"
     else
       flash[:alert]="操作失败！"
