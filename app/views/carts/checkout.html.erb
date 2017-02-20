@@ -13,7 +13,8 @@
 				<% current_cart.cart_items.each do |cart_item| %>
 				<tr>
 					<td><%= link_to(cart_item.product.title,product_path(cart_item.product)) %></td>
-					<td><%= cart_item.product.price  %></td>
+
+					<td><%= number_to_currency(cart_item.quantity * cart_item.product.price,:unit=>'$ ') %></td>
 					<td><%= cart_item.quantity  %></td>
 				</tr>
 				
@@ -22,7 +23,7 @@
 		</table>
 		<div class="total clearfix">
 			<span class="pull-right">
-				Total <%= render_cart_total_price(current_cart) %> CNY
+				Total <%= number_to_currency(render_cart_total_price(current_cart),:unit=>'$ ') %>
 			</span>
 		</div>
 		<hr>

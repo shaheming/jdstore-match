@@ -7,4 +7,8 @@ class CartsController < ApplicationController
 	def checkout
 		@order = Order.new
 	end
+	def show
+		@order = Order.new
+		render :checkout
+	end
 end
