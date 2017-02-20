@@ -9,6 +9,7 @@ class CartItemsController < ApplicationController
  	end
 
  	def update
+ 		p params
  		@cart = current_cart
  		@cart_item = @cart.cart_items.find_by(product_id: params[:id])
  		if @cart_item.product.quantity >= cart_item_params[:quantity].to_i
