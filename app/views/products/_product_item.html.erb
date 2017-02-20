@@ -2,13 +2,13 @@
 	<%= link_to product_path(product) do %>
 	<div class="index-item">
 		<div class="product-img">
-		<%= show_cart_items_image(cart_item.product)  %>
+		<%= show_product_image(product)  %>
 			<% end %>
 		</div >
 		<div class="product-title">
 			<%= link_to(product.title,product_path(product),class:"product-title") %>
 			<br><br>
-			<span class="price">￥ <%= product.price  %></span>
+			<span class="price"><%= number_to_currency(product.price,:unit=>'$')%></span>
 		</div>
 		
 	</div>
