@@ -1,5 +1,5 @@
-<div class="show content">
-	<div class="col-md-12">
+<div class="show">
+	<div class="col-md-12" id="order-show">
 		<h2>Order Detail</h2>
 		<table class="table table-bordered">
 			<thead>
@@ -12,14 +12,18 @@
 				<% @product_lists.each do |product_list| %>
 				<tr>
 					<td><%= product_list.product_name %></td>
-					<td><%= product_list.product_price %></td>
+					<td><b><%= number_to_currency(product_list.product_price,:unit=>'$') %></b> </td>
 				</tr>
 				<% end %>
+				<tr>
+					<td><b>Shipping</b> </td>
+					<td><b>-</b></td>
+				</tr>
 			</tbody>
 		</table>
 		<div class="total clearfix">
 			<span class="pull-right">
-				Total <%= @order.total %> CNY
+				<span id="total-title" style="margin-right: 20px">Total: </span> <span id="total-money"><%= number_to_currency(@order.total,:unit=>'$') %></span>
 			</span>
 		</div>
 		<hr>
@@ -39,12 +43,12 @@
 		</div>
 		<% if !@order.is_paid? %>
 		<div class="group pull-right">
-			<%= link_to("Pay With Alipay",pay_with_alipay_order_path(@order.token),method: :post,:class=>"btn btn-danger") %>
-			<%= link_to("Pay With WeChat",pay_with_wechat_order_path(@order.token),method: :post,:class=>"btn btn-danger") %>
+			<%= link_to("Pay With Alipay",pay_with_alipay_order_path(@order.token),method: :post,:class=>"btn btn-primary",:id=>"alipay") %>
+			<%= link_to("Pay With WeChat",pay_with_wechat_order_path(@order.token),method: :post,:class=>"btn btn-primary",:id=>"wechat") %>
 		</div>
 		
 		<% else %>
-		<p class="text-center" style="color: red">This Order Has Been Paied</p>
+		<span class="pull-right btn btn-default" disabled="disabled">This Order Has Been Paied</span>
 		<% end %>
 		
 	</div>
