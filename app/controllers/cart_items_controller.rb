@@ -9,10 +9,18 @@ class CartItemsController < ApplicationController
  	end
 
  	def update
+ 		p params
  		@cart = current_cart
  		@cart_item = @cart.cart_items.find_by(product_id: params[:id])
  		if @cart_item.product.quantity >= cart_item_params[:quantity].to_i
- 			@cart_item.update(cart_item_params)
+ 			if  params[:add] == "1"
+ 				@cart_item.quantity +=1
+ 				@cart_item.save!
+ 			elsif params[:sub] =="1"
+ 				@cart_item.quantity -=1
+ 				@cart_item.save!
+ 			end
+ 			# @cart_item.update(cart_item_params)
  			# flash[:notice] = "Change the quantity!"	
  		else
  			# flash[:warning] = "Stock is not enough!"
