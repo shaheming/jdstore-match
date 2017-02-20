@@ -8,20 +8,26 @@
 	</div>
 	<div class="col-md-6">
 		<h2><%= @product.title  %></h2>
-		<div style="height: 100px;">
+		<div style="height: 150px;">
 			<p><%=simple_format(@product.description)  %></p>
-			
+
 		</div>
 		<div> Quantity:<%= @product.quantity%></div>
 		<div class="product-price">￥<%= @product.price %></div>
-		<div class="pull-right">
+		<div class="pull-middle" style="margin-top: 200px;">
 		<% if @product.quantity.present? && @product.quantity > 0 %>
-			<%= link_to("Add to Cart",add_to_cart_product_path,:method=>:post,:class=>"btn btn-primary btn-lg btn-danger") %>
+			<%= link_to("选择座位",product_seats_path(@product),method: :get,:class=>"btn btn-primary btn-lg ") %>
+
 		<% else %>
-			<%= link_to("Add to Cart",add_to_cart_product_path,:class=>"btn btn-primary btn-lg btn-danger disabled") %>
+			非常遗憾，票已售罄 :(
 		<% end %>
-			
-		</div>
+		<% if current_user.admin? %>
+		<%= link_to("加把椅子",new_product_seat_path(@product),method: :get, :class=>"btn btn-primary btn-lg ") %>
+		<% end %>
 	</div>
-	
+
+
+	</div>
+
 </div>
+<!-- (:product_id => @product.id), 这是什么东西-->

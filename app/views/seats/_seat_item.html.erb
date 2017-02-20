@@ -1,0 +1,21 @@
+<div class="col-xs-6 col-md-3 product_list">
+
+
+    <div class="seat-img">
+        <% if seat.seatimg.present? %>
+        <%= image_tag(seat.seatimg.smallseat.url, class: "thumbnail")  %>
+        <%= link_to("选座",  select_product_seat_path(@product,seat), :method => :post) %>
+        <%= link_to("取消",  cancel_product_seat_path(@product,seat), :method => :post) %>
+    <% else %>
+        <%= image_tag("http://placehold.it/100x100&text=No Pic", class: "thumbnail")  %>
+        <% end %>
+
+        <% if current_user.is_admin? %>
+        <%= link_to("删除", product_seat_path(@product,seat), :method => :delete, :data => { :confirm => "Are you sure??" })%>
+        <% else %>
+        座号:<%= seat.id%>
+        <% end %>
+
+    </div >
+
+</div>
