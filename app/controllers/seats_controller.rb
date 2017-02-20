@@ -28,17 +28,23 @@ class SeatsController < ApplicationController
     end
   end
 
-  # def edit
-	# 	@seat = Seat.find(params[:id])
-	# end
-	# def update
-	# 	@seat = Seat.find(params[:id])
-	# 	if @seat.update(seat_params)
-	# 		redirect_to seats_path
-	# 	else
-	# 		render :edit
-	# 	end
-	# end
+  def edit
+    @product=Product.find(params[:product_id])
+		@seat = Seat.find(params[:id])
+	end
+
+	def update
+    @product=Product.find(params[:product_id])
+		@seat = Seat.find(params[:id])
+    @seat.product=@product
+
+		if @seat.update(seat_params)
+      redirect_to product_seats_path(@product)
+
+		else
+			render :edit
+		end
+	end
 
 
   def destroy
@@ -72,7 +78,7 @@ class SeatsController < ApplicationController
       current_user.cancel!(@seat)
       @seat.save
       flash[:warning]="取消选择"
-    elsif !@seat.selected? 
+    elsif !@seat.selected?
        flash[:warning]="这个座位您还没选，如何取消:)"
     else
       flash[:alert]="您无权替别人取消座位！"

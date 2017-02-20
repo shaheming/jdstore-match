@@ -3,8 +3,7 @@
    <%= image_tag(@seat.seatimg.smallseat.url)  %>
 <% end %>
 
-<div class="group">
-  <%= f.input :image, as: :file  %>
-</div>
-
-<%= f.submit "Submit",data:{disable_with:"Submitting..."}  %>
+<%= simple_form_for [@product,@seat] do |f| %>
+<%= f.input :seatimg, as: :file  %>
+<%= f.submit "Submit", data: {disable_with: "Submitting..."} %>
+<% end %>

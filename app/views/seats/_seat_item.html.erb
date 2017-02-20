@@ -12,6 +12,7 @@
 
         <% if current_user.is_admin? %>
         <%= link_to("删除", product_seat_path(@product,seat), :method => :delete, :data => { :confirm => "Are you sure??" })%>
+        <%= link_to("编辑", edit_product_seat_path(@product,seat), :method => :get)%>
         <% else %>
         座号:<%= seat.id%>
         <% end %>
