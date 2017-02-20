@@ -1,95 +1,32 @@
-<nav class="navbar navbar-default affix" role="navigation " id="BB-nav">
+<nav class="navbar navbar-default" role="navigation " id="BB-nav">
 	<div class="container-fluid">
-		<div class="container nav-container">
-			<!--            <div class="navbar-header">-->
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".BB-nav">
-			<span class="sr-only">Toggle navigation</span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			</button>
-			<!--            </div>-->
-			<ul class="nav navbar-nav navbar-left nav-pills">
-				<li>
-					<div id="brand"><%= link_to("Items","/",{:style=>'color:#181818;'} ) %></div>
-				</li>
-			</ul>
-			<ul id="menu-menu" class="nav navbar-nav BB-nav collapse navbar-collapse">
-				<li class="dropdown-active">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-					<ul class="dropdown-menu">
-						<li><a href="#">Action</a></li>
-						<li><a href="#">Another action</a></li>
-						<li><a href="#">Something else here</a></li>
-						<li class="divider"></li>
-						<li><a href="#">Separated link</a></li>
-						<li class="divider"></li>
-						<li><a href="#">One more separated link</a></li>
-					</ul>
-				</li>
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-					<ul class="dropdown-menu">
-						<li><a href="#">Action</a></li>
-						<li><a href="#">Another action</a></li>
-						<li><a href="#">Something else here</a></li>
-						<li class="divider"></li>
-						<li><a href="#">Separated link</a></li>
-						<li class="divider"></li>
-						<li><a href="#">One more separated link</a></li>
-					</ul>
-				</li>
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-					<ul class="dropdown-menu">
-						<li><a href="#">Action</a></li>
-						<li><a href="#">Another action</a></li>
-						<li><a href="#">Something else here</a></li>
-						<li class="divider"></li>
-						<li><a href="#">Separated link</a></li>
-						<li class="divider"></li>
-						<li><a href="#">One more separated link</a></li>
-					</ul>
-				</li>
-			</ul>
-			
-			<ul class="nav navbar-nav navbar-right nav-pills">
-				
-				<li class="li-form">
-					<!--  SEARCH -->
-					<form role="search" id="search-nav" method="get" action="#" class="search-button">
-						<input type="search" class="search-field" placeholder="Search …" value="" name="s" title="Rechercher :">
-						<button type="reset">
-						<span class="fa fa-close">
-							<span class="sr-only">Close</span>
-						</span>
-						</button>
-						<button type="submit" class="search-submit">
-						<span class="fa fa-search">
-							<span class="sr-only">Rechercher</span>
-						</span>
-						</button>
-					</form>
-					<% if !current_user %>
-					<div role="account" id="account-nav" >
-						<div  class="account-field">
-							<%= link_to("Log In",new_user_session_path) %> <b>Or</b> <%= link_to("Sign Up",new_user_registration_path) %>
-						</div>
-						<button type="reset">
-						<span class="fa fa-close">
-							<span class="sr-only">Close</span>
-						</span>
-						</button>
-						<button >
-						<span class="fa fa-user">
-							<span class="sr-only">Rechercher</span>
-						</span>
-						</button>
-					</div>
-					<% else %>
-					<ul id="menu-menu" class="nav navbar-nav BB-nav collapse navbar-collapse pull-right">
+		
+			<div class="row">
+				<ul class="nav">
+					<li>
+						<div id="brand"><%= link_to("iMoviestore","/",{:style=>'color:#181818;'} ) %></div>
+					</li>
+				</ul>
+			</div>
+			<div class="row">
+				<div class="nav dropdown col-md-8" style="display: inline-block; ">
+					<ul id="menu-menu" class="nav navbar-nav BB-nav collapse navbar-collapse " style="float: right;">
 						<li class="dropdown-active">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Hi!,<%= current_user.email %> <b class="caret"></b></a>
+						    <%= link_to("Most Popular",products_path) %>
+
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Genres <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Crime</a></li>
+								<li><a href="#">Comedy</a></li>
+								<li><a href="#">Romatic</a></li>
+								<li><a href="#">Sic-fi</a></li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
 							<ul class="dropdown-menu">
 								<li><a href="#">Action</a></li>
 								<li><a href="#">Another action</a></li>
@@ -97,20 +34,74 @@
 								<li class="divider"></li>
 								<li><a href="#">Separated link</a></li>
 								<li class="divider"></li>
-								<li>	<%= link_to(content_tag(:i,'Log Out',class:'fa fa-sign-out'),destroy_user_session_path,method: :delete) %></li>
+								<li><a href="#">One more separated link</a></li>
 							</ul>
 						</li>
 					</ul>
-					<% end %>
-					
-					<div role="account" id="account-nav" style="margin-left: 5px;" >
-						<%= link_to carts_path, {:style=>'color:#353535;'}  do  %>
-						<i class="fa fa-shopping-cart"></i>(<%= current_cart.products.count %>)
-						<% end %>
-					</div>
-					
-				</li>
-			</ul>
-		</div>
+				</div>
+				<div style="display: inline-block;" class="col-md-4">
+					<ul class="nav navbar-nav navbar-right nav-pills">
+						
+						<li class="li-form">
+							<!--  SEARCH -->
+							<form role="search" id="search-nav" method="get" action="#" class="search-button">
+								<input type="search" class="search-field" placeholder="Search …" value="" name="s" title="Rechercher :">
+								<button type="reset">
+								<span class="fa fa-close">
+									<span class="sr-only">Close</span>
+								</span>
+								</button>
+								<button type="submit" class="search-submit">
+								<span class="fa fa-search">
+									<span class="sr-only">Rechercher</span>
+								</span>
+								</button>
+							</form>
+							<% if !current_user %>
+							<div role="account" id="account-nav" >
+								<div  class="account-field">
+									<%= link_to("Log In",new_user_session_path) %> <b>Or</b> <%= link_to("Sign Up",new_user_registration_path) %>
+								</div>
+								<button type="reset">
+								<span class="fa fa-close">
+									<span class="sr-only">Close</span>
+								</span>
+								</button>
+								<button >
+								<span class="fa fa-user">
+									<span class="sr-only">Rechercher</span>
+								</span>
+								</button>
+							</div>
+							<% else %>
+							<ul id="account-menu" class="nav navbar-nav BB-nav collapse navbar-collapse pull-right">
+								<li class="dropdown-active">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Hi!, <%= current_user.email %> <b class="caret"></b></a>
+									<ul class="dropdown-menu">
+										
+										<% if current_user.admin? %>
+										<li><%= link_to(content_tag(:i,' Admin panel',class:'fa fa-tachometer',"aria-hidden"=>"true"),admin_products_path) %></li>
+										<% end %>
+										
+										<li><%= link_to(content_tag(:i,' Your Orders',class:'fa fa-list',"aria-hidden"=>"true"),account_orders_path) %></li>
+										<li class="divider"></li>
+										<li>	<%= link_to(content_tag(:i,' Log Out',class:'fa fa-sign-out'),destroy_user_session_path,method: :delete) %></li>
+									</ul>
+								</li>
+							</ul>
+							<% end %>
+							
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div  class="row" role="account" id="cart-nav" style="margin-left: 5px;padding-right: 60px;" >
+			<div class="pull-right">
+				<%= link_to carts_path, {:style=>'color:#353535;'}  do  %>
+				<b>Cart</b> <i class="fa fa-shopping-cart"></i> (<%= current_cart.products.count %>)
+				<% end %>
+				</div>
+			</div>
+		
 	</div>
 </nav>

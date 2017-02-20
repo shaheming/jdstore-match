@@ -1,11 +1,13 @@
 <div class="show content">
 	<div class="col-md-12">
-		<h2>Order Detail</h2>
+		<h2>Order Detail (<%= render_order_paid_state(@order) %>)</h2>
+		<%= render "state_option",order:@order %>
 		<table class="table table-bordered">
 			<thead>
 				<tr>
 					<th width="80%">Product Info</th>
 					<th>Price</th>
+					<th>Quantity</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -13,6 +15,7 @@
 				<tr>
 					<td><%= product_list.product_name %></td>
 					<td><%= product_list.product_price %></td>
+					<td><%= product_list.quantity %></td>
 				</tr>
 				<% end %>
 			</tbody>
@@ -32,20 +35,6 @@
 				<tr><td> <%= @order.shipping_name %> - <%= @order.shipping_address %></td></tr>
 			</tbody>
 		</table>
-		<div class="pull-left">
-			<% if @order.order_placed? || @order.paid? %>
-				<%= link_to("Apply To Cancel Order",apply_to_cancel_order_path(@order),method: :post,class:"btn btn-info") %>
-			<% end %>
-		</div>
-		<% if !@order.is_paid? %>
-		<div class="group pull-right">
-			<%= link_to("Pay With Alipay",pay_with_alipay_order_path(@order.token),method: :post,:class=>"btn btn-danger") %>
-			<%= link_to("Pay With WeChat",pay_with_wechat_order_path(@order.token),method: :post,:class=>"btn btn-danger") %>
-		</div>
-		
-		<% else %>
-		<p class="text-center" style="color: red">This Order Has Been Paied</p>
-		<% end %>
 		
 	</div>
 </div>

@@ -7,22 +7,22 @@
   padding-right: 20px;
   padding-left: 20px;
   padding-top: 4px;
-  padding-buttom: 8px;
-  border: 2px solid black;
-  font-size: 25px;
+  // border: 2px solid black;
+  font-size: 50px;
   position: relative;
   text-align: center;
-  height: 50px
+
 }
 .navbar-default {
   background-color: #fff;
-  border: 3px double #eee;
-  border-radius: 0;
-  border-left: none;
-  border-right: none
+  border: none;
+}
+.affix{
+ 
+  position: relative;
 }
 #BB-nav.affix {
-  position: fixed;
+
   top: 0px;
   -webkit-transition: top 1s ease-in;
   transition: top 1s ease-out;
@@ -101,6 +101,19 @@
 #account-nav {
   display: inline-block;
   padding-top: 15px;
+  padding-bottom: 15px;
+
+}
+
+#account-menu{
+  padding-right:0px;
+}
+#account-menu .dropdown-toggle{
+  padding-right:0px;
+}
+#cart-nav {
+  display: block;
+  padding-top: 15px;
   padding-bottom: 15px
 }
 .account-button {
@@ -147,6 +160,9 @@
 }
 .product-img:hover {
   opacity: 0.5
+}
+.li-form{
+  padding-right: 60px;
 }
 
 /*************************
@@ -195,7 +211,7 @@
 *******pagination******
 **************************/
 .display-page{
-margin-top: 150px;
+margin-top: 0px;
 }
 
 .product-title{
@@ -212,6 +228,7 @@ margin-top: 150px;
 
 }
 
-#seatpage{
-  margin-top: 150px;
+.content{
+  margin-top: 100px;
 }
+
