@@ -1,15 +1,25 @@
-<h2>Log in</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email, required: false, autofocus: true %>
-    <%= f.input :password, required: false %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+<div class="row reg-style">
+	<div class="container" style="max-width: 360px;">
+		<div  class="panel panel-primary" id="devise">
+			<div class="panel-body">
+				<h3 class="user-reg-log-head">Log in</h3>
+				<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+				<div class="form-inputs">
+					<%= f.input :email, input_html: {class: 'devise-input'},required: true, autofocus: true,label: false,placeholder: 'Enter email*' %>
+					<%= f.input :password, input_html: {class: 'devise-input'},required: true,label: false,placeholder: 'Enter password*'  %>
+					<%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+				</div>
+				<div class="form-actions">
+					<%= f.button :submit, "Log in" ,:class => "reg-btn"%>
+					<p>
+						<%= link_to "Forgot your password?",new_user_password_path,class: 'devise-link' %><br>
+						<%= link_to "Register a New Account",new_user_registration_path,class: 'devise-link'  %>
+					</p>
+					
+				</div>
+				<% end %>
+				
+			</div>
+		</div>
+	</div>
+</div>
