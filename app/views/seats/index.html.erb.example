@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, td, th {
+    border: 0px solid black;
+}
+
+table {
+    border-collapse: collapse;
+    width: 80%;
+    align: center;
+    margin-left: 250px;
+}
+
+
+</style>
+</head>
+<body>
+  <div class="container" id="seatpage">
+   <div class="col-md-6 col-md-offset-0">
+     <table>
+
+  <tr>
+    <td><a href=add_to_cart_product_path>
+      <img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></a></td>
+    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
+    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
+    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
+    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
+  </tr>
+  <tr>
+    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
+    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
+    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
+    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
+    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
+  </tr>
+  <tr>
+    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
+    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
+    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
+    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
+    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
+  </tr>
+  <tr>
+    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
+    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
+    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
+    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
+    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
+  </tr>
+  <tr>
+    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
+    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
+    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
+    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
+    <td><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcrdue3obwj302s02st8h.jpg"></td>
+  </tr>
+   </table>
+ </div>
+</div>
+</body>
+
+</html>
+
+
+
+<div class="row">
+  <% @seats.each do |seat| %>
+  <%= image_tag(seat.seatimg.smallseat.url, class: "thumbnail") %>
+  <% end %>
+</div>
+
+//改造SeatsController的备份
+def select
+  @seat=Seat.find(params[:product_id])
+  @product=Product.find(params[:id])
+  @seat.product=@product
+  if !@seat.selected?
+    @seat.user=current_user
+    @seat.is_selected = true
+    flash[:notice]="选座成功！"
+  else
+    flash[:alert]="本座位已被别人选走了"
+  end
+  redirect_to :back
+end
+
+def cancel
+  @product=Product.find(params[:product_id])
+  @seat=Seat.find(params[:id])
+  if @seat.selected? && @seat.user == current_user
+    @seat.is_selected = false
+    flash[:warning]="取消选择"
+  else
+    flash[:alert]="操作失败！"
+  end
+  redirect_to :back
+end
+
+
+def select!(product,seat)
+  seat.is_selected = true
+  seat.product = @product
+  seat.user = current_user
+end
+
+
+def select
+# @seat=Seat.find(params[:product_id])  思考，find和find_by这个语句怎们应用
+@seat=Seat.find(params[:id])
+# @product=Product.find(params[:id])
+# @seat.product=@product   这两句为什么是多余的？
+if !@seat.selected?
+  current_user.select!(@seat)
+  flash[:notice]="选座成功！"
+else
+  flash[:alert]="已被选择"
+end
+redirect_to :back
+end

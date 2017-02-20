@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
     devise_for :users
-  
+
 	root 'welcome#index'
 
 	namespace :admin do
@@ -38,7 +38,18 @@ Rails.application.routes.draw do
 		end
 	end
 
-	namespace :account do
+  namespace :account do
 		resources :orders
 	end
+
+  
+    resources :products do
+      resources :seats do
+        member do
+          post :select
+          post :cancel
+      end
+    end
+  end
+
 end
