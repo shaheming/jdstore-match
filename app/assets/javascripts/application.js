@@ -41,6 +41,7 @@ $(function() {
 		$('#search-nav').removeClass('active');
 		$('#search-nav button[type="reset"]').hide();
 		$('#account-nav').show();
+	    $('#account-menu').show();
 	}
 
 	function openSearch() {
@@ -48,6 +49,8 @@ $(function() {
 		$('.search-field').show();
 		$('#search-nav button[type="reset"]').show();
 		$('#account-nav').hide();
+		$('#account-menu').attr('style','display:none !important');
+		
 	}
 
 	function closeAccount() {
