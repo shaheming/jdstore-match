@@ -1,20 +1,15 @@
 <div class="col-xs-6 col-md-3 product_list" >
 	<%= link_to product_path(product) do %>
 	<div class="index-item">
-	<div class="product-img">
-	<% if product.image.present? %>
-	<%= image_tag(product.image.thumb.url, class: "thumbnail")  %>
-	<% else %>
-	<%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail")  %>
-	<% end %>
-	<% end %>
-
-	</div >
-	<div class="product-title">
-	<%= link_to(product.title,product_path(product),class:"product-title") %>
-	<br><br>
-<span class="price">￥ <%= product.price  %></span>
-	</div>
-	
+		<div class="product-img">
+		<%= show_cart_items_image(cart_item.product)  %>
+			<% end %>
+		</div >
+		<div class="product-title">
+			<%= link_to(product.title,product_path(product),class:"product-title") %>
+			<br><br>
+			<span class="price">￥ <%= product.price  %></span>
+		</div>
+		
 	</div>
 </div>
