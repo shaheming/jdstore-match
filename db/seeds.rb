@@ -18,7 +18,7 @@ genres= [ "Action","Adventure","Animation",
  "Thriller",
  "War"]
 
- locations=["Beijing","Shanghai"]
+ locations=["Beijing","Shanghai","Shenzhen"]
 
 products_movies =[{title:"Skyfall",description:"Skyfall is a 2012 action thriller film produced by Eon Productions for 
 	              Columbia Pictures and Metro-Goldwyn-Mayer. It is the 23rd James Bond film produced by Eon Productions 
