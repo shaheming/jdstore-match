@@ -85,7 +85,7 @@ puts "create a adminer"
 create_products = for i in 1..30 do 
 products_movie = products_movies[rand(0..15)]
 if !products_movie.empty?
-Product.create([title:products_movie[:title],description:products_movie[:description],quantity:rand(1..100),price:rand(5..9)*10,image:open(products_movie[:image_path]),location:locations[rand(0..1)]])
+Product.create([title:products_movie[:title],description:products_movie[:description],genre:products_movie[:genre],quantity:rand(1..100),price:rand(5..9)*10,image:open(products_movie[:image_path]),location:locations[rand(0..1)]])
 end
 end
 
