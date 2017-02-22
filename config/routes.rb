@@ -45,4 +45,9 @@ Rails.application.routes.draw do
 	namespace :account do
 		resources :orders
 	end
+
+	controller :pages do
+		get :about
+	end
+
 end
