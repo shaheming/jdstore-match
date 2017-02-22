@@ -79,7 +79,7 @@ products =[{title:"Apple iPhone 6 64GB",
 	        image_path: "#{Rails.root}/app/assets/images/chair.jpg"}
 ]
 
-seat=[{genre:"Action",image_path: "#{Rails.root}/app/assets/images/seat/seat.jpg"}]
+seat={genre:"Action",image_path: "#{Rails.root}/app/assets/images/seat/seat.jpg"}
 
 u = User.create([ email: 'a@a.com' ,  password: '123456' ,password_confirmation:'123456',is_admin:true])
 puts "create a adminer"
@@ -92,3 +92,18 @@ end
 end
 
 puts "create products_movie"
+
+creat_seast= for i in 1..64 do
+  Seat.create([product_id:1,seatimg:open(seat[:image_path])])
+end
+puts "creat seats"
+
+creat_seast= for i in 1..64 do
+  Seat.create([product_id:2,seatimg:open(seat[:image_path])])
+end
+puts "creat seats"
+
+creat_seast= for i in 1..64 do
+  Seat.create([product_id:3,seatimg:open(seat[:image_path])])
+end
+puts "creat seats"
