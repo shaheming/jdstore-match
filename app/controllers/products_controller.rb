@@ -10,10 +10,12 @@ class ProductsController < ApplicationController
 
 			if !@genre.blank?
 				@products = Product.where(genre:@genre).paginate(:page => params[:page], :per_page => 12)
+				@genre_show = @genre
 			end
 
 			if !@location.blank?
 				@products = Product.where(location:@location).paginate(:page => params[:page], :per_page => 12)
+				@location_show = @location
 			end
 
 		end
