@@ -78,8 +78,6 @@ class SeatsController < ApplicationController
       current_user.cancel!(@seat)
       @seat.save
       flash[:warning]="cancel the seat"
-    elsif !@seat.selected?
-       flash[:warning]="how can you cancel a seat that you have not choose yet:)"
     else
       flash[:alert]="you have no admission to make a cancel for others！"
     end
