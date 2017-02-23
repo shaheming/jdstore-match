@@ -1,27 +1,31 @@
 <div class="row display-page">
-	<div class="col-md-6">
+<div class="col-md-2"></div>
+	<div class="col-md-4">
 		<% if @product.image.present? %>
 		<%= image_tag(@product.image.thumb.url, class: "thumbnail")  %>
 		<% else %>
 		<%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail")  %>
 		<% end %>
 	</div>
+	<div class="col-md-2"></div>
 	<div class="col-md-6">
 		<h2><%= @product.title  %></h2>
 		<div style="height: 150px;">
-			<p><%=simple_format(@product.description)  %></p>
+			<p id="show-text"><%=simple_format(@product.description)  %></p>
 		</div>
-		<div> Quantity:<%= @product.quantity%></div>
-		<div class="product-price">￥<%= @product.price %></div>
-		<div class="pull-middle" style="margin-top: 200px;">
+		<div > <span id="show-remind">Remind: <%= @product.quantity%></span></div>
+		<div  id="show-price"><%= number_to_currency(@product.price,:unit=>"$") %></div>
+		<br>
+		<br>
+		<div class="pull-middle"">
 			<% if @product.quantity.present? && @product.quantity > 0 %>
-			<%= link_to("Select seat",product_seats_path(@product),method: :get,:class=>"btn btn-primary btn-lg ") %>
+			<%= link_to("Select seat",product_seats_path(@product),method: :get,:class=>"btn",id:"cart-botton") %>
 			<% else %>
 			we are sorry, out of sale :(
 			<% end %>
 			<% if !current_user.blank? %>
 			<% if current_user.admin? %>
-			<%= link_to("Add seat",new_product_seat_path(@product),method: :get, :class=>"btn btn-primary btn-lg ") %>
+			<%= link_to("Add seat",new_product_seat_path(@product),method: :get, :class=>"btn",id:"cart-botton") %>
 			<% end %>
 			<% end %>
 		</div>

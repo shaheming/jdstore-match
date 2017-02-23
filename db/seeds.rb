@@ -87,12 +87,14 @@ puts "create a adminer"
 u1 = User.create([ email: 'b@b.com' ,  password: '123456' ,password_confirmation:'123456',is_admin:false])
 puts "create a user"
 
+quantity  = 64
+
 create_products = for i in 1..30 do
 	products_movie = products_movies[rand(0..15)]
 	if !products_movie.empty?
-		Product.create([title:products_movie[:title],genre:products_movie[:genre],description:products_movie[:description],quantity:rand(1..100),price:rand(5..9)*10,image:open(products_movie[:image_path]),location:locations[rand(0..1)]])
+		Product.create([title:products_movie[:title],genre:products_movie[:genre],description:products_movie[:description],quantity:quantity,price:rand(5..9)*10,image:open(products_movie[:image_path]),location:locations[rand(0..1)]])
 		
-		creat_seast= for j in 1..64 do
+		creat_seast= for j in 1..quantity do
 		  Seat.create([product_id:i])
 		end
 

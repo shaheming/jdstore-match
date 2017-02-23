@@ -199,6 +199,7 @@
 **************************/
 .display-page {
   margin-top: 0px;
+  margin-bottom: 150px;
 }
 .product-title {
   width: 200px;
@@ -390,3 +391,21 @@ divider-space-90 {
     margin-bottom: 5%;
 }
 
+#show-title{
+      font-family: 'Lato', sans-serif;
+      font-size: 2em;
+}
+#show-price{
+      font-family: 'Lato', sans-serif;
+    color: #444444;
+    font-weight: lighter;
+    font-size: 28px;
+}
+#show-remind{
+      font-size: 1.2em;
+       font-family: 'Lato', sans-serif;
+}
+
+#show-text{
+   font-family: 'Lato', sans-serif;
+}
