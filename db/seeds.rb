@@ -92,6 +92,7 @@ create_products = for i in 1..30 do
 		
 		creat_seast= for j in 1..64 do
 		  Seat.create([product_id:i])
+		end
 
 	end
 end
