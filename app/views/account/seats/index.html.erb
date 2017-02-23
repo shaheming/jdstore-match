@@ -1,0 +1,23 @@
+<div class="col-md-12">
+  <h2 class="text-center">MY SEATS</h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Product</th>
+        <th>My Seats</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @seats.each do |seat| %>
+      <tr>
+        <td>#</td>
+        <td><%= link_to(seat.product_id,"#") %></td>
+        <td><%= seat.id %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

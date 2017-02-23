@@ -26,7 +26,7 @@ end
   end
 
   version :smallseat do
-    process resize_to_fill:[100,100]
+    process resize_to_fill:[26,26]
   end
 
 version :medium do

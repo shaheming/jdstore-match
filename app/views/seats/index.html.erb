@@ -1,17 +1,21 @@
-<div class="row display-page" style="margin-top: 100px">
-  <h2 style="text-align:center">选择座位</h2>
+
+  <div class="container">
+  <h2 style="text-align:center">Select a seat</h2>
 	<%  count = 0 %>
+  <%i=1 %>
 	<% @seats.each do |seat| %>
 	<% if count == 0 %>
-	<div class="row">
+	   <div class="row" style="margin:auto">
+       ROW <%= i %>:
 		<% end %>
 		<% count+=1 %>
-
 		<%= render partial: "seat_item", locals: { seat:seat} %>
 
 		<% if count == 8 || seat == @seats.last%>
 	</div>
 	<% count = 0 %>
+  <% i=i+1%>
 	<% end %>
 	<% end %>
 </div>
+    
