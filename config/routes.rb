@@ -48,6 +48,7 @@ Rails.application.routes.draw do
 	end
 
 
+
     resources :products do
       resources :seats do
         member do
@@ -56,5 +57,10 @@ Rails.application.routes.draw do
       end
     end
   end
+
+	controller :pages do
+		get :about
+	end
+
 
 end

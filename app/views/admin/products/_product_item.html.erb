@@ -1,18 +1,8 @@
 <tr>
-	<td>
-		<%= product.id%>
-	</td>
-	<td>
-		<%= link_to product_path(product)  do %>
-		<% if product.image.present? %>
-		<%= image_tag(product.image.thumb.url, class: "thumbnail") %>
-		<% else %>
-		<%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
-		<% end %>
-		<% end %>
-	</td>
+	<td><%= product.id%></td>
+	<td id="item-img-td"><%= show_cart_items_image(product)  %></td>
 	<td><%= product.title  %></td>
-	<td><%= product.price  %></td>
+	<td><%= number_to_currency(product.price,:unit=>'$')%></td>
 	<td><%= link_to("Edit",edit_admin_product_path(product)) %> |
-	   <%= link_to("Delete",admin_product_path(product),method: :delete, data: {confirm: "Are you sure?"}) %></td>
+	<%= link_to("Delete",admin_product_path(product),method: :delete, data: {confirm: "Are you sure?"}) %></td>
 </tr>

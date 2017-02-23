@@ -2,8 +2,27 @@ class ProductsController < ApplicationController
 	before_action :validate_search_key, only:[:search]
 
 	def index
-		@products = Product.all.paginate(:page => params[:page], :per_page => 12)
+		validate_genre_key
+		validate_location_key
+		if @genre.blank? and @location.blank?
+			@products=Product.all.paginate(:page => params[:page], :per_page => 12)
+		else
+
+			if !@genre.blank?
+				@products = Product.where(genre:@genre).paginate(:page => params[:page], :per_page => 12)
+				@genre_show = @genre
+			end
+
+			if !@location.blank?
+				@products = Product.where(location:@location).paginate(:page => params[:page], :per_page => 12)
+				@location_show = @location
+			end
+
+		end
 	end
+
+		
+
 	def show
 		@product = Product.find(params[:id])
 	end
@@ -11,9 +30,9 @@ class ProductsController < ApplicationController
 		@product = Product.find(params[:id])
 		if !current_cart.products.include?(@product)
 		current_cart.add_product_to_cart(@product)
-		flash[:notice] = "Add to cart"
+		# flash[:notice] = "Add to cart"
 		else
-		flash[:warning] = "#{@product.title} is already in cart"
+		# flash[:warning] = "#{@product.title} is already in cart"
 		end
 		redirect_to :back
 	end
@@ -34,6 +53,13 @@ class ProductsController < ApplicationController
 
 	def search_criteria(query_string)
 		{:title_or_description_cont=>query_string}
+	end
+
+	def validate_genre_key
+		@genre = params[:genre].gsub(/\\|\'|\/|\?/, "") if params[:genre].present?
+	end
+	def validate_location_key
+		@location = params[:location].gsub(/\\|\'|\/|\?/, "") if params[:location].present?
 	end
 end
 

@@ -324,3 +324,69 @@ divider-space-90 {
   margin-left: 10px;
 }
 
+
+#order-form-head{
+  padding-bottom: 10%;
+}
+#order-info{
+  background: #F9F9F9;
+  padding-bottom: 10%;
+}
+#order-info #order-form-head{
+  
+    margin-bottom: 0;
+}
+
+#order-info a{
+  color: black;
+}
+#order-info hr{
+    border-top: 1px solid #D5D5D3;
+    }
+
+#total-title{
+    font-size: 1.14286em;
+    color: #4b4b4b;
+}
+
+#total-money{
+    font-size: 1.71429em;
+    font-weight: 500;
+    letter-spacing: -0.04em;
+
+}
+#sub-total{
+  font-size: 1.14286em;
+  color:#5E5E5E
+}
+
+#back-to-cart{
+      padding-left: 2%;
+    font-size: 1.3em;
+}
+
+#back-to-cart back:hover{
+  margin-left: 1em;
+}
+
+#back-to-cart a{
+      color: #1990C6;
+}
+.btn-primary#alipay {background: #0AE;}
+
+.btn-primary#wechat{
+      background: #25c400;
+    border-color: #0aa208;
+}
+
+
+#order-show{
+  margin-bottom: 10%;
+}
+
+#index-title{
+      margin-left: 6%;
+    font-size: 3em;
+    margin-bottom: 5%;
+}
+

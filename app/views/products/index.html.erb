@@ -1,4 +1,10 @@
 <div class="row display-page">
+	<% if @genre_show.present? %>
+	<h2 id="index-title"><i class="fa fa-tag" aria-hidden="true"> <%= @genre_show %></i></h2>
+	<% elsif @location_show.present? %>
+	<h2 id="index-title"><i class="fa fa-location-arrow" aria-hidden="true"> <%= @location_show %></i></h2>
+	<% else %>
+	<% end %>
 	<%  count = 0 %>
 	<% @products.each do |product| %>
 	<% if count == 0 %>

@@ -1,12 +1,11 @@
 <% if !seat.selected? %>
-<%= link_to select_product_seat_path(@product,seat), :method => :post do%>
-<img src="http://ocs14bvbg.bkt.clouddn.com/17-2-23/39325123-file_1487849476008_83e8.jpg" alt="none">
-
-<% end %>
+	<%= link_to select_product_seat_path(@product,seat), :method => :post do%>
+	<img src="http://ocs14bvbg.bkt.clouddn.com/17-2-23/39325123-file_1487849476008_83e8.jpg" alt="none">
+	<% end %>
 <% else %>
-<%= link_to cancel_product_seat_path(@product,seat), :method => :post  do%>
-<img src="http://ocs14bvbg.bkt.clouddn.com/17-2-23/39325123-file_1487849476008_83e8.jpg" alt="none">
-<% end %>
+	<%= link_to cancel_product_seat_path(@product,seat), :method => :post  do%>
+	<img src="http://ocs14bvbg.bkt.clouddn.com/17-2-23/39325123-file_1487849476008_83e8.jpg" alt="none">
+	<% end %>
 <% end %>
 <% if current_user.is_admin? %>
 <%= link_to("D/", product_seat_path(@product,seat), :method => :delete, :data => { :confirm => "Are you sure??" })%>

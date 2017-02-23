@@ -18,7 +18,7 @@ genres= [ "Action","Adventure","Animation",
  "Thriller",
  "War"]
 
- locations=["Beijing","Shanghai"]
+ locations=["Beijing","Shanghai","Shenzhen"]
 
 products_movies =[{title:"Skyfall",description:"Skyfall is a 2012 action thriller film produced by Eon Productions for
 	              Columbia Pictures and Metro-Goldwyn-Mayer. It is the 23rd James Bond film produced by Eon Productions
@@ -84,6 +84,7 @@ seat={genre:"Action",image_path: "#{Rails.root}/app/assets/images/seat/seat.jpg"
 u = User.create([ email: 'a@a.com' ,  password: '123456' ,password_confirmation:'123456',is_admin:true])
 puts "create a adminer"
 
+
 create_products = for i in 1..30 do
 	products_movie = products_movies[rand(0..15)]
 	if !products_movie.empty?
@@ -91,7 +92,7 @@ create_products = for i in 1..30 do
 		
 		creat_seast= for j in 1..64 do
 		  Seat.create([product_id:i])
-		end
+
 	end
 end
 
