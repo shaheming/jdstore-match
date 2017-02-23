@@ -44,9 +44,10 @@ Rails.application.routes.draw do
 
   namespace :account do
 		resources :orders
+    	resources :seats
 	end
 
-  
+
     resources :products do
       resources :seats do
         member do

@@ -1,5 +1,5 @@
 class SeatsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :destroy]
+  before_action :authenticate_user!
 	before_action :admin_required, only: [:new, :create, :edit, :destroy]
 
   def index
@@ -60,12 +60,12 @@ class SeatsController < ApplicationController
   # @seat.product=@product   这两句为什么是多余的？
   if !@seat.selected?
     current_user.select!(@seat)
-    @seat.save
-    flash[:notice]="选座成功！"
+    @seat.save!
+    flash[:notice]="select seat successfully！"
   elsif @seat.selected? && @seat.user == current_user
-    flash[:warning]="这个座位已经是您的了"
+    flash[:warning]="this is already your seat"
   else
-    flash[:alert]="这个座位已被抢走，您再看看别的:)"
+    flash[:alert]="maybe you should choose another one:)"
   end
   redirect_to :back
   end
@@ -77,11 +77,11 @@ class SeatsController < ApplicationController
     if @seat.selected? && @seat.user == current_user
       current_user.cancel!(@seat)
       @seat.save
-      flash[:warning]="取消选择"
+      flash[:warning]="cancel the seat"
     elsif !@seat.selected?
-       flash[:warning]="这个座位您还没选，如何取消:)"
+       flash[:warning]="how can you cancel a seat that you have not choose yet:)"
     else
-      flash[:alert]="您无权替别人取消座位！"
+      flash[:alert]="you have no admission to make a cancel for others！"
     end
     redirect_to :back
   end

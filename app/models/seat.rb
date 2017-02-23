@@ -6,6 +6,4 @@ class Seat < ApplicationRecord
     is_selected
   end
 
-
-  validates :seatimg, presence: true
 end

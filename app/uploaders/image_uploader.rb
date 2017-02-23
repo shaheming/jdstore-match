@@ -23,6 +23,13 @@ end
 version :thumb do
   process resize_to_fill:[200,296]
 end
+
+
+version :smallseat do
+  process resize_to_fill:[26,26]
+end
+
+
 version :medium do
   process resize_to_fill:[400,592]
 end
