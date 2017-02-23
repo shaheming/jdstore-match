@@ -1,6 +1,6 @@
 <nav class="navbar navbar-default" role="navigation " id="BB-nav">
 	<div class="container-fluid">
-		
+
 			<div class="row">
 				<ul class="nav">
 					<li>
@@ -41,7 +41,7 @@
 				</div>
 				<div style="display: inline-block;" class="col-md-4">
 					<ul class="nav navbar-nav navbar-right nav-pills">
-						
+
 						<li class="li-form">
 							<!--  SEARCH -->
 							<form role="search" id="search-nav" method="get" action="#" class="search-button">
@@ -78,19 +78,19 @@
 								<li class="dropdown-active">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Hi!, <%= current_user.email %> <b class="caret"></b></a>
 									<ul class="dropdown-menu">
-										
+
 										<% if current_user.admin? %>
 										<li><%= link_to(content_tag(:i,' Admin panel',class:'fa fa-tachometer',"aria-hidden"=>"true"),admin_products_path) %></li>
 										<% end %>
-										
 										<li><%= link_to(content_tag(:i,' Your Orders',class:'fa fa-list',"aria-hidden"=>"true"),account_orders_path) %></li>
+										<li><%= link_to(content_tag(:i,' My seats',class:'fa fa-list',"aria-hidden"=>"true"),account_seats_path) %></li>
 										<li class="divider"></li>
 										<li>	<%= link_to(content_tag(:i,' Log Out',class:'fa fa-sign-out'),destroy_user_session_path,method: :delete) %></li>
 									</ul>
 								</li>
 							</ul>
 							<% end %>
-							
+
 						</li>
 					</ul>
 				</div>
@@ -102,6 +102,6 @@
 				<% end %>
 				</div>
 			</div>
-		
+
 	</div>
 </nav>

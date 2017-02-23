@@ -19,7 +19,7 @@
 			<%= link_to("Select seat",product_seats_path(@product),method: :get,:class=>"btn btn-primary btn-lg ") %>
 
 		<% else %>
-			we are sorry, no such movie :(
+			we are sorry, out of sale :(
 		<% end %>
 		<% if current_user.admin? %>
 		<%= link_to("Add seat",new_product_seat_path(@product),method: :get, :class=>"btn btn-primary btn-lg ") %>
