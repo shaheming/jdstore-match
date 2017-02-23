@@ -10,24 +10,21 @@
 		<h2><%= @product.title  %></h2>
 		<div style="height: 150px;">
 			<p><%=simple_format(@product.description)  %></p>
-
 		</div>
 		<div> Quantity:<%= @product.quantity%></div>
 		<div class="product-price">￥<%= @product.price %></div>
 		<div class="pull-middle" style="margin-top: 200px;">
-		<% if @product.quantity.present? && @product.quantity > 0 %>
+			<% if @product.quantity.present? && @product.quantity > 0 %>
 			<%= link_to("Select seat",product_seats_path(@product),method: :get,:class=>"btn btn-primary btn-lg ") %>
-
-		<% else %>
+			<% else %>
 			we are sorry, out of sale :(
-		<% end %>
-		<% if current_user.admin? %>
-		<%= link_to("Add seat",new_product_seat_path(@product),method: :get, :class=>"btn btn-primary btn-lg ") %>
-		<% end %>
+			<% end %>
+			<% if !current_user.blank? %>
+			<% if current_user.admin? %>
+			<%= link_to("Add seat",new_product_seat_path(@product),method: :get, :class=>"btn btn-primary btn-lg ") %>
+			<% end %>
+			<% end %>
+		</div>
 	</div>
-
-
-	</div>
-
 </div>
 <!-- (:product_id => @product.id), 这是什么东西-->

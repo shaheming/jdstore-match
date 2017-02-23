@@ -79,16 +79,18 @@ products =[{title:"Apple iPhone 6 64GB",
 	        image_path: "#{Rails.root}/app/assets/images/chair.jpg"}
 ]
 
-seat={genre:"Action",image_path: "#{Rails.root}/app/assets/images/seat/seat.jpg"}
+
 
 u = User.create([ email: 'a@a.com' ,  password: '123456' ,password_confirmation:'123456',is_admin:true])
 puts "create a adminer"
 
+u1 = User.create([ email: 'b@b.com' ,  password: '123456' ,password_confirmation:'123456',is_admin:false])
+puts "create a user"
 
 create_products = for i in 1..30 do
 	products_movie = products_movies[rand(0..15)]
 	if !products_movie.empty?
-		Product.create([title:products_movie[:title],description:products_movie[:description],quantity:rand(1..100),price:rand(5..9)*10,image:open(products_movie[:image_path]),location:locations[rand(0..1)]])
+		Product.create([title:products_movie[:title],genre:products_movie[:genre],description:products_movie[:description],quantity:rand(1..100),price:rand(5..9)*10,image:open(products_movie[:image_path]),location:locations[rand(0..1)]])
 		
 		creat_seast= for j in 1..64 do
 		  Seat.create([product_id:i])
