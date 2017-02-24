@@ -75,8 +75,8 @@ class SeatsController < ApplicationController
   def cancel
     # @product=Product.find(params[:id])
     @seat=Seat.find(params[:id])
-    if @seat.selected? && @seat.cart == current_cart
-      current_cart.cancel!(@seat)
+    if @seat.selected? && @seat.user == current_user
+      current_user.cancel!(@seat)
       @seat.save
       flash[:warning]="cancel the seat"
     else
