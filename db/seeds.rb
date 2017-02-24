@@ -18,7 +18,7 @@ genres= [ "Action","Adventure","Animation",
  "Thriller",
  "War"]
 
- locations=["Beijing","Shanghai","Shenzhen"]
+ locations=[["Beijing","Beijing Wanda International Cinema CBD Branch"],["Shanghai","Shanghai Wanda International Cinema CBD Branch"],["Shenzhen","Shenzhen Wanda International Cinema CBD Branch"]]
 
 products_movies =[{title:"Skyfall",description:"Skyfall is a 2012 action thriller film produced by Eon Productions for
 	              Columbia Pictures and Metro-Goldwyn-Mayer. It is the 23rd James Bond film produced by Eon Productions
@@ -91,8 +91,14 @@ quantity  = 64
 
 create_products = for i in 1..30 do
 	products_movie = products_movies[rand(0..15)]
+	location = locations[rand(0..2)]
 	if !products_movie.empty?
-		Product.create([title:products_movie[:title],genre:products_movie[:genre],description:products_movie[:description],quantity:quantity,price:rand(5..9)*10,image:open(products_movie[:image_path]),location:locations[rand(0..1)]])
+		Product.create([title:products_movie[:title],
+			genre:products_movie[:genre],
+			description:products_movie[:description],
+			quantity:quantity,price:rand(5..9)*10,
+			location:location[0],location_detail:location[1],
+			image:open(products_movie[:image_path])])
 		
 		creat_seast= for j in 1..quantity do
 		  Seat.create([product_id:i])

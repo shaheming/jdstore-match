@@ -13,7 +13,8 @@
 		<div style="height: 150px;">
 			<p id="show-text"><%=simple_format(@product.description)  %></p>
 		</div>
-		<div > <span id="show-remind">Remind: <%= @product.quantity%></span></div>
+		<div > <span id="show-remind"><b>Remind: <%= @product.quantity%></b></span></div>
+		<div > <span id="show-remind"><i class="fa fa-map-marker" aria-hidden="true"><b> <%=@product.location_detail%></b> </i> </span></div>
 		<div  id="show-price"><%= number_to_currency(@product.price,:unit=>"$") %></div>
 		<br>
 		<br>
