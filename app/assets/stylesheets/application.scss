@@ -409,3 +409,85 @@ divider-space-90 {
 #show-text{
    font-family: 'Lato', sans-serif;
 }
+
+/*************************
+*******canvas******
+**************************/
+
+@import url(http://fonts.googleapis.com/css?family=Anaheim);
+
+
+#images-gallery {
+      height: 800px;
+}
+
+#images-gallery > h1{
+  display: table;
+  margin: 5% auto 0;
+  text-transform: uppercase;
+  font-family: 'Anaheim', sans-serif;
+  font-size: 4em;
+  font-weight: 400;
+  text-shadow: 0 1px white, 0 2px black;
+}
+#images-gallery .container{
+  margin: 4% auto;
+  width: 210px;
+  height: 140px;
+  position: relative;
+  perspective: 1000px;
+}
+ #images-gallery #carousel{
+  
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  animation: rotation 20s infinite linear;
+}
+  #images-gallery #carousel:hover{
+  animation-play-state: paused;
+}
+  #images-gallery #carousel > figure{
+
+  display: block;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  overflow: hidden;
+  // border: solid 5px white;
+}
+#images-gallery #carousel figure:nth-child(1){transform: rotateY(0deg) translateZ(288px);}
+#images-gallery #carousel figure:nth-child(2) { transform: rotateY(40deg) translateZ(288px);}
+#images-gallery #carousel figure:nth-child(3) { transform: rotateY(80deg) translateZ(288px);}
+#images-gallery #carousel figure:nth-child(4) { transform: rotateY(120deg) translateZ(288px);}
+#images-gallery #carousel figure:nth-child(5) { transform: rotateY(160deg) translateZ(288px);}
+#images-gallery #carousel figure:nth-child(6) { transform: rotateY(200deg) translateZ(288px);}
+#images-gallery #carousel figure:nth-child(7) { transform: rotateY(240deg) translateZ(288px);}
+#images-gallery #carousel figure:nth-child(8) { transform: rotateY(280deg) translateZ(288px);}
+#images-gallery #carousel figure:nth-child(9) { transform: rotateY(320deg) translateZ(288px);}
+
+
+
+
+#carousel .thumbnail{
+  padding: 0px;
+  margin-bottom: 0px; 
+}
+#images-gallery img{
+  -webkit-filter: grayscale(1);
+  cursor: pointer;
+  transition: all .5s ease;
+}
+#images-gallery img:hover{
+  -webkit-filter: grayscale(0);
+  transform: scale(1.2,1.2);
+}
+
+@keyframes rotation{
+  from{
+    transform: rotateY(0deg);
+  }
+  to{
+    transform: rotateY(360deg);
+  }
+}
