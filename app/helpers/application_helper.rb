@@ -30,6 +30,16 @@ def show_cart_items_image(product)
   end
 end
 
+def render_samll_img(product)
+    link_to product_path(product) do
+    if product.image.present?
+      image_tag(product.image.small.url)
+    else
+      image_tag("http://placehold.it/100x149&text=No Pic")
+    end
+  end
+end
+
 def render_highlight_content(product_text,query_string)
     excerpt_cont = excerpt(product_text, query_string, radius: 500)
     highlight(product_text, query_string,highlighter: '<b>\1</b>')

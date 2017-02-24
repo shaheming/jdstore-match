@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
 	def index
 		validate_genre_key
 		validate_location_key
+		@products_index = Product.all
 		if @genre.blank? and @location.blank?
 			@products=Product.all.paginate(:page => params[:page], :per_page => 12)
 		else

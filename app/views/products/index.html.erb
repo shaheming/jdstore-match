@@ -1,3 +1,29 @@
+
+<div class="row" id="images-gallery">
+<h1 id="center-title">Hot movies</h1>
+<hr>
+	<div class="container">
+		<div class="row">
+			<div id="carousel" class="col-md-12">
+				<figure><%= render_samll_img(@products_index[1]) %>
+				</figure>
+				<figure><%= render_samll_img(@products_index[2])%></figure>
+				<figure><%= render_samll_img(@products_index[3])%></figure>
+				<figure><%= render_samll_img(@products_index[4])%></figure>
+				<figure><%= render_samll_img(@products_index[5])%></figure>
+				<figure><%= render_samll_img(@products_index[6])%></figure>
+				<figure><%= render_samll_img(@products_index[7])%></figure>
+				<figure><%= render_samll_img(@products_index[8])%></figure>
+				<figure><%= render_samll_img(@products_index[9])%></figure>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div >
+	<h1 id="center-title" >Movies on show</h1>
+</div>
+<hr>
 <div class="row display-page">
 	<% if @genre_show.present? %>
 	<h2 id="index-title"><i class="fa fa-tag" aria-hidden="true"> <%= @genre_show %></i></h2>

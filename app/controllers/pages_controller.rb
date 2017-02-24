@@ -6,4 +6,7 @@ class PagesController < ApplicationController
 	def test
 		@products = Product.all
 	end
+	def test_test
+		@products = Product.all
+	end
 end
