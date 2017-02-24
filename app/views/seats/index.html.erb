@@ -26,7 +26,6 @@
   background: url("http://www.wandafilm.com/imges/movie/sit_div_img.jpg") no-repeat top left;
   padding-left: 30px;
   padding-right: 10px;
-
   margin-left: 450px;
 
 
@@ -90,15 +89,13 @@ h2{
 </div>
 
 <div class="container" >
-    <h2 style="text-align:center">Select Seat</h2>
     <%  count = 0 %>
     <%i=1 %>
     <% @seats.each do |seat| %>
     <% if count == 0 %>
     <div class="row" style="margin:auto">
       <div class="seatrow" style="padding-left: 450px">
-        ROW
-        <%= i %>:
+        <%= i %>
         <% end %>
         <% count+=1 %>
         <%= render partial: "seat_item", locals: { seat:seat} %>
@@ -111,7 +108,7 @@ h2{
     <% end %>
   </div>
 </div>
-<div class="pull-right" style="padding-bottom: 20px;">
-<%= link_to("Done!", add_to_cart_product_path(@product),:method => :post, :class =>"btn btn-primary btn-lg btn-danger" ) %>
+<div class="pull-right" style="margin:50px 0px 50px 5px;">
+<%= link_to("View in cart!",carts_path, :class =>"btn btn-lg",:id=>"cart-botton" ) %>
 </div>
 </div>

@@ -1,21 +1,15 @@
 <% if !seat.selected? %>
 	<%= link_to select_product_seat_path(@product,seat), :method => :post do%>
-	<img src="http://ocs14bvbg.bkt.clouddn.com/17-2-23/39325123-file_1487849476008_83e8.jpg" alt="none">
+	<img src="http://ocs14bvbg.bkt.clouddn.com/17-2-23/39325123-file_1487849476008_83e8.jpg" alt="none" id="seat-img">
 	<% end %>
 <% else %>
 	<% if seat.user == current_user %>
 		<%= link_to cancel_product_seat_path(@product,seat), :method => :post  do%>
-		<img src="http://ocs14bvbg.bkt.clouddn.com/17-2-23/69286193-file_1487853467557_1bf6.jpg" alt="none">
+		<img src="http://ocs14bvbg.bkt.clouddn.com/17-2-23/69286193-file_1487853467557_1bf6.jpg" alt="none" id="seat-img">
 		<% end %>
 	<% else %>
 		<%= link_to "#"  do%>
-		<img src="http://ocs14bvbg.bkt.clouddn.com/17-2-23/88146774-file_1487853508414_c980.jpg" alt="none">
+		<img src="http://ocs14bvbg.bkt.clouddn.com/17-2-23/88146774-file_1487853508414_c980.jpg" alt="none" id="seat-img">
 		<% end %>
 	<% end %>
-<% end %>
-<% if current_user.is_admin? %>
-<%= link_to("D/", product_seat_path(@product,seat), :method => :delete, :data => { :confirm => "Are you sure??" })%>
-<%= link_to("E", edit_product_seat_path(@product,seat), :method => :get)%>
-<% else %>
-<!-- Seat ID:<%= seat.id%> -->
 <% end %>
