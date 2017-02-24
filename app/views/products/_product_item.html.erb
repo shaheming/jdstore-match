@@ -2,16 +2,14 @@
 	<%= link_to product_path(product) do %>
 	<div class="index-item">
 		<div class="product-img">
-
-		<%= show_product_image(product)  %>
+			<%= show_product_image(product)  %>
 			<% end %>
 		</div >
 		<div class="product-title">
-			<%= link_to(product.title,product_path(product),class:"product-title") %>
-			<br><br>
-
-			<span class="price"><%= number_to_currency(product.price,:unit=>'$')%></span>
+			<span class="pull-left"><i class="fa fa-clock-o" aria-hidden="true"> <span class="font-style"><%= product.created_at.end_of_month.noon.to_s(:db) %></span></i></span><br>
+			<span class="pull-left"><i class="fa fa-usd" aria-hidden="true"> <span class="font-style"><%= number_to_currency(product.price,unit:"")%></span> </i> </span>
 		</div>
+		
 		
 	</div>
 </div>

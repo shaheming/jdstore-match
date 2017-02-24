@@ -1,7 +1,7 @@
 
 <div class="row" id="images-gallery">
-<h1 id="center-title">Hot movies</h1>
-<hr>
+<h2 id="center-title">Hot movies</h2>
+
 	<div class="container">
 		<div class="row">
 			<div id="carousel" class="col-md-12">
@@ -23,12 +23,12 @@
 <div >
 	<h1 id="center-title" >Movies on show</h1>
 </div>
-<hr>
+
 <div class="row display-page">
 	<% if @genre_show.present? %>
-	<h2 id="index-title"><i class="fa fa-tag" aria-hidden="true"> <%= @genre_show %></i></h2>
+	<h2 id="index-title"><i class="fa fa-tag" aria-hidden="true"><span class="font-style"><%= @genre_show %></span> </i></h2>
 	<% elsif @location_show.present? %>
-	<h2 id="index-title"><i class="fa fa-location-arrow" aria-hidden="true"> <%= @location_show %></i></h2>
+	<h2 id="index-title"><i class="fa fa-location-arrow" aria-hidden="true"><span class="font-style"><%= @location_show %></span> </i></h2>
 	<% else %>
 	<% end %>
 	<%  count = 0 %>
