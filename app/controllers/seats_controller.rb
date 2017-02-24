@@ -60,6 +60,7 @@ class SeatsController < ApplicationController
   # @seat.product=@product   这两句为什么是多余的？
   if !@seat.selected?
     current_user.select!(@seat)
+    current_cart.add_product_to_cart(@seat.product,@seat)
     @seat.save!
     flash[:notice]="select seat successfully！"
   elsif @seat.selected? && @seat.user == current_user
@@ -74,8 +75,8 @@ class SeatsController < ApplicationController
   def cancel
     # @product=Product.find(params[:id])
     @seat=Seat.find(params[:id])
-    if @seat.selected? && @seat.user == current_user
-      current_user.cancel!(@seat)
+    if @seat.selected? && @seat.cart == current_cart
+      current_cart.cancel!(@seat)
       @seat.save
       flash[:warning]="cancel the seat"
     else
