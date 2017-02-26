@@ -1,4 +1,13 @@
-
+<script type="text/javascript">
+	$(document).scroll(function() {
+  var y = $(this).scrollTop();
+  if (y > 1000) {
+    $('.sidebar').fadeIn();
+  } else {
+    $('.sidebar').fadeOut();
+  }
+});
+</script>
 <div class="row" id="images-gallery">
 <h2 id="center-title">Hot movies</h2>
 
@@ -24,7 +33,9 @@
 	<h1 id="center-title" >Movies on show</h1>
 </div>
 
-<div class="row display-page">
+<div class="row">
+	<div class="col-md-8">
+		<div class="row display-page">
 	<% if @genre_show.present? %>
 	<h2 id="index-title"><i class="fa fa-tag" aria-hidden="true"><span class="font-style"><%= @genre_show %></span> </i></h2>
 	<% elsif @location_show.present? %>
@@ -38,12 +49,39 @@
 		<% end %>
 		<% count+=1 %>
 		<%= render partial: "product_item", locals: { product:product} %>
-		<% if count == 4 || product == @products.last%>
+		<% if count == 3 || product == @products.last%>
 	</div>
 	<% count = 0 %>
 	<% end %>
 	<% end %>
+
 	<div class="row pull-right">
 		<%= will_paginate @products ,class:"apple_pagination" %>
 	</div>
 </div>
+	</div>
+	<div class="col-md-4">
+		
+	<div class='sidebar'>
+        <h2 style="margin-top: 0px">TOP 5 Box Office</h2>
+        <ul class="nav nav-tabs nav-stacked">
+        
+        <% for i in 1..5 do %>
+        <% p= Product.find_by_id(i) %>
+        <li><%= link_to("#{i}. "+p.title,product_path(p)) %>
+        <% if i== rand(1..5) %>
+        	 <i class="fa fa-arrow-up pull-right" aria-hidden="true"></i>
+        	 <% else %>
+        	 <i class="fa fa-arrow-down pull-right" aria-hidden="true"></i>
+        <% end %>
+       
+        </li>
+        <% end %>
+          
+        </ul>
+      </div>
+	</div>
+</div>
+
+
+

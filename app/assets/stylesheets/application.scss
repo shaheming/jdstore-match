@@ -618,3 +618,21 @@ divider-space-90 {
   padding: 5px;
 
 }
+
+.sidebar{
+  margin-left: 0px;
+      position: fixed;
+    top: 200px;
+    right: 100px;
+    display: none;
+}
+
+.sidebar>ul>li> a{
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-family: 'Anaheim', sans-serif !important;
+  color: black;
+  display: inline;
+  padding-left: 0px;
+      font-size: 20px;
+}
