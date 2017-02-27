@@ -4,70 +4,48 @@
 <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
 <script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script> 
 
+
 <!-- only if you need custom infoboxes -->
 <% p= Product.first  %>
-<div style ="display:none;" value=<%= p.location %>>
-	
-	<div id="p-location">
+<div style ="display:none;" >
+	<div id="p-location" value=<%= p.location %>>
 		<span><%= p.location %></span>
 	</div>
 </div>
-<div id='c'>
+
+
+<div style='width: 800px;' id="sidebar_container">
+<button class="btn btn-default" id="controller">controller</button>
 </div>
-
-<div style='width: 800px;'>
-  <div id="sidebar_builder" style='width: 800px; height: 400px;'></div>
-
-  <%= javascript_tag do %>
-   <% i=1%>
-  console.log(i)
-<% end %>
- 
-  <script type="text/javascript"></script>
-</div>
-
-
 <script type="text/javascript">
 	
-	function createSidebarLi(json){
-  return ("<li><a>" + json.name + "</a></li>");
-};
+ $('#controller').on('click', function(){
+console.log("show");
+$('#sidebar_builder').show();
+    	console.log("map");
+  	handler = Gmaps.build('Google');
+	handler.buildMap({ internal: {id: 'sidebar_builder'}}, function(){
+	if ($('#p-location').attr('value')=="Shenzhen"){
+	marker = handler.addMarkers(<%=raw @hash.to_json %>);
+	    handler.bounds.extendWith(marker);
+    handler.fitMapToBounds();
+    }});  } ) 
 
-function bindLiToMarker($li, marker){
-  $li.on('click', function(){
-    handler.getMap().setZoom(14);
-    marker.setMap(handler.getMap()); //because clusterer removes map property from marker
-    marker.panTo();
-    google.maps.event.trigger(marker.getServiceObject(), 'click');
-  })
-};
-
-function createSidebar(json_array){
-  _.each(json_array, function(json){
-    var $li = $( createSidebarLi(json) );
-    $li.appendTo('#sidebar_container');
-    bindLiToMarker($li, json.marker);
-  });
-};
-
-handler = Gmaps.build('Google');
-handler.buildMap({ internal: {id: 'sidebar_builder'}}, function(){
-  var json_array = [
-    { lat: 39.9092, lng: 116.4715, name: 'Beijing', infowindow: "Beijing Wanda International Cinema CBD Branch" },
-    { lat:31.1139, lng: 121.5707, name: 'Shanghai', infowindow: "Shanghai Wanda International Cinema " },
-    { lat: 22.56085, lng: 113.90691, name: 'Shenzhen', infowindow: "Shenzhen Wanda International Cinema" }
-  ];
-
-  var markers = handler.addMarkers(json_array);
-
-  _.each(json_array, function(json, index){
-    json.marker = markers[index];
-  });
-
-  createSidebar(json_array);
-  handler.bounds.extendWith(markers);
-  handler.fitMapToBounds();
-});
-    
 </script>
+  <div id="sidebar_builder" style='width: 800px; height: 400px;display: none ;'>
+  	<script type="text/javascript">
+  	function myFunction(){
+  	console.log("map");
+  	handler = Gmaps.build('Google');
+	handler.buildMap({ internal: {id: 'sidebar_builder'}}, function(){
+	if ($('#p-location').attr('value')=="Shenzhen"){
+	marker = handler.addMarkers(<%=raw @hash.to_json %>);
+	    handler.bounds.extendWith(marker);
+    handler.fitMapToBounds();
+    }});}
+</script>
+
+  </div>
+
+
 

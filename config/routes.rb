@@ -61,6 +61,7 @@ Rails.application.routes.draw do
 	controller :pages do
 		get :about
 		get :test
+		get :test_test
 	end
 
 
