@@ -26,11 +26,12 @@ class ProductsController < ApplicationController
 
 	def show
 		@product = Product.find(params[:id])
-
-		@hash = Gmaps4rails.build_markers(@product) do |p, marker|
-	      marker.lat p.lat.to_f
-	      marker.lng p.lng.to_f
-	      marker.title p.location
+		lat = @product.lat.to_f
+		lng = @product.lng.to_f
+		@hash = Gmaps4rails.build_markers(@product) do |product, marker|
+	      marker.lat lat
+	      marker.lng lng
+	      marker.title product.location
 	       marker.picture({
               :url => "/assets/images/location.png",
               :width   => 20,

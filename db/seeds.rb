@@ -18,7 +18,7 @@ genres= [ "Action","Adventure","Animation",
  "Thriller",
  "War"]
 
- locations=[["Beijing","Beijing Wanda International Cinema CBD Branch",39.9092,116.4715],["Shanghai","Shanghai Pudong  Wanda International Cinema",31.1139,121.5707],["Shenzhen","Shenzhen Wanda International Cinema CBD Branch",22.56085,22.56085]]
+ locations=[["Beijing","Beijing Wanda International Cinema CBD Branch","39.9092","116.4715"],["Shanghai","Shanghai Pudong  Wanda International Cinema","31.1139","121.5707"],["Shenzhen","Shenzhen Wanda International Cinema CBD Branch","22.56085","22.56085"]]
 
 products_movies =[{title:"Skyfall",description:"Skyfall is a 2012 action thriller film produced by Eon Productions for
 	              Columbia Pictures and Metro-Goldwyn-Mayer. It is the 23rd James Bond film produced by Eon Productions
