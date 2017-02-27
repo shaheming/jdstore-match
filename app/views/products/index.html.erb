@@ -1,9 +1,11 @@
 <script type="text/javascript">
 	$(document).scroll(function() {
   var y = $(this).scrollTop();
-  if (y > 800) {
-    $('.sidebar').fadeIn();
-  } else {
+  if (y > 800 && y<2000) {
+  $('.sidebar').fadeIn();
+  } 
+
+  else {
     $('.sidebar').fadeOut();
   }
 });
@@ -64,7 +66,7 @@
 		
 	<div class='sidebar'>
         <h2 style="margin-top: 0px">TOP 5 Box Office</h2>
-        <ul class="nav nav-tabs nav-stacked">
+        <ul>
         
         <% for i in 1..5 do %>
         <% p= Product.find_by_id(i) %>

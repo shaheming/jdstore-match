@@ -6,8 +6,11 @@ html {
   font-family: 'Anaheim', sans-serif !important;
 }
 
-h2,th,td,body{
-  font-family: 'Anaheim', sans-serif ;
+h2,
+th,
+td,
+body {
+  font-family: 'Anaheim', sans-serif;
 }
 
 #brand {
@@ -391,16 +394,16 @@ divider-space-90 {
   opacity: 1;
 }
 
-  #cart-botton {
-    background: #444444;
-    color: #ffffff;
-    font-family: 'Anaheim', sans-serif;
-    cursor: pointer;
-    text-transform: uppercase;
-    border-radius: 2px;
-    padding: 8px 16px;
-    margin-left: 10px;
-  }
+#cart-botton {
+  background: #444444;
+  color: #ffffff;
+  font-family: 'Anaheim', sans-serif;
+  cursor: pointer;
+  text-transform: uppercase;
+  border-radius: 2px;
+  padding: 8px 16px;
+  margin-left: 10px;
+}
 
 #order-form-head {
   padding-bottom: 10%;
@@ -410,8 +413,9 @@ divider-space-90 {
   background: #F9F9F9;
   padding-bottom: 10%;
 }
-#order-info #order-form-head{
-    margin-bottom: 0;
+
+#order-info #order-form-head {
+  margin-bottom: 0;
 }
 
 #order-info a {
@@ -469,7 +473,6 @@ divider-space-90 {
   font-size: 3em;
   margin-bottom: 5%;
 }
-
 
 #show-title {
   font-family: 'Anaheim', sans-serif;
@@ -602,8 +605,6 @@ divider-space-90 {
 
 }
 
-
-
 .middle {
   transition: .5s ease;
   opacity: 0;
@@ -614,25 +615,31 @@ divider-space-90 {
   -ms-transform: translate(-50%, -50%)
 }
 
-#seat-img{
+#seat-img {
   padding: 5px;
-
 }
 
-.sidebar{
-       margin-left: 0px;
-      position: fixed;
-    top: 200px;
-    right: 100px;
-    display: none;
+.sidebar {
+  margin-left: 20px;
+  position: fixed;
+  top: 200px;
+  right: 50px;
+  display: none;
+}
+.sidebar >ul >li {
+  list-style-type: none;
+}
+.sidebar >ul {
+  padding-left: 10px;
 }
 
-.sidebar>ul>li> a{
+.sidebar>ul>li> a {
   padding-top: 8px;
   padding-bottom: 8px;
   font-family: 'Anaheim', sans-serif !important;
   color: black;
   display: inline;
   padding-left: 0px;
-      font-size: 20px;
+  font-size: 20px;
+  margin-right: 10px;
 }
