@@ -15,8 +15,11 @@
 //= require turbolinks
 //= require bootstrap/alert
 //= require bootstrap/dropdown
-//= require_tree .
+//= require underscore
+//= require gmaps/google
 //= require bootstrap-sprockets
+//= require_tree .
+
 
 
 
