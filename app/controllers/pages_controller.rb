@@ -21,7 +21,7 @@ class PagesController < ApplicationController
     	end 
 	end
 	def test_test
-
+		@products = Product.all
 	end
 
 

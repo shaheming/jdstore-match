@@ -1,24 +1,5 @@
-
-
-<div style='width: 800px;'>
-  <div id="one_marker" style='width: 800px; height: 400px;'></div>
-</div>
-
 <script type="text/javascript">
-  handler = Gmaps.build('Google');
-handler.buildMap({ internal: {id: 'one_marker'}}, function(){
-  markers = handler.addMarkers([
-    {
-      lat: 0,
-      lng: 0,
-      picture: {
-        url: "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
-        width:  36,
-        height: 36
-      },
-      infowindow: "hello!"
-    }
-  ]);
-});
-    
+  console.log(<%= @products.first%>)
 </script>
+
+<a style="color:#181818;" href="/">iMoviestore</a>

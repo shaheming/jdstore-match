@@ -63,6 +63,6 @@ Rails.application.routes.draw do
 		get :test
 		get :test_test
 	end
-
+   resources :welcome
 
 end

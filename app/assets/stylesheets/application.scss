@@ -472,6 +472,10 @@ divider-space-90 {
   margin-left: 6%;
   font-size: 3em;
   margin-bottom: 5%;
+  color:black;
+}
+#index-title:hover{
+  text-decoration:none;
 }
 
 #show-title {
@@ -626,9 +630,11 @@ divider-space-90 {
   right: 50px;
   display: none;
 }
+
 .sidebar >ul >li {
   list-style-type: none;
 }
+
 .sidebar >ul {
   padding-left: 10px;
 }
@@ -642,4 +648,112 @@ divider-space-90 {
   padding-left: 0px;
   font-size: 20px;
   margin-right: 10px;
+}
+
+#landingpage-img {
+  margin-bottom: 5px;
+}
+
+#index-title {
+  font-size: 67px;
+}
+
+#index-ul {
+  list-style: none;
+}
+
+#index-ul > li {
+  font-size: 25px;
+}
+
+#index-picture {
+  // background-image: url("/assets/images/brand/index_pic.jpg");
+  // background-size: 25%;
+}
+
+#index-picture .row {
+  margin-top: 5%;
+  margin-bottom: 2%;
+}
+
+#promise {
+  background-color: rgba(200, 200, 200, 0.2);
+}
+
+#promise img {
+  max-width: 80%;
+  height: auto;
+}
+
+#promise-img {
+  margin-left: 25%;
+  margin-top: 5%;
+}
+
+#promise-img img {
+  border-radius: 20px;
+}
+
+#promise-title {
+  font-size: 45px;
+  margin-top: 60px;
+}
+
+#promise-ul {
+  list-style: none;
+  position: relative;
+  margin-left: 18%;
+}
+
+#promise-ul > li {
+  font-size: 20px;
+}
+
+#qrcode img {
+  max-width: 40%;
+  height: auto;
+}
+#qrcode{
+      padding-bottom: 30px;
+}
+#qr-img {
+  margin-left: 25%;
+  margin-top: 5%;
+}
+#icon {
+  background-color: rgba(200, 200, 200, 0.1);
+}
+#icon .icon{
+    margin-top: 20%;
+    position: relative;
+    left: 160px;
+}
+#icon ul{
+  margin-top: 50px;
+}
+
+#signup #push{
+    background: #444444;
+  color: #ffffff;
+  font-family: 'Anaheim', sans-serif;
+  cursor: pointer;
+  text-transform: uppercase;
+  border-radius: 2px;
+  padding: 0px 15px;
+  margin-left: 10px;
+  font-size: 40px;
+}
+
+#buttom-div{
+  position: relative;
+  top: 150px;}
+
+#big{
+   font-family: 'Anaheim', sans-serif;
+   font-size: 70px;
+}
+
+#small{
+     font-family: 'Anaheim', sans-serif;
+   font-size: 40px;
 }
