@@ -757,3 +757,18 @@ divider-space-90 {
      font-family: 'Anaheim', sans-serif;
    font-size: 40px;
 }
+
+
+.locationmodal-container{
+  background-color: white;
+  border-radius: 2px;
+}
+
+.modal-header{
+  border-bottom: none;
+      padding-bottom: 0px;
+}
+
+.modal-header .close{
+  font-size: 2em;
+}
