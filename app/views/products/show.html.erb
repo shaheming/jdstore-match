@@ -37,7 +37,7 @@
 		handler.buildMap({ internal: {id: 'sidebar_builder'}}, function(){
 		marker = handler.addMarkers(<%=raw @hash.to_json %>);
 		handler.bounds.extendWith(marker);
-	    handler.fitMapToBounds();
+	handler.fitMapToBounds();
 	})
 	;})
 	</script>
@@ -50,7 +50,6 @@
 					<span aria-hidden="true">&times;</span>
 					</button>
 					<h2 class="modal-title"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>&nbsp Location</h2>
-
 				</div>
 				<div class="modal-body">
 					<div class="row">
@@ -59,4 +58,6 @@
 				</div>
 			</div>
 		</div>
+
+		
 	</div>

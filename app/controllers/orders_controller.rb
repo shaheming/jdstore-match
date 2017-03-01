@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
 	before_action :authenticate_user!, only:[:create]
+	require 'rqrcode'
 	def create
 		@order = Order.new(order_params)
 		@order.user = current_user
@@ -27,6 +28,10 @@ class OrdersController < ApplicationController
 	def show
 		@order = Order.find_by_token(params[:id])
 		@product_lists = @order.product_lists
+		if @order.is_paid?
+			@product_lists = @order.product_lists
+			@qr = RQRCode::QRCode.new( 'https://github.com/whomwah/rqrcode', :size => 4, :level => :h )
+		end
 	end
 
 	def pay_with_alipay
@@ -49,6 +54,9 @@ class OrdersController < ApplicationController
 		OrderMailer.apply_cancel(@order).deliver!
 		# flash[:notice] = "Application Submitted"
 		redirect_to :back
+	end
+	def generate_tickets
+		
 	end
 
 	private

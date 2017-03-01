@@ -47,6 +47,7 @@ gem 'ransack'
 gem 'seo_helper'
 gem 'gmaps4rails'
 gem 'underscore-rails'
+gem 'rqrcode'
 group :production do
  gem 'pg'
 end

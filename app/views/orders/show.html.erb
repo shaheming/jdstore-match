@@ -15,12 +15,14 @@
 					<td><%= product_list.product_name %></td>
 
 					<td><b><%= number_to_currency(product_list.product_price,:unit=>'$') %></b> </td>
+					<td>1</td>
 
 				</tr>
 				<% end %>
 				<tr>
 					<td><b>Shipping</b> </td>
 					<td><b>-</b></td>
+					<td>-</td>
 				</tr>
 			</tbody>
 		</table>
@@ -55,4 +57,24 @@
 		<% end %>
 
 	</div>
+		<style type="text/css">
+		table {
+			border-width: 0;
+			border-style: none;
+			border-color: #0000ff;
+			border-collapse: collapse;
+		}
+		td {
+			border-left: solid 5px #000;
+			padding: 0;
+			margin: 0;
+			width: 0px;
+			height: 5px;
+		}
+		td.black { border-color: #000; }
+		td.white { border-color: #fff; }
+		</style>
+	<% if @order.is_paid? %>
+		<%= raw @qr.as_html %>
+	<% end %>
 </div>
