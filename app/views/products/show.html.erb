@@ -18,7 +18,7 @@
 		<div  id="show-price"><%= number_to_currency(@product.price,:unit=>"$") %></div>
 		<br>
 		<br>
-		<div class="pull-middle"">
+		<div class="pull-middle">
 			<% if @product.quantity.present? && @product.quantity > 0 %>
 			<%= link_to("Select seat",product_seats_path(@product),method: :get,:class=>"btn",id:"cart-botton") %>
 			<% else %>
