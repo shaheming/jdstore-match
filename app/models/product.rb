@@ -4,4 +4,5 @@ class Product < ApplicationRecord
 	validates :quantity, numericality:{:greater_than_or_equal_to => 0}
 	mount_uploader :image, ImageUploader
 	has_many :seats
+	has_many :reviews
 end

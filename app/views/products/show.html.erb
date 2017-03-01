@@ -1,6 +1,6 @@
 <div class="row display-page">
 <div class="row">
-	
+
 
 <div class="col-md-2"></div>
 	<div class="col-md-4">
@@ -38,7 +38,7 @@
 	</div>
 
 <script type="text/javascript">
-	
+
  $('#location-ctl').on('click', function(){
 	console.log("show");
 	$('#sidebar_builder').show();
@@ -53,11 +53,25 @@
 
 </script>
 <div class="row" style="margin-top: 40px;">
-		
+
 <div class="col-md-3"></div>
 <div id="sidebar_builder" class="col-md-6" style='width: 50%; height: 400px;display: none ;'></div>
 <div class="col-md-3"></div>
 </div>
 
+</div>
+
+<div class="row review">
+	<div class="col-sm-10 col-sm-offset-1">
+		<h3 class="reviews_title">
+			<%= @product.reviews.count %> Reviews
+		</h3>
+		<hr>
+		<div id="reivews">
+			<%= render @product.reviews%>
+			<hr>
+			<%= render "reviews/form"%>
+		</div>
+	</div>
 </div>
 <!-- (:product_id => @product.id), 这是什么东西-->
