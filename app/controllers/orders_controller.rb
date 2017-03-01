@@ -30,7 +30,11 @@ class OrdersController < ApplicationController
 		@product_lists = @order.product_lists
 		if @order.is_paid?
 			@product_lists = @order.product_lists
-			@qr = RQRCode::QRCode.new( 'https://github.com/whomwah/rqrcode', :size => 4, :level => :h )
+			
+			str_test ="the loar of the ring"+" " +"2007-12-12 17:20"+" " \
+			          +"col: 7"+" "+ "raw: 7" +"\ "+" aad  ddddddddda ddddddddd"
+			
+			@qr = RQRCode::QRCode.new( str_test, :size => 4, :level => :l )
 		end
 	end
 
