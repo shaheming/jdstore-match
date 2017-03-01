@@ -30,6 +30,17 @@ def show_cart_items_image(product)
   end
 end
 
+def render_landingpage_image(product)
+
+    if product.image.present?
+      image_tag(product.image.small.url, id: "landingpage-img")
+    else
+      image_tag("http://placehold.it/100x149&text=No Pic", id: "landingpage-img")
+    end
+
+end
+
+
 def render_samll_img(product)
     link_to product_path(product) do
     if product.image.present?

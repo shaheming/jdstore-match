@@ -1,19 +1,27 @@
-<div class="row" id="images-gallery">
+<div class="row" style="margin-bottom: 100px"> 
 
-	<div class="container">
-		<div class="row">
-			<div id="carousel" class="col-md-12">
-				<figure><%= render_samll_img(@products[1]) %>
-				</figure>
-				<figure><%= render_samll_img(@products[2])%></figure>
-				<figure><%= render_samll_img(@products[3])%></figure>
-				<figure><%= render_samll_img(@products[4])%></figure>
-				<figure><%= render_samll_img(@products[5])%></figure>
-				<figure><%= render_samll_img(@products[6])%></figure>
-				<figure><%= render_samll_img(@products[7])%></figure>
-				<figure><%= render_samll_img(@products[8])%></figure>
-				<figure><%= render_samll_img(@products[9])%></figure>
-			</div>
-		</div>
-	</div>
+<% p= Product.first  %>
+<div style ="display:none;" >
+	<div id="p-location" value = "<%= p.location %>" ><span> <%= p.location %></span></div>
+</div>
+
+
+<div style='width: 800px;' id="sidebar_container">
+<button class="btn btn-default" id="controller">controller</button>
+</div>
+<script type="text/javascript">
+	
+ $('#controller').on('click', function(){
+$('#sidebar_builder').show();
+    	console.log("map");
+  	handler = Gmaps.build('Google');
+	handler.buildMap({ internal: {id: 'sidebar_builder'}}, function(){
+
+	marker = handler.addMarkers(<%=raw @hash.to_json %>);
+	    handler.bounds.extendWith(marker);
+    handler.fitMapToBounds();
+    });  } ) 
+
+</script>
+  <div id="sidebar_builder" style='width: 800px; height: 400px;display: none ;'></div>
 </div>

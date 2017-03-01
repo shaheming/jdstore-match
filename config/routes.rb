@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
     devise_for :users
 
-	root 'products#index'
+	root 'welcome#index'
 
 	namespace :admin do
 		resources :products
@@ -61,7 +61,8 @@ Rails.application.routes.draw do
 	controller :pages do
 		get :about
 		get :test
+		get :test_test
 	end
-
+   resources :welcome
 
 end

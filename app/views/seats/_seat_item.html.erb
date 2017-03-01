@@ -1,15 +1,15 @@
 <% if !seat.selected? %>
 	<%= link_to select_product_seat_path(@product,seat), :method => :post do%>
-	<img src="http://ocs14bvbg.bkt.clouddn.com/17-2-23/39325123-file_1487849476008_83e8.jpg" alt="none" id="seat-img">
+	<img src="/assets/images/available.jpg" alt="none" id="seat-img">
 	<% end %>
 <% else %>
 	<% if seat.user == current_user %>
 		<%= link_to cancel_product_seat_path(@product,seat), :method => :post  do%>
-		<img src="http://ocs14bvbg.bkt.clouddn.com/17-2-23/69286193-file_1487853467557_1bf6.jpg" alt="none" id="seat-img">
+		<img src="/assets/images/yours.jpg" alt="none" id="seat-img">
 		<% end %>
 	<% else %>
 		<%= link_to "#"  do%>
-		<img src="http://ocs14bvbg.bkt.clouddn.com/17-2-23/88146774-file_1487853508414_c980.jpg" alt="none" id="seat-img">
+		<img src="/assets/images/others.jpg" alt="none" id="seat-img">
 		<% end %>
 	<% end %>
 <% end %>

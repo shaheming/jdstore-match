@@ -45,7 +45,8 @@ gem 'letter_opener',group: :development
 gem 'aasm'
 gem 'ransack'
 gem 'seo_helper'
-
+gem 'gmaps4rails'
+gem 'underscore-rails'
 group :production do
  gem 'pg'
 end

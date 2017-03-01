@@ -18,7 +18,7 @@ genres= [ "Action","Adventure","Animation",
  "Thriller",
  "War"]
 
- locations=[["Beijing","Beijing Wanda International Cinema CBD Branch"],["Shanghai","Shanghai Wanda International Cinema CBD Branch"],["Shenzhen","Shenzhen Wanda International Cinema CBD Branch"]]
+ locations=[["Beijing","Beijing Wanda International Cinema CBD Branch","39.9092","116.4715"],["Shanghai","Shanghai Pudong  Wanda International Cinema","31.1139","121.5707"],["Shenzhen","Shenzhen Wanda International Cinema CBD Branch","22.56085","113.90691"]]
 
 products_movies =[{title:"Skyfall",description:"Skyfall is a 2012 action thriller film produced by Eon Productions for
 	              Columbia Pictures and Metro-Goldwyn-Mayer. It is the 23rd James Bond film produced by Eon Productions
@@ -98,6 +98,7 @@ create_products = for i in 1..30 do
 			description:products_movie[:description],
 			quantity:quantity,price:rand(5..9)*10,
 			location:location[0],location_detail:location[1],
+			lat:location[2],lng:location[3],
 			image:open(products_movie[:image_path])])
 		
 		creat_seast= for j in 1..quantity do

@@ -4,6 +4,9 @@
     border: #c6e5dc 1px solid;
 }
 
+.bgwhite .sit{
+      margin-top: 100px;
+}
 .sit {
     width: 70%;
     height: 2000px;
@@ -19,14 +22,13 @@
 
 }
 .seat_tag{
-  width: 800px;
-  margin: 20px, auto;
+
 }
 .sit_green{
   background: url("http://www.wandafilm.com/imges/movie/sit_div_img.jpg") no-repeat top left;
   padding-left: 30px;
   padding-right: 10px;
-  margin-left: 450px;
+  margin-left: 510px;
 
 
   height: 26px;
@@ -57,10 +59,10 @@
   background: url("http://www.wandafilm.com/imges/movie/sit_div.jpg") no-repeat top left;
   float: left;
   clear: left;
-  margin-top: 50px;
+  margin-top: 10px;
   margin-left: 200px;
   width: 100%;
-  height: 120px;
+  height: 100px;
 }
 .row{
 
@@ -94,7 +96,7 @@ h2{
     <% @seats.each do |seat| %>
     <% if count == 0 %>
     <div class="row" style="margin:auto">
-      <div class="seatrow" style="padding-left: 450px">
+      <div class="seatrow" style="padding-left: 475px">
         <%= i %>
         <% end %>
         <% count+=1 %>

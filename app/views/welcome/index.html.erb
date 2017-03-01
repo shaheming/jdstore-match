@@ -1,5 +1,118 @@
 <div class="row">
-<%= link_to products_path do %>
-<div class="index_pic" align="center"><img src="/assets/images/brand/index_pic.png"></div>
-<% end %>
-</div>
+	<div id="index-picture" class="container-fluid">
+		<div class="row">
+			<div class="col-md-6 text-center">
+			<%= link_to("iMoviestore",products_path,id:"index-title") %>
+				<br>
+				<div class="row">
+					<div class="col-md-3">
+						
+					</div>
+					<div class="col-md-6">
+						<ul id="index-ul" class="text-left">
+							<li><i class="fa fa-caret-right fa-lg" aria-hidden="true"></i> <span>Buy ticket anywhere</span></li>
+							<li><i class="fa fa-caret-right fa-lg" aria-hidden="true"></i> <span>Without lining up</span></li>
+							<li><i class="fa fa-caret-right fa-lg" aria-hidden="true"></i> <span>Cheapest tikets</span></li>
+						</ul>
+					</div>
+					<div class="col-md-3">
+						
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<% @products = Product.all %>
+				<div class="row">
+					<% for i in 1..4 do %>
+					<div class="col-md-2">
+						<%= render_landingpage_image(@products[i]) %>
+					</div>
+					<% end %>
+				</div>
+				<div class="row">
+					<% for i in 5..8 do %>
+					<div class="col-md-2">
+						<%= render_landingpage_image(@products[i]) %>
+					</div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="promise" class="container-fluid" style="height:500px">
+		<div class="row">
+			
+			
+			<div class="col-md-6">
+				<div id="promise-img">
+					<img src="/assets/images/index_seat.png">
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="row">	<div class="text-center"><h1 id="promise-title">Select seats online</h1><br></div></div>
+				<div class="row">
+					<ul id="promise-ul" class="text-left">
+						<li><i class="fa fa-caret-right " aria-hidden="true"></i> <span>Buy ticket anywhere</span></li>
+						<li><i class="fa fa-caret-right " aria-hidden="true"></i> <span>Without lining up</span></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="qrcode" class="container-fluid">
+		<div class="row">
+			
+			<div class="col-md-6">
+				<div class="row">	<div class="text-center"><h1 id="promise-title">Use QR code</h1><br></div></div>
+				<div class="row">
+					<ul id="promise-ul" class="text-left">
+						<li><i class="fa fa-caret-right " aria-hidden="true"></i> <span>Use your phone to authentiate</span></li>
+						<li><i class="fa fa-caret-right " aria-hidden="true"></i> <span>Without lining up</span></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div id="qr-img">
+					<img src="/assets/images/qrcode.png">
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<div id="icon" class="container-fluid" style="height:400px">
+		<div class="row">
+			<div class="col-md-4">
+				<img class="icon" src="/assets/images/icon/Sofa.png">
+				<ul id="promise-ul" class="text-left">
+					<li><i class="fa fa-caret-right " aria-hidden="true"></i> <span>Online booking</span></li>
+					<li><i class="fa fa-caret-right " aria-hidden="true"></i> <span>Online Selection</span></li>
+				</ul>
+			</div>
+			<div class="col-md-4">
+				<img class="icon" src="/assets/images/icon/Trophy.png">
+				<ul id="promise-ul" class="text-left">
+					<li><i class="fa fa-caret-right " aria-hidden="true"></i> <span>More than 5000 cenima</span></li>
+					<li><i class="fa fa-caret-right " aria-hidden="true"></i> <span>More than half billion users</span></li>
+					</ul>
+					</div>
+				<div class="col-md-4">
+					<img class="icon" src="/assets/images/icon/Hearts.png">
+					<ul id="promise-ul" class="text-left">
+						<li><i class="fa fa-caret-right " aria-hidden="true"></i> <span>Lowest price</span></li>
+						<li><i class="fa fa-caret-right " aria-hidden="true"></i> <span>Most considerated service</span></li>
+					</ul>
+				</div>
+		</div>
+		</div>
+		<div id="signup" class="container-fluid" style="height:400px">
+			<div class="row">
+			<div class="text-center" id="buttom-div">
+			<%= link_to("sign up now",new_user_registration_path,class:"btn",id:"push") %> 
+			</div>	
+			</div>
+			<div  class="row" style="position: relative; top: 180px">
+			<div  class="text-center" >
+			<span id="small">Get </span>	 <span id="big"> 50 off</span>
+			</div>
+			</div>		
+		</div>
