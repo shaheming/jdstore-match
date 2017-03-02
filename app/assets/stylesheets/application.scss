@@ -472,10 +472,11 @@ divider-space-90 {
   margin-left: 6%;
   font-size: 3em;
   margin-bottom: 5%;
-  color:black;
+  color: black;
 }
-#index-title:hover{
-  text-decoration:none;
+
+#index-title:hover {
+  text-decoration: none;
 }
 
 #show-title {
@@ -713,27 +714,32 @@ divider-space-90 {
   max-width: 40%;
   height: auto;
 }
-#qrcode{
-      padding-bottom: 30px;
+
+#qrcode {
+  padding-bottom: 30px;
 }
+
 #qr-img {
   margin-left: 25%;
   margin-top: 5%;
 }
+
 #icon {
   background-color: rgba(200, 200, 200, 0.1);
 }
-#icon .icon{
-    margin-top: 20%;
-    position: relative;
-    left: 160px;
+
+#icon .icon {
+  margin-top: 20%;
+  position: relative;
+  left: 160px;
 }
-#icon ul{
+
+#icon ul {
   margin-top: 50px;
 }
 
-#signup #push{
-    background: #444444;
+#signup #push {
+  background: #444444;
   color: #ffffff;
   font-family: 'Anaheim', sans-serif;
   cursor: pointer;
@@ -744,31 +750,82 @@ divider-space-90 {
   font-size: 40px;
 }
 
-#buttom-div{
+#buttom-div {
   position: relative;
-  top: 150px;}
-
-#big{
-   font-family: 'Anaheim', sans-serif;
-   font-size: 70px;
+  top: 150px;
 }
 
-#small{
-     font-family: 'Anaheim', sans-serif;
-   font-size: 40px;
+#big {
+  font-family: 'Anaheim', sans-serif;
+  font-size: 70px;
 }
 
+#small {
+  font-family: 'Anaheim', sans-serif;
+  font-size: 40px;
+}
 
-.locationmodal-container{
+.locationmodal-container {
   background-color: white;
   border-radius: 2px;
 }
 
-.modal-header{
+.modal-header {
   border-bottom: none;
-      padding-bottom: 0px;
+  padding-bottom: 0px;
 }
 
-.modal-header .close{
+.modal-header .close {
   font-size: 2em;
+}
+
+#qrcode   table {
+  border-width: 0;
+  border-style: none;
+  border-color: #0000ff;
+  border-collapse: collapse;
+}
+
+#qrcode  td {
+  border-left: solid 3px #000;
+  padding: 0;
+  margin: 0;
+  width: 0px;
+  height: 3px;
+}
+
+#qrcode   td.black {
+  border-color: #000;
+}
+
+#qrcode  td.white {
+  border-color: #fff;
+}
+
+
+
+/*************************
+*******ticket-items******
+**************************/
+
+.ticket-item{
+    margin-top: 20px;
+   font-family: 'Anaheim', sans-serif;
+   // width: 80%;
+}
+.ticket-item #qrcode{
+  position: relative;
+    top: 20px;
+    width: 70%;
+}
+
+.ticket-item h4{
+      margin-bottom: 0px;
+}
+.ticket-body{
+      width: 65%;
+    border: 2px solid black;
+}
+.ticket-foot{
+  
 }

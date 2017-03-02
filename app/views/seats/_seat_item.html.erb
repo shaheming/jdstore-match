@@ -1,5 +1,5 @@
 <% if !seat.selected? %>
-	<%= link_to select_product_seat_path(@product,seat), :method => :post do%>
+	<%= link_to select_product_seat_path(@product,seat),id:"link", :method => :post do%>
 	<img src="/assets/images/available.jpg" alt="none" id="seat-img">
 	<% end %>
 <% else %>

@@ -75,6 +75,7 @@
 		td.white { border-color: #fff; }
 		</style>
 	<% if @order.is_paid? %>
+
 		<%= raw @qr.as_html %>
 	<% end %>
 </div>

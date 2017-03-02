@@ -13,6 +13,7 @@ class OrdersController < ApplicationController
 				product_list.product_name = cart_item.product.title
 				product_list.product_price = cart_item.product.price
 				product_list.quantity = cart_item.quantity
+				product_list.product_id = cart_item.product
 				product_list.save!
 			end
 			current_cart.clean!
@@ -33,7 +34,6 @@ class OrdersController < ApplicationController
 			
 			str_test ="the loar of the ring"+" " +"2007-12-12 17:20"+" " \
 			          +"col: 7"+" "+ "raw: 7" +"\ "+" aad  ddddddddda ddddddddd"
-			
 			@qr = RQRCode::QRCode.new( str_test, :size => 4, :level => :l )
 		end
 	end
