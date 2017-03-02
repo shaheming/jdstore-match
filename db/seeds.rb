@@ -79,32 +79,40 @@ products =[{title:"Apple iPhone 6 64GB",
 	        image_path: "#{Rails.root}/app/assets/images/chair.jpg"}
 ]
 
+reviews = [
+"Let's cut to the chase, shall we? In every beat, every frame, every moment, LOGAN feels like the Wolverine movie Hugh Jackman has been waiting (and training) for 17 years to make. Set free of a PG rating, this wildly kinetic film has plenty of gore, action and violence pumping through its veins. But what makes this one of the finest superhero movies ever produced is the big, messy, somewhat broken heart beating at its core. ",
+"Set in a grim near-future where very few mutants remain alive, we meet an unthinkable incarnation of our favourite enclawed superhero: one who's decidedly past his prime. This is not the near-immortal Wolverine we remember, but Logan (Jackman): a broken, far older man who feels the weight of every wound inflicted upon him. His once- formidable body – tattooed with scars that aren't healing as fast or as well as they used to – seems to be failing. It's only his determination to keep the ailing, ageing Professor Charles Xavier (Stewart) safe and alive that never falters. ",
+"The film's plot kicks into overdrive when Logan's fate becomes entangled with that of Laura (Keen), a close-to-feral young girl who brandishes claws and fury as fierce and lethal as Logan's own. As the unlikely trio go on the run, we see echoes of Logan himself in Laura's terrifying rage and the tentative emotional connection she forges with Xavier. It's one of many smart moves on the part of James Mangold, who does double duty as director and co-writer. Bringing Laura into the picture allows him to explore Logan's trauma, regret and hope through the filter of this pint-sized powerhouse's origin story."
+]
 
 
-u = User.create([ email: 'a@a.com' ,  password: '123456' ,password_confirmation:'123456',is_admin:true])
+u = User.create!([ email: 'a@a.com' ,  password: '123456' ,password_confirmation:'123456',is_admin:true])
 puts "create a adminer"
 
-u1 = User.create([ email: 'b@b.com' ,  password: '123456' ,password_confirmation:'123456',is_admin:false])
+u1 = User.create!([ email: 'b@b.com' ,  password: '123456' ,password_confirmation:'123456',is_admin:false])
 puts "create a user"
 
+u2 = User.create!([ email: 'c@c.com' ,  password: '123456' ,password_confirmation:'123456',is_admin:false])
+puts "create a user"
+
+users = [u,u1,u2]
 quantity  = 64
 
 create_products = for i in 1..30 do
 	products_movie = products_movies[rand(0..15)]
 	location = locations[rand(0..2)]
 	if !products_movie.empty?
-		Product.create([title:products_movie[:title],
+		p = Product.create([title:products_movie[:title],
 			genre:products_movie[:genre],
 			description:products_movie[:description],
 			quantity:quantity,price:rand(5..9)*10,
 			location:location[0],location_detail:location[1],
 			lat:location[2],lng:location[3],
 			image:open(products_movie[:image_path])])
-		
 		creat_seast= for j in 1..quantity do
 		  Seat.create([product_id:i])
 		end
-
+		r = Review.create([body:reviews[rand(0..2)],user_id:rand(1..3),product_id:i])
 	end
 end
 

@@ -1,9 +1,6 @@
-<%= simple_form_for([@product, @product.reviews.build]) do |f|%>
-
-  <div class="field">
+<%= simple_form_for([product, product.reviews.build]) do |f|%>
+  <div class="review-field">
       <%= f.text_area :body, class: "form-control" %>
   </div>
-
-
-  <%= f.submit "Add a Review", class: "btn btn-primary" %>
+ 	 <%= f.submit "Add a Review", class: "btn btn-primary pull-right",id:"cart-botton" %>
 <% end %>

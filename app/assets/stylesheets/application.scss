@@ -804,34 +804,41 @@ divider-space-90 {
   border-color: #fff;
 }
 
-
-
 /*************************
 *******ticket-items******
 **************************/
-
-.ticket-item{
-    margin-top: 20px;
-   font-family: 'Anaheim', sans-serif;
-   // width: 80%;
+.ticket-item {
+  margin-top: 20px;
+  font-family: 'Anaheim', sans-serif;
+  // width: 80%;
 }
-.ticket-item #qrcode{
+
+.ticket-item #qrcode {
   position: relative;
-    top: 20px;
-    width: 70%;
+  top: 20px;
+  width: 70%;
 }
 
-.ticket-item h4{
-      margin-bottom: 0px;
+.ticket-item h4 {
+  margin-bottom: 0px;
 }
-.ticket-body{
-      width: 65%;
-    border: 1px solid #000000;
-    padding: 1px;
-    box-shadow: 10px 10px 5px #888888;
+
+.ticket-body {
+  width: 65%;
+  border: 1px solid #000000;
+  padding: 1px;
+  box-shadow: 10px 10px 5px #888888;
 }
-.ticket-item hr
-{
+
+.ticket-item hr {
   margin-bottom: 0px;
   border-top: 1px dashed #000000;
+}
+
+.review {
+  margin-top: 100px;
+}
+.review-field .form-control{
+    height: 120px !important;
+    margin-bottom: 30px;
 }

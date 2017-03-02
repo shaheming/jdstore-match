@@ -5,5 +5,4 @@ class Product < ApplicationRecord
 	mount_uploader :image, ImageUploader
 	has_many :seats
 	has_many :reviews
-	has_one :product_list
 end

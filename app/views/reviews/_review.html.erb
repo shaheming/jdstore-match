@@ -1,18 +1,17 @@
 <div class="reviews_wrapper clearfix">
-    <div class="pull-left">
-        <p class="lead"><%= review.body %></p>
-        <p>
-            <small>Submitted
-                <strong><%= time_ago_in_words(review.created_at) %>
-                    ago</strong>
-                by
-                <%= review.user.email %></small>
-        </p>
+    <div class="row">
+        <% if review.id.present? %>
+        <div class="col-md-12">
+            <p> By <%= review.user.email %> / <%= time_ago_in_words(review.created_at) %></p>
+            <p class="lead"><%= simple_format(review.body) %></p>
+        </div>
+        
+        <% if review.user == current_user %>
+        <%= button_to product_review_path(@product, review),class:'close pull-right',method: :delete,data: {confirm: "Are you sure?"} do%>
+        <span style="font-size: 30px;">×</span>
+        <% end %>
+        <% end %>
+        <% end %>
     </div>
-
-    <div>
-<% if review.user == current_user %>
-   <%= link_to("Delete", product_review_path(@product, review), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-sm pull-right") %>
-<% end %>
-  </div>
+    <hr>
 </div>
