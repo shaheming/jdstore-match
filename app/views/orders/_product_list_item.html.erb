@@ -1,22 +1,20 @@
 <div class=" col-md-3 product_list">
- <center>
+	<center>
 	<div class="ticket-item">
-	<div class="ticket-body">
-		<h4> <%= product.title %></h4>
-		<% col = rand(1..8) %>
-		<% row = rand(1..8) %>
-		<div class="ticket-title">
-			<br>
-			<p><span class=""><i class="fa fa-usd" aria-hidden="true"> <span class="font-style"><%= number_to_currency(product.price,unit:"")%></span> </i> </span>
-			<span style="margin-left: 20px"><i class="fa fa-map-pin" aria-hidden="true"></i><%= " Row: #{product_list.row}, Col: #{product_list.col}"  %></span></p>		
-			<p>			<span class=""><i class="fa fa-clock-o" aria-hidden="true"> <span class="font-style"><%= product.created_at.end_of_month.noon.to_s(:db) %></span></i></span></p>
-		</div>
-		<div id="qrcode">
-		<% product_list= ProductList.first %>
-		<% str_test =product.title+"\n" +product.created_at.end_of_month.noon.to_s(:db)+" Row: #{product_list.row}, Col: #{product_list.col}" +"\n"+product.location_detail%>
-		<% @qr = RQRCode::QRCode.new( str_test, :size => 6, :level => :l )  %>
-		<%= raw @qr.as_html %>
-		</div>
+		<div class="ticket-body">
+			<h4> <%= product.title %></h4>
+			<div class="ticket-title">
+				<br>
+				<p><span class=""><i class="fa fa-usd" aria-hidden="true"> <span class="font-style"><%= number_to_currency(product.price,unit:"")%></span> </i> </span>
+				<span style="margin-left: 20px"><i class="fa fa-map-pin" aria-hidden="true"></i><%= " Row: #{product_list.row}, Col: #{product_list.col}"  %></span></p>
+
+				<p>			<span class=""><i class="fa fa-clock-o" aria-hidden="true"> <span class="font-style"><%= product.created_at.end_of_month.noon.to_s(:db) %></span></i></span></p>
+			</div>
+			<div id="qrcode">
+				<% str_test = product.title + "\n" +product.created_at.end_of_month.noon.to_s(:db) + " Row: " + product_list.row.to_s + "," + " Col: " + product_list.col.to_s + "\n" + product.location_detail%>
+				<% @qr = RQRCode::QRCode.new(str_test, :size => 6, :level => :l )  %>
+				<%= raw @qr.as_html %>
+			</div>
 		</div>
 	</div>
 	</center>
