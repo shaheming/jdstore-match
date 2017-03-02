@@ -7,9 +7,9 @@ class ReviewsController < ApplicationController
     @review.user = current_user
 
     if @review.save
-  redirect_to product_path(@product), notice: 'Review was successfully created.'
+  redirect_to product_path(@product)
 else
-  redirect_to product_path(@product), notice: 'You have to write some words.'
+  redirect_to product_path(@product)
 end
   end
 
