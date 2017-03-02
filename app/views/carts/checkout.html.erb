@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-md-6">
-		<h3 class="text-center" id="order-form-head">Shipping address</h3>
+		<h3 class="text-center" id="order-form-head">Buyer Info</h3>
 		<div class="order-form">
 			<%= simple_form_for @order do |f| %>
 			<div class="form-group col-lg-6">
@@ -44,23 +44,6 @@
 				<% end %>
 			</tbody>
 		</table>
-		<hr>
-		<div class="row" id="sub-total">
-			<div class="col-md-6">
-				<p>Subtotal</p>
-			</div>
-			<div class="col-md-6">
-				<p class="pull-right"> <b><%= number_to_currency(render_cart_total_price(current_cart),:unit=>'$')%></b> </p>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-6">
-				<p>Shipping</p>
-			</div>
-			<div class="col-md-6">
-				<p class="pull-right"><b>-</b></p>
-			</div>
-		</div>
 		<hr>
 		<div class="total clearfix">
 			<span id="total-title" class="pull-left">Total</span>	 <span id="total-money" class="pull-right"><%= number_to_currency(render_cart_total_price(current_cart),:unit=>'$') %></span>
