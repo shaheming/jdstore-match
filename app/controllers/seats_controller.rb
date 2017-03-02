@@ -62,11 +62,8 @@ class SeatsController < ApplicationController
     current_user.select!(@seat)
     current_cart.add_product_to_cart(@seat.product,@seat)
     @seat.save!
-    flash[:notice]="select seat successfully！"
   elsif @seat.selected? && @seat.user == current_user
-    flash[:warning]="this is already your seat"
   else
-    flash[:alert]="maybe you should choose another one:)"
   end
   redirect_to :back
   end
