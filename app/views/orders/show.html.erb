@@ -1,29 +1,21 @@
 <div class="show">
 	<div class="col-md-12" id="order-show">
-		<h2>Order Detail</h2>
+		<h2><i class="fa fa-list-alt" aria-hidden="true"></i>
+Order Detail</h2>
 		<table class="table table-bordered">
 			<thead>
 				<tr>
 					<th width="80%">Product Info</th>
 					<th>Price</th>
-					<th>Seat ID</th>
 				</tr>
 			</thead>
 			<tbody>
 				<% @product_lists.each do |product_list| %>
 				<tr>
 					<td><%= product_list.product_name %></td>
-
 					<td><b><%= number_to_currency(product_list.product_price,:unit=>'$') %></b> </td>
-					<td>1</td>
-
 				</tr>
 				<% end %>
-				<tr>
-					<td><b>Shipping</b> </td>
-					<td><b>-</b></td>
-					<td>-</td>
-				</tr>
 			</tbody>
 		</table>
 		<div class="total clearfix">
@@ -31,19 +23,9 @@
 				<span id="total-title" style="margin-right: 20px">Total: </span> <span id="total-money"><%= number_to_currency(@order.total,:unit=>'$') %></span>
 			</span>
 		</div>
-		<hr>
-		<h2>Shipping Info</h2>
-		<table class="table table-bordered table-striped">
-			<tbody>
-				<tr><td>Buyer</td></tr>
-				<tr><td><%= @order.billing_name %> - <%= @order.billing_address %></td></tr>
-				<tr><td>Receiver</td></tr>
-				<tr><td> <%= @order.shipping_name %> - <%= @order.shipping_address %></td></tr>
-			</tbody>
-		</table>
 		<div class="pull-left">
 			<% if @order.order_placed? || @order.paid? %>
-				<%= link_to("Apply To Cancel Order",apply_to_cancel_order_path(@order),method: :post,class:"btn btn-info") %>
+			<%= link_to("Apply To Cancel Order",apply_to_cancel_order_path(@order),method: :post,class:"btn btn-info") %>
 			<% end %>
 		</div>
 		<% if !@order.is_paid? %>
@@ -51,31 +33,29 @@
 			<%= link_to("Pay With Alipay",pay_with_alipay_order_path(@order.token),method: :post,:class=>"btn btn-primary",:id=>"alipay") %>
 			<%= link_to("Pay With WeChat",pay_with_wechat_order_path(@order.token),method: :post,:class=>"btn btn-primary",:id=>"wechat") %>
 		</div>
-
 		<% else %>
 		<span class="pull-right btn btn-default" disabled="disabled">This Order Has Been Paied</span>
 		<% end %>
-
 	</div>
-		<style type="text/css">
-		table {
-			border-width: 0;
-			border-style: none;
-			border-color: #0000ff;
-			border-collapse: collapse;
-		}
-		td {
-			border-left: solid 5px #000;
-			padding: 0;
-			margin: 0;
-			width: 0px;
-			height: 5px;
-		}
-		td.black { border-color: #000; }
-		td.white { border-color: #fff; }
-		</style>
 	<% if @order.is_paid? %>
-
-		<%= raw @qr.as_html %>
+	<hr>
+	<h2><i class="fa fa-ticket" aria-hidden="true"></i>
+Your tickets</h2>
+	<div class="row" style="margin-bottom: 70px;">
+		<%  count = 0 %>
+		<% @product_lists.each do |product_list| %>
+		<% if count == 0 %>
+		<div class="row">
+			<% end %>
+			<% count+=1 %>
+			<% product = Product.find(product_list.product_id) %>
+			<%= render partial: "orders/product_list_item", locals: { product:product} %>
+			<% if count == 4 || product_list == @product_lists.last%>
+		</div>
+		<% count = 0 %>
+		<% end %>
+		<% end %>
+	</div>
+	
 	<% end %>
 </div>
