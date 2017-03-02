@@ -14,6 +14,13 @@ class OrdersController < ApplicationController
 				product_list.product_price = cart_item.product.price
 				product_list.quantity = cart_item.quantity
 				product_list.product_id = cart_item.product.id
+				seat_total = (cart_item.seat_id - 1 )% 64
+				Rails.logger.debug("debug::" +  "=====" + seat_total.to_s + "====" + "\n")
+				row_max = 8
+				col_max = 8
+				product_list.col = seat_total % 8 + 1
+				product_list.row = seat_total / 8 + 1
+				Rails.logger.debug("debug::" +  "==row===" + product_list.row.to_s + "==col==" + product_list.col.to_s+"\n")
 				product_list.save!
 			end
 			current_cart.clean!

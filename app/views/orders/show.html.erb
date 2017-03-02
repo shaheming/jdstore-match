@@ -49,7 +49,7 @@ Your tickets</h2>
 			<% end %>
 			<% count+=1 %>
 			<% product = Product.find(product_list.product_id) %>
-			<%= render partial: "orders/product_list_item", locals: { product:product} %>
+			<%= render partial: "orders/product_list_item", locals: { product:product,product_list:product_list} %>
 			<% if count == 4 || product_list == @product_lists.last%>
 		</div>
 		<% count = 0 %>
