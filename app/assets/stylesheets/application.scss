@@ -826,8 +826,12 @@ divider-space-90 {
 }
 .ticket-body{
       width: 65%;
-    border: 2px solid black;
+    border: 1px solid #000000;
+    padding: 1px;
+    box-shadow: 10px 10px 5px #888888;
 }
-.ticket-foot{
-  
+.ticket-item hr
+{
+  margin-bottom: 0px;
+  border-top: 1px dashed #000000;
 }
