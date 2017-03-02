@@ -1,66 +1,37 @@
 <div class="row display-page">
-<div class="row">
 
-
-<div class="col-md-2"></div>
-	<div class="col-md-4">
-		<% if @product.image.present? %>
-		<%= image_tag(@product.image.thumb.url, class: "thumbnail")  %>
-		<% else %>
-		<%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail")  %>
-		<% end %>
-	</div>
-	<div class="col-md-2"></div>
-	<div class="col-md-6">
-		<h2><%= @product.title  %></h2>
-		<div style="height: 150px;">
-			<p id="show-text"><%=simple_format(@product.description)  %></p>
-		</div>
-		<div > <span id="show-remind"><b>Remind: <%= @product.quantity%></b></span></div>
-		<div > <span id="show-remind"><i class="fa fa-map-marker" aria-hidden="true"><b> <%=@product.location_detail%></b> </i> </span></div>
-		<div  id="show-price"><%= number_to_currency(@product.price,:unit=>"$") %></div>
-		<br>
-		<br>
-		<div class="pull-middle">
-			<% if @product.quantity.present? && @product.quantity > 0 %>
-			<%= link_to("Select seat",product_seats_path(@product),method: :get,:class=>"btn",id:"cart-botton") %>
-			<span id="location-ctl"><span class="btn" id="cart-botton">Show Location</span></span>
+	<div class="row">
+		
+		<div class="col-md-2"></div>
+		<div class="col-md-4">
+			<% if @product.image.present? %>
+			<%= image_tag(@product.image.thumb.url, class: "thumbnail")  %>
 			<% else %>
-			we are sorry, out of sale :(
-			<% end %>
-			<% if !current_user.blank? %>
-			<% if current_user.admin? %>
-			<%= link_to("Add seat",new_product_seat_path(@product),method: :get, :class=>"btn",id:"cart-botton") %>
-			<% end %>
+			<%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail")  %>
 			<% end %>
 		</div>
+		<div class="col-md-2"></div>
+		<div class="col-md-6">
+			<h2><%= @product.title  %></h2>
+			<div style="height: 150px;">
+				<p id="show-text"><%=simple_format(@product.description)  %></p>
+			</div>
+			<div > <span id="show-remind"><b>Remind: <%= @product.quantity%></b></span></div>
+			<div > <span id="show-remind"><i class="fa fa-map-marker" aria-hidden="true"><b> <%=@product.location_detail%></b> </i> </span></div>
+			<div  id="show-price"><%= number_to_currency(@product.price,:unit=>"$") %></div>
+			<br>
+			<br>
+			<div class="pull-middle"">
+				<% if @product.quantity.present? && @product.quantity > 0 %>
+				<%= link_to("Select seat",product_seats_path(@product),method: :get,:class=>"btn",id:"cart-botton") %>
+				<span id="location-ctl" data-toggle="modal" data-target="#location-modal"><span class="btn" id="cart-botton">Show Location</span></span>
+				<% else %>
+				we are sorry, out of sale :(
+				<% end %>
+			</div>
+		</div>
 	</div>
-	</div>
-
-<script type="text/javascript">
-
- $('#location-ctl').on('click', function(){
-	console.log("show");
-	$('#sidebar_builder').show();
-  	console.log("map");
-  	handler = Gmaps.build('Google');
-	handler.buildMap({ internal: {id: 'sidebar_builder'}}, function(){
-	marker = handler.addMarkers(<%=raw @hash.to_json %>);
-	handler.bounds.extendWith(marker);
-    handler.fitMapToBounds();
-    });})
-
-
-</script>
-<div class="row" style="margin-top: 40px;">
-
-<div class="col-md-3"></div>
-<div id="sidebar_builder" class="col-md-6" style='width: 50%; height: 400px;display: none ;'></div>
-<div class="col-md-3"></div>
-</div>
-
-</div>
-
+                                                                                                    
 <div class="row review">
 	<div class="col-sm-10 col-sm-offset-1">
 		<h3 class="reviews_title">
@@ -74,4 +45,35 @@
 		</div>
 	</div>
 </div>
-<!-- (:product_id => @product.id), 这是什么东西-->
+	<script type="text/javascript">
+		
+	$('#location-ctl').on('click', function(){
+		handler = Gmaps.build('Google');
+		handler.buildMap({ internal: {id: 'sidebar_builder'}}, function(){
+		marker = handler.addMarkers(<%=raw @hash.to_json %>);
+		handler.bounds.extendWith(marker);
+	handler.fitMapToBounds();
+	})
+	;})
+	</script>
+	<div class="modal fade" id="location-modal" tabindex="-1" role = "dialog" aria-labelledby="myModalLab" aria-hidden="true" style="display: none;">
+		<div class="modal-dialog modal-lg" role=document>
+			<div class="locationmodal-container">
+				<div class="modal-header">
+					
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+					<h2 class="modal-title"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>&nbsp Location</h2>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div id="sidebar_builder" class="col-md-12" style='height: 400px;margin-bottom: 20px;width: 90%;margin-left: 45px'></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		
+	</div>
+

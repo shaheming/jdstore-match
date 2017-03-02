@@ -1,5 +1,14 @@
-<script type="text/javascript">
-  console.log(<%= @products.first%>)
-</script>
-
-<a style="color:#181818;" href="/">iMoviestore</a>
+<div class="row">
+	<%  count = 0 %>
+	<% @products.each do |product| %>
+	<% if count == 0 %>
+	<div class="row">
+		<% end %>
+		<% count+=1 %>
+		<%= render partial: "orders/product_list_item", locals: { product:product} %>
+		<% if count == 4 || product == @products.last%>
+	</div>
+	<% count = 0 %>
+	<% end %>
+	<% end %>
+</div>	

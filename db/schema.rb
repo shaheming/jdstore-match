@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170301111350) do
+ActiveRecord::Schema.define(version: 20170302034608) do
+
 
   create_table "cart_items", force: :cascade do |t|
     t.integer  "cart_id"
@@ -27,18 +28,17 @@ ActiveRecord::Schema.define(version: 20170301111350) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer  "total",            default: 0
+    t.integer  "total",          default: 0
     t.integer  "user_id"
-    t.string   "billing_name"
-    t.string   "billing_address"
-    t.string   "shipping_name"
-    t.string   "shipping_address"
-    t.datetime "created_at",                                null: false
-    t.datetime "updated_at",                                null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
     t.string   "token"
-    t.boolean  "is_paid",          default: false
+    t.boolean  "is_paid",        default: false
     t.string   "payment_method"
-    t.string   "aasm_state",       default: "order_placed"
+    t.string   "aasm_state",     default: "order_placed"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "phonenumber"
     t.index ["aasm_state"], name: "index_orders_on_aasm_state"
   end
 
@@ -49,6 +49,9 @@ ActiveRecord::Schema.define(version: 20170301111350) do
     t.integer  "quantity"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.integer  "product_id"
+    t.integer  "row"
+    t.integer  "col"
   end
 
   create_table "products", force: :cascade do |t|
