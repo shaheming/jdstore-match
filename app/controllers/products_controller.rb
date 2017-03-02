@@ -22,11 +22,13 @@ class ProductsController < ApplicationController
 		end
 	end
 
-		
+
 
 	def show
 		@product = Product.find(params[:id])
-	
+		@review=Review.new
+		@reviews=Review.all
+
 		@hash = Gmaps4rails.build_markers(@product) do |product, marker|
 	      marker.lat product.lat.to_f
 	      marker.lng product.lng.to_f
@@ -35,8 +37,8 @@ class ProductsController < ApplicationController
               :url => "/assets/images/location.png",
               :width   => 20,
               :height  => 35}
-              ) 
-    	end 
+              )
+    	end
 	end
 	def add_to_cart
 		@product = Product.find(params[:id])
@@ -74,5 +76,3 @@ class ProductsController < ApplicationController
 		@location = params[:location].gsub(/\\|\'|\/|\?/, "") if params[:location].present?
 	end
 end
-
-

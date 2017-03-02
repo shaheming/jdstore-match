@@ -22,4 +22,5 @@ class User < ApplicationRecord
 
  has_many :orders
  has_many :seats
+ has_many :reviews
 end

@@ -31,7 +31,7 @@ Rails.application.routes.draw do
 		end
 	end
 
-	resources :cart_items 
+	resources :cart_items
 
 
 	resources :orders do
@@ -64,5 +64,9 @@ Rails.application.routes.draw do
 		get :test_test
 	end
    resources :welcome
+
+   resources :products do
+     resources :reviews
+   end
 
 end

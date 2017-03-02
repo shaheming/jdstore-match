@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20170302034608) do
 
+
   create_table "cart_items", force: :cascade do |t|
     t.integer  "cart_id"
     t.integer  "product_id"
@@ -66,6 +67,14 @@ ActiveRecord::Schema.define(version: 20170302034608) do
     t.string   "location_detail"
     t.string   "lng",             default: "0"
     t.string   "lat",             default: "0"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "user_id"
+    t.text     "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "seats", force: :cascade do |t|
