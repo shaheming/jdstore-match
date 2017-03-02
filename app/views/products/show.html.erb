@@ -39,7 +39,7 @@
 			<!-- <%= @product.reviews.count %> -->
 			<div id="reivews">
 				<div class="col-md-6">
-					<%= render partial:"reviews/review",:collection=>@product.reviews, :as=>:review%>
+					<%= render partial:"reviews/review",:collection=>@product.reviews.order("created_at DESC"), :as=>:review%>
 				</div>
 				<div class="col-md-6">
 					<%= render "reviews/form",  :product=> @product %>
