@@ -656,7 +656,19 @@ divider-space-90 {
 #landingpage-img {
   margin-bottom: 5px;
 }
+#catch-pic{
+    margin-right: -15px;
+    margin-left: -15px;
+}
 
+#catch-pic.row{
+  
+}
+
+#catch-pic img{
+  width: 100%;
+  height: auto;
+}
 #index-title {
   font-size: 67px;
 }
@@ -670,17 +682,42 @@ divider-space-90 {
 }
 
 #index-picture {
-  // background-image: url("/assets/images/brand/index_pic.jpg");
-  // background-size: 25%;
+    margin-right: -15px;
+    margin-left: -15px;
+    height: 540px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+#slogon{
+  z-index: 6;
+  position: relative;
+  width: 400px;
+    top: 100px;
+    left: 60%;
+        height: 0px;
 }
 
+#slogon .text{
+  font-size:2em;
+}
 #index-picture .row {
   margin-top: 5%;
   margin-bottom: 2%;
+    
+}
+#slogon #cart-botton{
+      position: relative;
+    top: 30px;
+    left: 90px;
 }
 
 #promise {
   background-color: rgba(200, 200, 200, 0.2);
+      margin-right: -15px;
+    margin-left: -15px;
+        height: 540px;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 #promise img {
@@ -715,10 +752,15 @@ divider-space-90 {
 #qrcode img {
   max-width: 40%;
   height: auto;
+
 }
 
 #qrcode {
-  padding-bottom: 30px;
+      margin-right: -15px;
+    margin-left: -15px;
+        height: 540px;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 #qr-img {
@@ -728,6 +770,8 @@ divider-space-90 {
 
 #icon {
   background-color: rgba(200, 200, 200, 0.1);
+      margin-right: -15px;
+    margin-left: -15px;
 }
 
 #icon .icon {
@@ -739,7 +783,10 @@ divider-space-90 {
 #icon ul {
   margin-top: 50px;
 }
-
+#singup{
+      margin-right: -15px;
+    margin-left: -15px;
+}
 #signup #push {
   background: #444444;
   color: #ffffff;
