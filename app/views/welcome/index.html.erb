@@ -33,17 +33,30 @@
 		</div>
 		<div class="col-md-6">
 			<% @products = Product.all %>
+			<% count = 0 %>
+			<% i = 0 %>
+			<% array = [] %>
 			<div class="row">
-				<% for i in 1..4 do %>
+				<% while i < 4 do %>
 				<div class="col-md-2">
-					<%= render_landingpage_image(@products[i]) %>
+				<% while array.include?(@products[count].title) do %>
+				<% count = count + 1 %>
+				<% end %>
+					<%= render_landingpage_image(@products[count]) %>
+					<% i = i + 1 %>
+					<% array.push(@products[count].title) %>
 				</div>
 				<% end %>
 			</div>
 			<div class="row">
-				<% for i in 5..8 do %>
+				<% while i < 8 do %>
 				<div class="col-md-2">
-					<%= render_landingpage_image(@products[i]) %>
+				<% while array.include?(@products[count].title) do %>
+				<% count = count + 1 %>
+				<% end %>
+					<%= render_landingpage_image(@products[count]) %>
+					<% i = i + 1 %>
+					<% array.push(@products[count].title) %>
 				</div>
 				<% end %>
 			</div>
