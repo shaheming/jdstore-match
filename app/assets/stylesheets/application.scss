@@ -206,7 +206,8 @@ body {
 .apple_pagination {
   text-align: center;
   padding: 5em;
-  cursor: default
+  cursor: default;
+  padding-right: 0px;
 }
 
 .apple_pagination a,
@@ -515,16 +516,17 @@ divider-space-90 {
 .font-style {
   font-family: 'Anaheim', sans-serif;
 }
-
+.product-img img{
+  box-shadow: 0 1px 5px rgba(0,0,0,0.5);
+}
 #center-title {
-  display: table;
-  margin: 5% auto 100px;
   text-transform: uppercase;
   font-family: 'Anaheim', sans-serif;
-  font-size: 4em;
-  font-weight: 400;
+      padding: 20px;
 }
-
+#images-gallery{
+  margin-bottom: 0px;
+}
 #images-gallery .container {
   margin: 4% auto;
   width: 210px;
@@ -610,6 +612,10 @@ divider-space-90 {
     transform: rotateY(360deg);
   }
 
+}
+
+.product-img{
+  padding-bottom: 15px;
 }
 
 .middle {

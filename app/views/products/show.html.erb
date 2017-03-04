@@ -3,14 +3,9 @@
 		
 		<div class="col-md-2"></div>
 		<div class="col-md-4">
-			<% if @product.image.present? %>
-			<%= image_tag(@product.image.thumb.url, class: "thumbnail")  %>
-			<% else %>
-			<%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail")  %>
-			<% end %>
+		<%= show_product_image(@product)  %>
 		</div>
-		<div class="col-md-2"></div>
-		<div class="col-md-6">
+		<div class="col-md-5">
 			<h2><%= @product.title  %></h2>
 			<div style="height: 150px;">
 				<p id="show-text"><%=simple_format(@product.description)  %></p>
@@ -28,6 +23,7 @@
 				we are sorry, out of sale :(
 				<% end %>
 			</div>
+			<div class="col-md-1"></div>
 		</div>
 	</div>
 	

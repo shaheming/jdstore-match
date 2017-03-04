@@ -3,9 +3,9 @@ module ApplicationHelper
 def show_product_image(product)
     link_to product_path(product) do
     if product.image.present?
-      image_tag(product.image.thumb.url, class: "thumbnail")
+      image_tag(product.image.thumb.url,clas:"product-img")
     else
-      image_tag("http://placehold.it/200x296&text=No Pic", class: "thumbnail")
+      image_tag("http://placehold.it/200x296&text=No Pic",class:"product-img")
     end
   end
 end

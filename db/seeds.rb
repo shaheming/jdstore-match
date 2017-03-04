@@ -98,8 +98,8 @@ puts "create a user"
 users = [u,u1,u2]
 quantity  = 64
 
-create_products = for i in 1..30 do
-	products_movie = products_movies[rand(0..15)]
+create_products = for i in 0..15 do
+	products_movie = products_movies[i]
 	location = locations[rand(0..2)]
 	if !products_movie.empty?
 		p = Product.create([title:products_movie[:title],
