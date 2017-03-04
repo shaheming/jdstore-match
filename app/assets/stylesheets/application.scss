@@ -737,6 +737,7 @@ divider-space-90 {
 #promise-title {
   font-size: 45px;
   margin-top: 60px;
+
 }
 
 #promise-ul {
@@ -754,7 +755,10 @@ divider-space-90 {
   height: auto;
 
 }
-
+.qr-promise{
+    position: relative;
+    left: 20%;
+}
 #qrcode {
       margin-right: -15px;
     margin-left: -15px;
