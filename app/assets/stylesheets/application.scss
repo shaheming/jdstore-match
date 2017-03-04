@@ -765,7 +765,7 @@ divider-space-90 {
     position: relative;
     left: 20%;
 }
-#qrcode {
+#qrcode-landing {
       margin-right: -15px;
     margin-left: -15px;
         height: 540px;
@@ -836,6 +836,9 @@ divider-space-90 {
 
 .modal-header .close {
   font-size: 2em;
+}
+#qrcode {
+  height: 165px;
 }
 
 #qrcode   table {
