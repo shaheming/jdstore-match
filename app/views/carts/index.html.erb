@@ -1,9 +1,8 @@
-
+<div id= "cart">
 <div class="row">
 	<div class="col-md-12">
-		
 		<h2>Your Cart</h2>
-		<table class="table" id="cart-items-table">
+		<table class="table table-hover" id="cart-items-table">
 			<thead>
 				<tr>
 					<th colspan="2"></th>
@@ -33,4 +32,5 @@
 			<%= link_to("Clean Cart",clean_carts_path,method: :delete, class: "btn  pull-left",id:"cart-botton",data: {confrim: "Are you sure ?"} )%>
 		</div>
 	</div>
+</div>
 </div>

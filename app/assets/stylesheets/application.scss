@@ -296,6 +296,10 @@ divider-space-90 {
 /*************************
 *******carts******
 **************************/
+#cart .row{
+  margin-left: 15px;
+  margin-right: 15px;
+}
 #cart-items-img {
 }
 #cart-items-table tr > td, #cart-items-table tr >th, #cart-items-table tr {
