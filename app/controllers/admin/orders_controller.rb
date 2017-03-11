@@ -5,6 +5,9 @@ class Admin::OrdersController < ApplicationController
 
 	def index
 		@orders = Order.order("id DESC")
+
+		@dates = (Date.today-7.day..Date.today).to_a
+		@data = @dates.map{|date| Order.where("created_at >=? AND created_at <?",date.beginning_of_day,date.end_of_day).count}
 	end
 
 	def show
