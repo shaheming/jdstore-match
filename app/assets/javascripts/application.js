@@ -13,13 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require bootstrap/alert
-//= require bootstrap/dropdown
-//= require bootstrap/modal
 //= require underscore
 //= require gmaps/google
 //= require bootstrap-sprockets
-//= require_tree .
+//= require select2
+//= require bootstrap-datepicker
+
 
 
 

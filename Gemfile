@@ -29,8 +29,8 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
- gem "rails-erd"
- gem 'bootstrap-sass'
+gem "rails-erd"
+gem 'bootstrap-sass'
 gem "devise"
 gem "simple_form"
 gem "font-awesome-rails"
@@ -49,6 +49,10 @@ gem 'seo_helper'
 gem 'gmaps4rails'
 gem 'underscore-rails'
 gem 'rqrcode'
+
+gem "select2-rails"
+gem 'bootstrap-datepicker-rails'
+
 group :production do
  gem 'pg'
 end

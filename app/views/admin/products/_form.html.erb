@@ -1,19 +1,36 @@
 <%= simple_form_for [:admin,@product] do |f|  %>
 
+<div class="group">
+	<%=show_cart_items_image(@product)  %>
+</div>
 <div class="group"><%= f.input :title  %></div>
 <div class="group"><%= f.input :description  %></div>
 <div class="group"><%= f.input :quantity  %></div>
 <div class="group"><%= f.input :price  %></div>
 
 
-<% if @product.image.present? %>
-<span>picture of current product</span><br>
-<%= image_tag(@product.image.thumb.url)  %>
-<% end %>
 
 
+<div class="group">
+	<%= f.association :category  %>
+	<%= f.select :category_id, Category.all.map{|x| [x.name,x.id]},{},:class=>"form-control"  %>
+</div>
+<div class="group">
+	<%#= f.association :groups, :as=>"check_boxes" %>
+	<%= f.association :groups%>
+</div>
 
+<div class="group">
+<%= f.input :show_on, :as=>:string %>
+	
+</div>
 <div class="group"><%= f.input :image, as: :file  %></div>
 <%= f.submit "Submit",data:{disable_with:"Submitting..."}  %>
 
 <% end %>
+
+<script type="text/javascript">
+	$('#product_category_id').select2();
+	$('#product_group_ids').select2();
+	   $('#product_show_on').datepicker();
+</script>

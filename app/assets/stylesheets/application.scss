@@ -1,7 +1,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
-
+@import "select2";
+@import "select2-bootstrap";
+@import "bootstrap-datepicker3";
 html {
   font-family: 'Anaheim', sans-serif !important;
 }
