@@ -9,7 +9,7 @@ var myChart = new Chart(ctx, {
         labels: <%= raw @dates.to_json %>,
         datasets: [{
             label: '# of Votes',
-            data: <%=  raw @data %>,
+            data: <%=  raw @data.to_json %>,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',

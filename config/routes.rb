@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
 	root 'welcome#index'
 
+   resources :test
 	namespace :admin do
 		resources :products
 		resources :orders do
@@ -60,7 +61,7 @@ Rails.application.routes.draw do
 
 	controller :pages do
 		get :about
-		get :test
+		
 		get :test_test
 	end
    resources :welcome
