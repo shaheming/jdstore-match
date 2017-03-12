@@ -33,7 +33,7 @@
 		<h3 class="text-center" id="order-form-head">Order info</h3>
 		<table class="table">
 			<tbody>
-				<% current_cart.cart_items.each do |cart_item| %>
+				<% current_cart.cart_items.includes(:product).each do |cart_item| %>
 				<tr>
 					<td width="50%"><%= link_to(cart_item.product.title,product_path(cart_item.product)) %></td>
 					<td><b><%=cart_item.quantity%></b> </td>

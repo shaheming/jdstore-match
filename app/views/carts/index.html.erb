@@ -13,7 +13,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<%= render :partial=> "cart_items", :collection=>current_cart.cart_items, :as=>:cart_item %>
+				<%= render :partial=> "cart_items", :collection=>current_cart.cart_items.includes(:product), :as=>:cart_item %>
 			</tbody>
 		</table>
 		<br>

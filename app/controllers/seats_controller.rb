@@ -5,7 +5,7 @@ class SeatsController < ApplicationController
   def index
     @product=Product.find(params[:product_id])
     # @seats = Seat.all
-    @seats = @product.seats.order("id ASC")
+    @seats = @product.seats.includes(:user).order("id ASC")
     # 而不是@seats.product=@product!!!!
 
   end
