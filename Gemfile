@@ -48,7 +48,6 @@ gem 'figaro'
 gem 'fog-aws'
 gem 'letter_opener',group: :development
 gem 'aasm'
-gem 'ransack'
 gem 'seo_helper'
 gem 'gmaps4rails'
 gem 'underscore-rails'
@@ -77,8 +76,16 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   # gem 'spring'
   # gem 'spring-watcher-listen', '~> 2.0.0'
-    #用来测速
+   
+  #用来测速
   gem 'rack-mini-profiler' 
+  
+  #用来检测数据库查询的
+  # notify you when you should add eager loading (N+1 queries), 
+  #when you're using eager loading that isn't necessary and 
+  #when you should use counter cache.
+  gem 'bullet'
+  gem "uniform_notifier"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
