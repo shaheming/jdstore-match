@@ -9,6 +9,7 @@
 <div style='width: 800px;' id="sidebar_container">
 <button class="btn btn-default" id="controller">controller</button>
 </div>
+<%= content_for :handwrite_javascript do %>
 <script type="text/javascript">
 	
  $('#controller').on('click', function(){
@@ -23,5 +24,6 @@ $('#sidebar_builder').show();
     });  } ) 
 
 </script>
+<% end %>
   <div id="sidebar_builder" style='width: 800px; height: 400px;display: none ;'></div>
 </div>

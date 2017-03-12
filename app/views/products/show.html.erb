@@ -44,6 +44,7 @@
 			</div>
 		</div>
 	</div>
+	<%= content_for :handwrite_javascript do %>
 	<script type="text/javascript">
 		
 	$('#location-ctl').on('click', function(){
@@ -55,6 +56,7 @@
 	})
 	;})
 	</script>
+	<% end %>
 	<div class="modal fade" id="location-modal" tabindex="-1" role = "dialog" aria-labelledby="myModalLab" aria-hidden="true" style="display: none;">
 		<div class="modal-dialog modal-lg" role=document>
 			<div class="locationmodal-container">

@@ -1,6 +1,9 @@
-<script src="//cdn.bootcss.com/Chart.js/2.5.0/Chart.bundle.min.js"></script>
 
+<%= content_for :handwrite_javascript do %>
+<script src="//cdn.bootcss.com/Chart.js/2.5.0/Chart.bundle.min.js"></script>
+<% end %>
 <canvas id="myChart" width="400" height="400"></canvas>
+<%= content_for :handwrite_javascript do %>
 <script>
 var ctx = document.getElementById("myChart");
 var myChart = new Chart(ctx, {
@@ -40,6 +43,7 @@ var myChart = new Chart(ctx, {
     }
 });
 </script>
+<% end %>
 <h2>Order List</h2>
 <table class="table table-bordered">
 <thead>
