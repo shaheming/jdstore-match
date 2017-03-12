@@ -1,5 +1,16 @@
 // Floating label headings for the contact form
-$(function() {
+//= require jquery
+//= require jquery_ujs
+//= require turbolinks
+//= require underscore
+//= require gmaps/google
+//= require bootstrap-sprockets
+//= require select2
+//= require bootstrap-datepicker
+//= require autosize.min
+
+$(
+    function() {
     $("body").on("input propertychange", ".floating-label-form-group", function(e) {
         $(this).toggleClass("floating-label-form-group-with-value", !!$(e.target).val());
     }).on("focus", ".floating-label-form-group", function() {
@@ -7,7 +18,8 @@ $(function() {
     }).on("blur", ".floating-label-form-group", function() {
         $(this).removeClass("floating-label-form-group-with-focus");
     });
-});
+}
+);
 
 // Navigation Scripts to Show Header on Scroll-Up
 jQuery(document).ready(function($) {
