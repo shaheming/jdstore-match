@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
 	before_action :validate_search_key, only:[:search]
-
+	before_action :find_product, only: [:show,:add_to_cart]
 	def index
 		validate_genre_key
 		validate_location_key
@@ -25,9 +25,7 @@ class ProductsController < ApplicationController
 
 
 	def show
-		@product = Product.find(params[:id])
 		@review=Review.new
-		@reviews=Review.all
 
 		@hash = Gmaps4rails.build_markers(@product) do |product, marker|
 	      marker.lat product.lat.to_f
@@ -75,4 +73,10 @@ class ProductsController < ApplicationController
 	def validate_location_key
 		@location = params[:location].gsub(/\\|\'|\/|\?/, "") if params[:location].present?
 	end
+
+	private
+
+  def find_product
+    @product = Product.find(params[:id])
+  end
 end

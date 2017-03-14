@@ -1,23 +1,18 @@
 class SeatsController < ApplicationController
   before_action :authenticate_user!
 	before_action :admin_required, only: [:new, :create, :edit, :destroy]
+  before_action :find_product, only: [:index,:new,:create,:edit,:update]
+  before_action :find_seat, only: [:edit,:update,:destroy,:select,:cancel]
 
   def index
-    @product=Product.find(params[:product_id])
-    # @seats = Seat.all
     @seats = @product.seats.includes(:user).order("id ASC")
-    # 而不是@seats.product=@product!!!!
-
   end
 
   def new
-    @product=Product.find(params[:product_id])
     @seat=Seat.new
-    # @seat.product=@product   思考：参考group post，这句话为什么是多余的？？？
   end
 
   def create
-    @product=Product.find(params[:product_id])
     @seat=Seat.new(seat_params)
     @seat.product=@product
 
@@ -29,13 +24,9 @@ class SeatsController < ApplicationController
   end
 
   def edit
-    @product=Product.find(params[:product_id])
-		@seat = Seat.find(params[:id])
 	end
 
 	def update
-    @product=Product.find(params[:product_id])
-		@seat = Seat.find(params[:id])
     @seat.product=@product
 
 		if @seat.update(seat_params)
@@ -48,7 +39,6 @@ class SeatsController < ApplicationController
 
 
   def destroy
-    @seat = Seat.find(params[:id])
     @seat.destroy
     redirect_to product_seats_path
   end
@@ -70,12 +60,9 @@ class SeatsController < ApplicationController
 
 
   def cancel
-    # @product=Product.find(params[:id])
-    @seat=Seat.find(params[:id])
     if @seat.selected? && @seat.user == current_user
       current_user.cancel!(@seat)
       @seat.save
-      flash[:warning]="cancel the seat"
     else
       flash[:alert]="you have no admission to make a cancel for others！"
     end
@@ -85,5 +72,12 @@ class SeatsController < ApplicationController
   private
   def seat_params
     params.require(:seat).permit(:seatimg)
+  end
+
+  def find_product
+    @product = Product.find(params[:product_id])
+  end
+  def find_seat
+    @seat = Seat.find(params[:id])
   end
 end
