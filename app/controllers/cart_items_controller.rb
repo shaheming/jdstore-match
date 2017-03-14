@@ -1,8 +1,7 @@
 class CartItemsController < ApplicationController
  	before_action :authenticate_user!
+ 	before_action :find_caritem, only: [:destroy,:update]
  	def destroy
- 		@cart = current_cart
- 		@cart_item = @cart.cart_items.find_by(product_id: params[:id])
  		@product = @cart_item.product
  		@seat=@cart_item.seat
  		if @seat.selected? && @seat.user == current_user
@@ -14,9 +13,6 @@ class CartItemsController < ApplicationController
  	end
 
  	def update
- 		p params
- 		@cart = current_cart
- 		@cart_item = @cart.cart_items.find_by(product_id: params[:id])
  		if @cart_item.product.quantity >= cart_item_params[:quantity].to_i
  			if  params[:add] == "1"
  				@cart_item.quantity +=1
@@ -37,5 +33,10 @@ class CartItemsController < ApplicationController
  	private
  	def cart_item_params
  		params.require(:cart_item).permit(:quantity)
+ 	end
+
+ 	def find_caritem
+ 		@cart = current_cart
+ 		@cart_item = @cart.cart_items.find_by(product_id: params[:id])
  	end
 end

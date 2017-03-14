@@ -1,5 +1,7 @@
 class OrdersController < ApplicationController
 	before_action :authenticate_user!, only:[:create]
+	before_action :find_order, only:[:show,:pay_with_alipay,:pay_with_wechat,:apply_to_cancel]
+
 	require 'rqrcode'
 	def create
 		@order = Order.new(order_params)
@@ -34,7 +36,6 @@ class OrdersController < ApplicationController
 	end
 
 	def show
-		@order = Order.find_by_token(params[:id])
 		@product_lists = @order.product_lists
 		if @order.is_paid?
 			@product_lists = @order.product_lists
@@ -42,20 +43,17 @@ class OrdersController < ApplicationController
 	end
 
 	def pay_with_alipay
-		@order = Order.find_by_token(params[:id])
 		@order.set_payment_with!("alipay")
 		@order.make_payment!
 		redirect_to order_path(@order.token)
 	end
 
 	def pay_with_wechat
-		@order = Order.find_by_token(params[:id])
 		@order.set_payment_with!("wechat")
 		@order.make_payment!
 		redirect_to order_path(@order.token)
 	end
 	def apply_to_cancel
-		@order = Order.find(params[:id])
 		OrderMailer.apply_cancel(@order).deliver!
 		redirect_to :back
 	end
@@ -66,5 +64,8 @@ class OrdersController < ApplicationController
 	private
 	def order_params
 		params.require(:order).permit(:first_name, :last_name, :phonenumber)
+	end
+	def find_order
+		@order = Order.find_by_token(params[:id])
 	end
 end

@@ -29,7 +29,7 @@
 		<br>
 		<div class="pull-left">
 			<% if @order.order_placed? || @order.paid? %>
-			<%= link_to("Apply To Cancel Order",apply_to_cancel_order_path(@order),method: :post,class:"btn btn-info") %>
+			<%= link_to("Apply To Cancel Order",apply_to_cancel_order_path(@order.token),method: :post,class:"btn btn-info") %>
 			<% end %>
 		</div>
 		<% if !@order.is_paid? %>
