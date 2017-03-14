@@ -1,7 +1,7 @@
 <%= simple_form_for [:admin,@product] do |f|  %>
 
 <div class="group">
-	<%=show_cart_items_image(@product)  %>
+	<%=small_image(@product,"cart-items-img")  %>
 </div>
 <div class="group"><%= f.input :title  %></div>
 <div class="group"><%= f.input :description  %></div>

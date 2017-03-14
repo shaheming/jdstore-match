@@ -152,9 +152,7 @@ h2, th, td, body {
 #footer a:hover {
   color: #c52d2f
 }
-.product-img:hover {
-  opacity: 0.5
-}
+
 .li-form {
   padding-right: 60px;
 }
@@ -424,9 +422,16 @@ divider-space-90 {
 .font-style {
   font-family: 'Anaheim', sans-serif;
 }
-.product-img img {
+
+#product-img  {
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
 }
+
+#product-img:hover {
+  opacity: 0.5
+}
+
+
 #center-title {
   text-transform: uppercase;
   font-family: 'Anaheim', sans-serif;

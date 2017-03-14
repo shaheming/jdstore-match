@@ -15,16 +15,10 @@
 	<div class="container">
 		<div class="row">
 			<div id="carousel" class="col-md-12">
-				<figure><%= render_samll_img(@products_index[1]) %>
-				</figure>
-				<figure><%= render_samll_img(@products_index[2])%></figure>
-				<figure><%= render_samll_img(@products_index[3])%></figure>
-				<figure><%= render_samll_img(@products_index[4])%></figure>
-				<figure><%= render_samll_img(@products_index[5])%></figure>
-				<figure><%= render_samll_img(@products_index[6])%></figure>
-				<figure><%= render_samll_img(@products_index[7])%></figure>
-				<figure><%= render_samll_img(@products_index[8])%></figure>
-				<figure><%= render_samll_img(@products_index[9])%></figure>
+			<% for i in 1..9 do  %>
+				<figure><%= small_image(@products_index[i],'') %></figure>
+
+				<% end %>
 			</div>
 		</div>
 	</div>

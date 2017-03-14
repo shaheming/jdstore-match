@@ -42,7 +42,7 @@
 				<% while array.include?(@products[count].title) do %>
 				<% count = count + 1 %>
 				<% end %>
-					<%= render_landingpage_image(@products[count]) %>
+					<%= small_image(@products[count],"landingpage-img") %>
 					<% i = i + 1 %>
 					<% array.push(@products[count].title) %>
 				</div>
@@ -54,7 +54,7 @@
 				<% while array.include?(@products[count].title) do %>
 				<% count = count + 1 %>
 				<% end %>
-					<%= render_landingpage_image(@products[count]) %>
+					<%= small_image(@products[count],"landingpage-img") %>
 					<% i = i + 1 %>
 					<% array.push(@products[count].title) %>
 				</div>
