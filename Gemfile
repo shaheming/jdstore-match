@@ -19,7 +19,7 @@ gem 'coffee-rails', '~> 4.2'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
+# gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
@@ -59,7 +59,7 @@ gem 'bootstrap-datepicker-rails'
 
 
 group :production do
- gem 'pg'
+  gem 'pg'
 end
 
 group :development, :test do
@@ -76,13 +76,13 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   # gem 'spring'
   # gem 'spring-watcher-listen', '~> 2.0.0'
-   
+
   #用来测速
-  gem 'rack-mini-profiler' 
-  
+  gem 'rack-mini-profiler'
+
   #用来检测数据库查询的
-  # notify you when you should add eager loading (N+1 queries), 
-  #when you're using eager loading that isn't necessary and 
+  # notify you when you should add eager loading (N+1 queries),
+  #when you're using eager loading that isn't necessary and
   #when you should use counter cache.
   gem 'bullet'
   gem "uniform_notifier"
