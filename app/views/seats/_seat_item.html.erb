@@ -1,10 +1,11 @@
+
 <% if !seat.selected? %>
-	<%= link_to select_product_seat_path(@product,seat),id:"link", :method => :post do%>
+	<%= link_to select_product_seat_path(product,seat),id:"link",:remote => true,:method => :post do%>
 	<img src="/assets/images/available.jpg" alt="none" id="seat-img">
 	<% end %>
 <% else %>
 	<% if seat.user == current_user %>
-		<%= link_to cancel_product_seat_path(@product,seat), :method => :post  do%>
+		<%= link_to cancel_product_seat_path(product,seat),:remote => true, :method => :post  do%>
 		<img src="/assets/images/yours.jpg" alt="none" id="seat-img">
 		<% end %>
 	<% else %>

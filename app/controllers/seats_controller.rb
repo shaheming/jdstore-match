@@ -45,6 +45,7 @@ class SeatsController < ApplicationController
 
   def select
   # @seat=Seat.find(params[:product_id])  思考，find和find_by这个语句怎们应用
+  @product=@seat.product
   @seat=Seat.find(params[:id])
   # @product=Product.find(params[:id])
   # @seat.product=@product   这两句为什么是多余的？
@@ -55,18 +56,20 @@ class SeatsController < ApplicationController
   elsif @seat.selected? && @seat.user == current_user
   else
   end
-  redirect_to :back
+  # redirect_to :back
+  render "seat_item"
   end
 
 
   def cancel
+    @product=@seat.product
     if @seat.selected? && @seat.user == current_user
       current_user.cancel!(@seat)
       @seat.save
     else
       flash[:alert]="you have no admission to make a cancel for others！"
     end
-    redirect_to :back
+    render "seat_item"
   end
 
   private

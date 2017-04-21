@@ -98,8 +98,9 @@ h2{
         <%= i %>
         <% end %>
         <% count+=1 %>
-        <%= render partial: "seat_item", locals: { seat:seat} %>
-
+        <span id="seat-<%= seat.id %>">
+        <%= render partial: "seat_item", locals: { product:@product,seat:seat} %>
+        </span>
         <% if count == 8 || seat == @seats.last%>
     </div>
     <% count = 0 %>
