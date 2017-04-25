@@ -8,11 +8,11 @@
 				<p><span class=""><i class="fa fa-usd" aria-hidden="true"> <span class="font-style"><%= number_to_currency(product.price,unit:"")%></span> </i> </span>
 				<span style="margin-left: 20px;color: #333333;"><i class="fa fa-map-pin" aria-hidden="true"></i><%= " Row: #{product_list.row}, Col: #{product_list.col}"  %></span></p>
 
-				<p>			<span class=""><i class="fa fa-clock-o" aria-hidden="true"> <span class="font-style"><%= product.created_at.end_of_month.noon.to_s(:db) %></span></i></span></p>
+				<p>			<span class=""><i class="fa fa-clock-o" aria-hidden="true"> <span class="font-style"><%= product.created_at.end_of_month.noon.to_s %></span></i></span></p>
 			</div>
 			<hr>
 			<div id="qrcode">
-				<% str_test = product.title + "\n" +product.created_at.end_of_month.noon.to_s(:db) + " Row: " + product_list.row.to_s + "," + " Col: " + product_list.col.to_s + "\n" + product.location_detail%>
+				<% str_test = product.title + "\n" +product.created_at.end_of_month.noon.to_s + " Row: " + product_list.row.to_s + "," + " Col: " + product_list.col.to_s + "\n" + product.location_detail%>
 				<% @qr = RQRCode::QRCode.new(str_test, :size => 6, :level => :l )  %>
 				<%= raw @qr.as_html %>
 			</div>

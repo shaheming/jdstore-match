@@ -7,6 +7,9 @@ class User < ApplicationRecord
     is_admin
   end
 
+  def display_name
+    self.email.split("@").first
+  end
 
   def select!(seat)
     seat.is_selected = true

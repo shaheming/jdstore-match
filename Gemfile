@@ -55,8 +55,8 @@ gem 'rqrcode'
 gem "select2-rails"
 gem 'bootstrap-datepicker-rails'
 
-
-
+gem "rails-i18n"
+gem "devise-i18n"
 group :production do
   gem 'pg'
 end

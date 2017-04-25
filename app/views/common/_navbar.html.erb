@@ -76,7 +76,7 @@
 							<% else %>
 							<ul id="account-menu" class="nav navbar-nav BB-nav collapse navbar-collapse pull-right">
 								<li class="dropdown-active">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="text-transform: none;">Hi!, <%= current_user.email %> <b class="caret"></b></a>
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="text-transform: none;"> <%= t("hello",:name => current_user.display_name) %> <b class="caret"></b></a>
 									<ul class="dropdown-menu">
 
 										<% if current_user.admin? %>

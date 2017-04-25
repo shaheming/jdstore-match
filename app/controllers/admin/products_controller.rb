@@ -1,5 +1,5 @@
 class Admin::ProductsController < AdminController
-
+  before_action :find_product, only: [:show,:destroy,:edit,:update]
 
 	def index
 		@products = Product.all
@@ -8,7 +8,6 @@ class Admin::ProductsController < AdminController
 		@product = Product.new
 	end
 	def show
-		@product = Product.find(params[:id])
 	end
 	def create
 		@product = Product.new(product_params)
@@ -21,10 +20,8 @@ class Admin::ProductsController < AdminController
 	end
 
 	def edit
-		@product = Product.find(params[:id])
 	end
 	def update
-		@product = Product.find(params[:id])
 		if @product.update(product_params)
 			redirect_to admin_products_path
 		else
@@ -33,15 +30,17 @@ class Admin::ProductsController < AdminController
 	end
 
 	def destroy
-		@product = Product.find(params[:id])
 		if @product.destroy
 			redirect_to admin_products_path
 		end
 	end
 
 private
+  def find_product
+    @product = Product.find_by_friendly_id(params[:id])
+  end
 	def product_params
 		params.require(:product).permit(:title,:description,:quantity,:price,
-			         :image,:show_on,:group_ids => [])
+			         :image,:show_on,:friendly_id,:group_ids => [])
 	end
 end

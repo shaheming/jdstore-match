@@ -4,7 +4,7 @@
 	<td class="text-center"> <%= number_to_currency(cart_item.product.price,:unit=>'$')%></td>
 	<td class="text-left">
 	<div style="margin-left: 10%">
-	<i class="fa fa-clock-o" aria-hidden="true"><b> <%= cart_item.product.created_at.end_of_month.noon.to_s(:db) %></b></i><br>
+	<i class="fa fa-clock-o" aria-hidden="true"><b> <%= cart_item.product.created_at.end_of_month.noon.to_s) %></b></i><br>
 	<i class="fa fa-map-marker" aria-hidden="true"><b> <%=cart_item.product.location_detail%></b> </i> 
 	</div>
 
