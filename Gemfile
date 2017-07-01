@@ -71,6 +71,7 @@ group :development do
   gem "capistrano", "~> 3.4"
   gem "capistrano-rvm"
   gem "capistrano-rails"
+  gem "capistrano-passenger"
 end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
