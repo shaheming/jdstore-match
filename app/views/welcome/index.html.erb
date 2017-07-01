@@ -1,140 +1,142 @@
 <div id="catch-pic" class="container-fluid">
-<div id="slogon"><span class="text">Classic Movies <br>&nbsp &nbsp &nbsp Perpetaul Memories...</span><br>
-<div><%= link_to("Explore iMoviestore",products_path,class: "btn text-center",id:"cart-botton") %></div>
-
- </div>
-	<div class="row">
-	<img  src="/assets/images/catch_pic.jpg">
+	<div id="slogon"><span class="text">Classic Movies <br>&nbsp &nbsp &nbsp Perpetaul Memories...</span><br>
+	<div><%= link_to("Explore iMoviestore",products_path,class: "btn text-center",id:"cart-botton") %></div>
+</div>
+<div class="row">
+	<!-- <img  src="/assets/images/catch_pic.jpg"> -->
+	<%= image_tag("catch_pic.jpg") %>
+</div>
+</div>
+<div id="index-picture" class="container-fluid">
+<div class="row">
+	<div class="col-md-6 text-center col-lg-6">
+		<%= link_to("iMoviestore",products_path,id:"index-title") %>
+		<br>
+		<div class="row">
+			<div class="col-md-3 col-lg-3">
+				
+			</div>
+			<div class="col-md-6 col-lg-6">
+				<ul id="index-ul" class="text-left">
+					<li><i class="fa fa-caret-right fa-lg" aria-hidden="true"></i> <span>Buy ticket anywhere</span></li>
+					<li><i class="fa fa-caret-right fa-lg" aria-hidden="true"></i> <span>Without lining up</span></li>
+					<li><i class="fa fa-caret-right fa-lg" aria-hidden="true"></i> <span>Cheapest tikets</span></li>
+				</ul>
+			</div>
+			<div class="col-md-3 col-lg-3">
+				
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6 col-lg-6">
+		<% @products = Product.all %>
+		<% count = 0 %>
+		<% i = 0 %>
+		<% array = [] %>
+		<div class="row">
+			<% while i < 4 do %>
+			<div class="col-md-2 col-lg-2">
+				<% while array.include?(@products[count].title) do %>
+				<% count = count + 1 %>
+				<% end %>
+				<%= small_image(@products[count],"landingpage-img") %>
+				<% i = i + 1 %>
+				<% array.push(@products[count].title) %>
+			</div>
+			<% end %>
+		</div>
+		<div class="row">
+			<% while i < 8 do %>
+			<div class="col-md-2 col-lg-2">
+				<% while array.include?(@products[count].title) do %>
+				<% count = count + 1 %>
+				<% end %>
+				<%= small_image(@products[count],"landingpage-img") %>
+				<% i = i + 1 %>
+				<% array.push(@products[count].title) %>
+			</div>
+			<% end %>
+		</div>
 	</div>
 </div>
-
-
-
-<div id="index-picture" class="container-fluid">
-	<div class="row">
-		<div class="col-md-6 text-center col-lg-6">
-			<%= link_to("iMoviestore",products_path,id:"index-title") %>
-			<br>
-			<div class="row">
-				<div class="col-md-3 col-lg-3">
-					
-				</div>
-				<div class="col-md-6 col-lg-6">
-					<ul id="index-ul" class="text-left">
-						<li><i class="fa fa-caret-right fa-lg" aria-hidden="true"></i> <span>Buy ticket anywhere</span></li>
-						<li><i class="fa fa-caret-right fa-lg" aria-hidden="true"></i> <span>Without lining up</span></li>
-						<li><i class="fa fa-caret-right fa-lg" aria-hidden="true"></i> <span>Cheapest tikets</span></li>
-					</ul>
-				</div>
-				<div class="col-md-3 col-lg-3">
-					
-				</div>
-			</div>
-		</div>
-		<div class="col-md-6 col-lg-6">
-			<% @products = Product.all %>
-			<% count = 0 %>
-			<% i = 0 %>
-			<% array = [] %>
-			<div class="row">
-				<% while i < 4 do %>
-				<div class="col-md-2 col-lg-2">
-				<% while array.include?(@products[count].title) do %>
-				<% count = count + 1 %>
-				<% end %>
-					<%= small_image(@products[count],"landingpage-img") %>
-					<% i = i + 1 %>
-					<% array.push(@products[count].title) %>
-				</div>
-				<% end %>
-			</div>
-			<div class="row">
-				<% while i < 8 do %>
-				<div class="col-md-2 col-lg-2">
-				<% while array.include?(@products[count].title) do %>
-				<% count = count + 1 %>
-				<% end %>
-					<%= small_image(@products[count],"landingpage-img") %>
-					<% i = i + 1 %>
-					<% array.push(@products[count].title) %>
-				</div>
-				<% end %>
-			</div>
-		</div>
-	</div>
 </div>
 <div id="promise" class="container-fluid">
-	<div class="row">
-		<div class="col-md-6 col-lg-6">
-			<div id="promise-img">
-				<img src="/assets/images/index_seat.png">
-			</div>
-		</div>
-		<div class="col-md-6 col-lg-6">
-			<div class="row">	<div class="text-center"><h1 id="promise-title">Select seats online</h1><br></div></div>
-			<div class="row">
-				<ul id="promise-ul" class="text-left">
-					<li><i class="fa fa-caret-right " aria-hidden="true"></i> <span>Buy ticket anywhere</span></li>
-					<li><i class="fa fa-caret-right " aria-hidden="true"></i> <span>Without lining up</span></li>
-				</ul>
-			</div>
+<div class="row">
+	<div class="col-md-6 col-lg-6">
+		<div id="promise-img">
+			<!-- <img src="/assets/images/"> -->
+			<%= image_tag("index_seat.png") %>
 		</div>
 	</div>
+	<div class="col-md-6 col-lg-6">
+		<div class="row">	<div class="text-center"><h1 id="promise-title">Select seats online</h1><br></div></div>
+		<div class="row">
+			<ul id="promise-ul" class="text-left">
+				<li><i class="fa fa-caret-right " aria-hidden="true"></i> <span>Buy ticket anywhere</span></li>
+				<li><i class="fa fa-caret-right " aria-hidden="true"></i> <span>Without lining up</span></li>
+			</ul>
+		</div>
+	</div>
+</div>
 </div>
 <div id="qrcode-landing" class="container-fluid">
-	<div class="row">
-		
-		<div class="col-md-6 col-lg-6">
-			<div class="row">	<div class="qr-promise"><h1 id="promise-title">Use QR code</h1><br></div></div>
-			<div class="row">
-				<ul id="promise-ul" class="text-left">
-					<li><i class="fa fa-caret-right " aria-hidden="true"></i> <span>Use your phone to authentiate</span></li>
-					<li><i class="fa fa-caret-right " aria-hidden="true"></i> <span>Without lining up</span></li>
-				</ul>
-			</div>
+<div class="row">
+	
+	<div class="col-md-6 col-lg-6">
+		<div class="row">	<div class="qr-promise"><h1 id="promise-title">Use QR code</h1><br></div></div>
+		<div class="row">
+			<ul id="promise-ul" class="text-left">
+				<li><i class="fa fa-caret-right " aria-hidden="true"></i> <span>Use your phone to authentiate</span></li>
+				<li><i class="fa fa-caret-right " aria-hidden="true"></i> <span>Without lining up</span></li>
+			</ul>
 		</div>
-		<div class="col-md-6 col-lg-6">
-			<div id="qr-img">
-				<img src="/assets/images/qrcode.png">
-			</div>
-		</div>
-		
 	</div>
+	<div class="col-md-6 col-lg-6">
+		<div id="qr-img">
+			<!-- <img src="/assets/images/qrcode.png"> -->
+			<%= image_tag("qrcode.png") %>
+		</div>
+	</div>
+	
+</div>
 </div>
 <div id="icon" class="container-fluid" style="height:400px">
-	<div class="row">
-		<div class="col-md-4 col-lg-4">
-			<img class="icon" src="/assets/images/icon/Sofa.png">
-			<ul id="promise-ul" class="text-left">
-				<li><i class="fa fa-caret-right " aria-hidden="true"></i> <span>Online booking</span></li>
-				<li><i class="fa fa-caret-right " aria-hidden="true"></i> <span>Online Selection</span></li>
-			</ul>
-		</div>
-		<div class="col-md-4 col-lg-4">
-			<img class="icon" src="/assets/images/icon/Trophy.png">
-			<ul id="promise-ul" class="text-left">
-				<li><i class="fa fa-caret-right " aria-hidden="true"></i> <span>More than 5000 cenima</span></li>
-				<li><i class="fa fa-caret-right " aria-hidden="true"></i> <span>More than half billion users</span></li>
-			</ul>
-		</div>
-		<div class="col-md-4 col-lg-4">
-			<img class="icon" src="/assets/images/icon/Hearts.png">
-			<ul id="promise-ul" class="text-left">
-				<li><i class="fa fa-caret-right " aria-hidden="true"></i> <span>Lowest price</span></li>
-				<li><i class="fa fa-caret-right " aria-hidden="true"></i> <span>Most considerated service</span></li>
-			</ul>
-		</div>
+<div class="row">
+	<div class="col-md-4 col-lg-4">
+		<!-- <img class="icon" src="/assets/images/icon/Sofa.png"> -->
+		<%= image_tag("icon/Sofa.png",class:"icon") %>
+		<ul id="promise-ul" class="text-left">
+			<li><i class="fa fa-caret-right " aria-hidden="true"></i> <span>Online booking</span></li>
+			<li><i class="fa fa-caret-right " aria-hidden="true"></i> <span>Online Selection</span></li>
+		</ul>
+	</div>
+	<div class="col-md-4 col-lg-4">
+		<!-- <img class="icon" src="/assets/images/icon/Trophy.png"> -->
+		<%= image_tag("icon/Trophy.png",class:"icon") %>
+		<ul id="promise-ul" class="text-left">
+			<li><i class="fa fa-caret-right " aria-hidden="true"></i> <span>More than 5000 cenima</span></li>
+			<li><i class="fa fa-caret-right " aria-hidden="true"></i> <span>More than half billion users</span></li>
+		</ul>
+	</div>
+	<div class="col-md-4 col-lg-4">
+		<!-- <img class="icon" src="/assets/images/icon/Hearts.png"> -->
+		<%= image_tag("icon/Hearts.png",class:"icon") %>
+		<ul id="promise-ul" class="text-left">
+			<li><i class="fa fa-caret-right " aria-hidden="true"></i> <span>Lowest price</span></li>
+			<li><i class="fa fa-caret-right " aria-hidden="true"></i> <span>Most considerated service</span></li>
+		</ul>
 	</div>
 </div>
+</div>
 <div id="signup" class="container-fluid" style="height:400px">
-	<div class="row">
-		<div class="text-center" id="buttom-div">
-			<%= link_to("sign up now",new_user_registration_path,class:"btn",id:"push") %>
-		</div>
+<div class="row">
+	<div class="text-center" id="buttom-div">
+		<%= link_to("sign up now",new_user_registration_path,class:"btn",id:"push") %>
 	</div>
-	<div  class="row" style="position: relative; top: 180px">
-		<div  class="text-center" >
-			<span id="small">Get </span>	 <span id="big"> 50 off</span>
-		</div>
+</div>
+<div  class="row" style="position: relative; top: 180px">
+	<div  class="text-center" >
+		<span id="small">Get </span>	 <span id="big"> 50 off</span>
 	</div>
+</div>
 </div>
