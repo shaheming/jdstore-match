@@ -67,7 +67,11 @@ group :development, :test do
   gem 'sqlite3'
 
 end
-
+group :development do
+  gem "capistrano", "~> 3.4"
+  gem "capistrano-rvm"
+  gem "capistrano-rails"
+end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console'
