@@ -4,7 +4,7 @@ class Product < ApplicationRecord
 	validates :quantity, numericality:{:greater_than_or_equal_to => 0}
 	mount_uploader :image, ImageUploader
 	has_many :seats
-	has_many :reviews
+	has_many :reviews,dependent: :destroy # Delete the products will delete the reviews
 
 	belongs_to :category
 	has_many :groupships
