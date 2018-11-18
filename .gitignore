@@ -28,3 +28,4 @@ public/uploads
 
 /config/environments/development.rb
 
+.idea/*
