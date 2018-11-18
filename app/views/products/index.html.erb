@@ -45,7 +45,7 @@
 		<% end %>
 		<% count+=1 %>
 		<%= render partial: "product_item", locals: { product:product} %>
-		<% if count == 3 || product == @products.last%>
+		<% if count == 4 || product == @products.last%>
 	</div>
 	<% count = 0 %>
 	<% end %>

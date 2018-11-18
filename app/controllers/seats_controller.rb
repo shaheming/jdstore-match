@@ -78,7 +78,7 @@ class SeatsController < ApplicationController
   end
 
   def find_product
-    @product = Product.find(params[:product_id])
+    @product = Product.find_by(friendly_id:params[:product_id])
   end
   def find_seat
     @seat = Seat.find(params[:id])
