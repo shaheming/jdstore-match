@@ -297,12 +297,15 @@ DEPENDENCIES
   jquery-rails
   letter_opener
   listen (~> 3.0.5)
+  loofah (>= 2.2.3)
   mini_magick
   pg
   puma (~> 3.0)
+  rack (>= 2.0.6)
   rack-mini-profiler
   rails (~> 5.0.0)
   rails-erd
+  rails-html-sanitizer (>= 1.0.4)
   rails-i18n
   ransack
   rqrcode
